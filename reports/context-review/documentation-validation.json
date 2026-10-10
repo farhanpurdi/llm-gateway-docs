@@ -1,0 +1,23 @@
+{
+  "checked_at_utc": "2026-10-10T13:52:34.775379+00:00",
+  "documentation_files": [
+    "PROJECT_CONTEXT_MASTER.md",
+    "docs/context/DECISIONS_AND_DRIFT.md",
+    "docs/context/PHASE_1.md",
+    "docs/context/PHASE_2.md",
+    "docs/context/PHASE_3.md",
+    "docs/context/WORK_LOG.md",
+    "reports/CONTEXT_ALIGNMENT_REVIEW.md"
+  ],
+  "local_links_checked": 53,
+  "roadmap_ids_preserved": {
+    "P1": 19,
+    "P2": 13,
+    "P3": 10,
+    "ADR": 17
+  },
+  "component_source_unchanged": true,
+  "original_context_bodies_unchanged": true,
+  "runtime_operations_executed": false,
+  "new_live_tests_executed": false
+}

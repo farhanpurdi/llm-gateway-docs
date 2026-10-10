@@ -1,0 +1,17 @@
+UTC: 2026-10-10T12:53:11.472070+00:00
+llm-gateway ID 9c77da1dea53 image ghcr.io/berriai/litellm:1.104.0 digest sha256:625981c83410a3ea68eb0697590a57ec1d764d634514d54fa5db0591077ee839 running True
+Published ports: {'4000/tcp': [{'HostIp': '0.0.0.0', 'HostPort': '4000'}, {'HostIp': '::', 'HostPort': '4000'}]}
+llm-gateway-postgres ID 2abff28af371 image postgres:16.15 digest sha256:1a6ab3f5345eb6dbe04a1349529caabdb0ab09293a09590fad07b2246bfa4b54 running True
+Published ports: {'5432/tcp': None}
+llm-gateway-redis ID 04c48e8f579d image redis:7.4.11-alpine digest sha256:858f009f9709ce576febc734aa78b8f6d624b82571f9ddb6bda4377c833b3499 running True
+Published ports: {'6379/tcp': None}
+LITELLM_MASTER_KEY : environment matches existing container (value hidden)
+LITELLM_SALT_KEY : environment matches existing container (value hidden)
+DATABASE_URL : environment matches existing container (value hidden)
+OPENAI_API_KEY : environment matches existing container (value hidden)
+llm-gateway-infra : .env not tracked
+llm-gateway-config : .env not tracked
+llm-gateway-e2e : .env not tracked
+Main .env permissions: 600
+New backup files permissions: 600
+Only the three original containers exist; no staging containers or staging Compose

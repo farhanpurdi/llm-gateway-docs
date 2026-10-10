@@ -1,0 +1,65 @@
+
+======================================
+LLM Gateway Config Validation
+======================================
+
+[1/6] Required repository structure
+OK: config/litellm_config.yaml
+OK: models/company-fast.yaml
+OK: models/company-coding.yaml
+OK: providers/openai.yaml
+OK: clients/opencode/opencode.jsonc
+OK: docs/model-catalog.md
+Repository structure: PASS
+
+[2/6] YAML syntax
+Found 9 YAML file(s)
+Checking: .github/workflows/security.yml
+Checking: .github/workflows/validate.yml
+Checking: config/litellm_config.yaml
+Checking: models/company-coding.yaml
+Checking: models/company-fast.yaml
+Checking: policies/teams/default.yaml
+Checking: policies/teams/engineering.yaml
+Checking: policies/teams/healthcheck.yaml
+Checking: providers/openai.yaml
+YAML syntax: PASS
+
+[3/6] Logical model catalog
+Validating model: models/company-coding.yaml
+Validating model: models/company-fast.yaml
+
+Logical models:
+  - company-coding
+  - company-fast
+
+Model catalog validation: PASS
+
+[4/6] LiteLLM runtime config
+Runtime logical models:
+  - company-coding
+  - company-fast
+LiteLLM runtime config: PASS
+
+[5/6] Team policies
+Allowed logical models:
+  - company-coding
+  - company-fast
+
+Validating policy: policies/teams/default.yaml
+PASS: policies/teams/default.yaml
+
+Validating policy: policies/teams/engineering.yaml
+PASS: policies/teams/engineering.yaml
+
+Validating policy: policies/teams/healthcheck.yaml
+PASS: policies/teams/healthcheck.yaml
+
+POLICY VALIDATION: PASSED
+
+[6/6] Git safety
+Git safety: PASS
+
+======================================
+CONFIG VALIDATION: PASSED
+======================================

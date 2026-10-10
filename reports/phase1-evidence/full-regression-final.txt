@@ -1,0 +1,70 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.12.15, pytest-9.0.3, pluggy-1.6.0 -- /Users/pur/MyProject/company-ai-platform/.venv/bin/python3
+cachedir: .pytest_cache
+rootdir: /Users/pur/MyProject/company-ai-platform/llm-gateway-e2e
+configfile: pytest.ini
+testpaths: tests
+collecting ... collected 37 items / 15 deselected / 22 selected
+
+tests/unit/test_history_retention.py::test_lifecycle_assertions_detect_history_regression[intact] PASSED [  4%]
+tests/unit/test_history_retention.py::test_lifecycle_assertions_detect_history_regression[missing-request] PASSED [  9%]
+tests/unit/test_history_retention.py::test_lifecycle_assertions_detect_history_regression[changed-key] PASSED [ 13%]
+tests/unit/test_history_retention.py::test_lifecycle_assertions_detect_history_regression[changed-user] PASSED [ 18%]
+tests/unit/test_history_retention.py::test_lifecycle_assertions_detect_history_regression[changed-team] PASSED [ 22%]
+tests/unit/test_history_retention.py::test_lifecycle_assertions_detect_history_regression[changed-spend] PASSED [ 27%]
+tests/unit/test_offboarding_client.py::test_offboarding_discovers_every_page_before_blocking PASSED [ 31%]
+tests/unit/test_offboarding_client.py::test_invalid_discovery_never_blocks_any_key[other-user] PASSED [ 36%]
+tests/unit/test_offboarding_client.py::test_invalid_discovery_never_blocks_any_key[duplicate] PASSED [ 40%]
+tests/unit/test_offboarding_client.py::test_invalid_discovery_never_blocks_any_key[changed-count] PASSED [ 45%]
+tests/unit/test_offboarding_client.py::test_invalid_discovery_never_blocks_any_key[incomplete] PASSED [ 50%]
+tests/unit/test_offboarding_client.py::test_invalid_discovery_never_blocks_any_key[wrong-page] PASSED [ 54%]
+tests/unit/test_offboarding_client.py::test_invalid_discovery_never_blocks_any_key[empty-page] PASSED [ 59%]
+tests/unit/test_offboarding_client.py::test_invalid_discovery_never_blocks_any_key[missing-token] PASSED [ 63%]
+tests/unit/test_offboarding_client.py::test_partial_block_failure_continues_and_reports_failure[http] PASSED [ 68%]
+tests/unit/test_offboarding_client.py::test_partial_block_failure_continues_and_reports_failure[exception] PASSED [ 72%]
+tests/unit/test_offboarding_client.py::test_partial_block_failure_continues_and_reports_failure[wrong-token] PASSED [ 77%]
+tests/unit/test_offboarding_client.py::test_partial_block_failure_continues_and_reports_failure[wrong-user] PASSED [ 81%]
+tests/unit/test_offboarding_client.py::test_partial_block_failure_continues_and_reports_failure[not-blocked] PASSED [ 86%]
+tests/unit/test_suite_validator.py::test_validator_requires_each_lifecycle_test[complete] PASSED [ 90%]
+tests/unit/test_suite_validator.py::test_validator_requires_each_lifecycle_test[missing-multi-key] PASSED [ 95%]
+tests/unit/test_suite_validator.py::test_validator_requires_each_lifecycle_test[missing-offboarding] PASSED [100%]
+
+====================== 22 passed, 15 deselected in 0.23s =======================
+============================= test session starts ==============================
+platform darwin -- Python 3.12.15, pytest-9.0.3, pluggy-1.6.0 -- /Users/pur/MyProject/company-ai-platform/.venv/bin/python3
+cachedir: .pytest_cache
+rootdir: /Users/pur/MyProject/company-ai-platform/llm-gateway-e2e
+configfile: pytest.ini
+testpaths: tests
+collecting ... collected 37 items / 34 deselected / 3 selected
+
+tests/test_auth.py::test_invalid_key_is_rejected PASSED                  [ 33%]
+tests/test_health.py::test_litellm_is_alive PASSED                       [ 66%]
+tests/test_models.py::test_user_can_see_expected_models PASSED           [100%]
+
+======================= 3 passed, 34 deselected in 0.27s =======================
+WARNING:
+This test suite sends real requests to the LLM provider.
+
+============================= test session starts ==============================
+platform darwin -- Python 3.12.15, pytest-9.0.3, pluggy-1.6.0 -- /Users/pur/MyProject/company-ai-platform/.venv/bin/python3
+cachedir: .pytest_cache
+rootdir: /Users/pur/MyProject/company-ai-platform/llm-gateway-e2e
+configfile: pytest.ini
+testpaths: tests
+collecting ... collected 37 items / 25 deselected / 12 selected
+
+tests/test_inference.py::test_company_fast_inference PASSED              [  8%]
+tests/test_inference.py::test_company_coding_inference PASSED            [ 16%]
+tests/test_inference.py::test_streaming PASSED                           [ 25%]
+tests/test_inference.py::test_tool_calling[fast_model] PASSED            [ 33%]
+tests/test_inference.py::test_tool_calling[coding_model] PASSED          [ 41%]
+tests/test_lifecycle.py::test_multiple_user_keys_work_before_offboarding PASSED [ 50%]
+tests/test_lifecycle.py::test_user_offboarding_blocks_all_keys PASSED    [ 58%]
+tests/test_limits.py::test_team_rpm_limit_is_enforced PASSED             [ 66%]
+tests/test_limits.py::test_key_budget_is_enforced PASSED                 [ 75%]
+tests/test_limits.py::test_blocked_key_is_rejected PASSED                [ 83%]
+tests/test_policy.py::test_team_policy_changes_without_key_rotation PASSED [ 91%]
+tests/test_spend.py::test_spend_is_attributed_to_user PASSED             [100%]
+
+====================== 12 passed, 25 deselected in 50.64s ======================

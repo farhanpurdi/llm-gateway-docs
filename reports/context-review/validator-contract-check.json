@@ -1,0 +1,27 @@
+{
+  "method": "isolated temporary config; original source unchanged; no Docker or provider request",
+  "source_sha256": "5bc327e951ebd02c9f33934e09940c91a66cd2233bb056efeb58f80be2d75a9b",
+  "results": [
+    {
+      "case": "unchanged",
+      "exit_code": 0,
+      "accepted": true,
+      "stdout": "Runtime logical models:\n  - company-coding\n  - company-fast\nLiteLLM runtime config: PASS",
+      "stderr": ""
+    },
+    {
+      "case": "wrong_upstream",
+      "exit_code": 0,
+      "accepted": true,
+      "stdout": "Runtime logical models:\n  - company-coding\n  - company-fast\nLiteLLM runtime config: PASS",
+      "stderr": ""
+    },
+    {
+      "case": "extra_alias",
+      "exit_code": 0,
+      "accepted": true,
+      "stdout": "Runtime logical models:\n  - company-coding\n  - company-fast\n  - unapproved-alias\nLiteLLM runtime config: PASS",
+      "stderr": ""
+    }
+  ]
+}

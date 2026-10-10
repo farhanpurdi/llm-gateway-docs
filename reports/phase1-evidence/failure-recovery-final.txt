@@ -1,0 +1,42 @@
+OUTAGE: llm-gateway-redis stopped
+Dependency detector: PASS (reported failure)
+Gateway HTTP readiness during outage: failed
+RECOVERY: llm-gateway-redis healthy
+OUTAGE: llm-gateway-postgres stopped
+Dependency detector: PASS (reported failure)
+Gateway HTTP readiness during outage: failed
+RECOVERY: llm-gateway-postgres healthy
+
+======================================
+LLM Gateway Health Check
+======================================
+
+Checking LiteLLM liveness...
+LiteLLM liveness: OK
+
+Checking LiteLLM readiness...
+LiteLLM readiness (HTTP + dependencies): OK
+
+======================================
+Dependency Health
+======================================
+
+[1/2] PostgreSQL
+/var/run/postgresql:5432 - accepting connections
+PostgreSQL: OK
+
+[2/2] Redis
+Redis: OK
+
+All dependencies: OK
+
+Checking authenticated model catalog...
+Functional health: OK
+Available required models:
+  - company-coding
+  - company-fast
+
+======================================
+ALL HEALTH CHECKS PASSED
+======================================
+DEPENDENCY FAILURE / RECOVERY: PASS

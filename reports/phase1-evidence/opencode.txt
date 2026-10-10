@@ -1,0 +1,4 @@
+Testing OpenCode + company-fast...
+[0m
+> build · company-fast
+OpenCode E2E PASSED.

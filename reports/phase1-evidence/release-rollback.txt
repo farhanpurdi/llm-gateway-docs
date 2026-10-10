@@ -1,0 +1,97 @@
+Captured release: h10-baseline-20261010T124735
+Captured release: h10-baseline-20261010T124735-candidate
+
+======================================
+LLM Gateway Health Check
+======================================
+
+Checking LiteLLM liveness...
+LiteLLM liveness: OK
+
+Checking LiteLLM readiness...
+LiteLLM readiness: OK
+
+======================================
+Dependency Health
+======================================
+
+[1/2] PostgreSQL
+/var/run/postgresql:5432 - accepting connections
+PostgreSQL: OK
+
+[2/2] Redis
+Redis: OK
+
+All dependencies: OK
+
+Checking authenticated model catalog...
+Functional health: OK
+Available required models:
+  - company-coding
+  - company-fast
+
+======================================
+ALL HEALTH CHECKS PASSED
+======================================
+============================= test session starts ==============================
+platform darwin -- Python 3.12.15, pytest-9.0.3, pluggy-1.6.0 -- /Users/pur/MyProject/company-ai-platform/.venv/bin/python3
+cachedir: .pytest_cache
+rootdir: /Users/pur/MyProject/company-ai-platform/llm-gateway-e2e
+configfile: pytest.ini
+testpaths: tests
+collecting ... collected 35 items / 32 deselected / 3 selected
+
+tests/test_auth.py::test_invalid_key_is_rejected PASSED                  [ 33%]
+tests/test_health.py::test_litellm_is_alive PASSED                       [ 66%]
+tests/test_models.py::test_user_can_see_expected_models PASSED           [100%]
+
+======================= 3 passed, 32 deselected in 0.26s =======================
+Release verification: PASS (h10-baseline-20261010T124735-candidate); same container IDs/images
+
+======================================
+LLM Gateway Health Check
+======================================
+
+Checking LiteLLM liveness...
+LiteLLM liveness: OK
+
+Checking LiteLLM readiness...
+LiteLLM readiness: OK
+
+======================================
+Dependency Health
+======================================
+
+[1/2] PostgreSQL
+/var/run/postgresql:5432 - accepting connections
+PostgreSQL: OK
+
+[2/2] Redis
+Redis: OK
+
+All dependencies: OK
+
+Checking authenticated model catalog...
+Functional health: OK
+Available required models:
+  - company-coding
+  - company-fast
+
+======================================
+ALL HEALTH CHECKS PASSED
+======================================
+============================= test session starts ==============================
+platform darwin -- Python 3.12.15, pytest-9.0.3, pluggy-1.6.0 -- /Users/pur/MyProject/company-ai-platform/.venv/bin/python3
+cachedir: .pytest_cache
+rootdir: /Users/pur/MyProject/company-ai-platform/llm-gateway-e2e
+configfile: pytest.ini
+testpaths: tests
+collecting ... collected 35 items / 32 deselected / 3 selected
+
+tests/test_auth.py::test_invalid_key_is_rejected PASSED                  [ 33%]
+tests/test_health.py::test_litellm_is_alive PASSED                       [ 66%]
+tests/test_models.py::test_user_can_see_expected_models PASSED           [100%]
+
+======================= 3 passed, 32 deselected in 0.27s =======================
+Release verification: PASS (h10-baseline-20261010T124735); same container IDs/images
+RELEASE AND ROLLBACK: PASS; original config bytes restored

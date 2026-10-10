@@ -1,0 +1,28 @@
+======================================
+LLM Gateway Config Validation
+======================================
+
+[1/2] Repository structure
+OK: config/litellm_config.yaml
+OK: models/company-fast.yaml
+OK: models/company-coding.yaml
+OK: providers/openai.yaml
+OK: README.md
+
+[2/2] Team policies
+Found 3 team policy file(s)
+
+Validating: policies/teams/default.yaml
+PASS: policies/teams/default.yaml
+
+Validating: policies/teams/engineering.yaml
+PASS: policies/teams/engineering.yaml
+
+Validating: policies/teams/healthcheck.yaml
+PASS: policies/teams/healthcheck.yaml
+
+POLICY VALIDATION: PASSED
+
+======================================
+CONFIG VALIDATION: PASSED
+======================================

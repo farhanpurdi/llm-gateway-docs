@@ -1,0 +1,341 @@
+{
+  "scope": "documentation relocation authorized by user; no runtime changes",
+  "files": [
+    {
+      "from": "PROJECT_CONTEXT_MASTER.md",
+      "to": "llm-gateway-docs/MASTER_CONTEXT.md",
+      "source_sha256": "1d714feb8ad6a5af8f798708746883331cf7930660e3508fd55d9a066131c1f1",
+      "kind": "documentation",
+      "content_updated": true,
+      "destination_sha256": "016018ef3c27b11d2876f7cdc958770c78c54001bc651644bd2256c3b76356b5"
+    },
+    {
+      "from": "PROJECT_MASTER_CONTEXT.md",
+      "to": "llm-gateway-docs/archive/PROJECT_MASTER_CONTEXT.md",
+      "source_sha256": "aa5f0d2ebae3b483e50dc7ce2a6bab044a7f014e4756f8f209e1d3c37a7ff2cc",
+      "kind": "documentation",
+      "content_updated": true,
+      "destination_sha256": "4607281e68c7812f84f9e9a6b6857b7d6d57e3bbebc5090c5698772ef7d848a6"
+    },
+    {
+      "from": "LLM_GATEWAY_PROJECT_CONTEXT_HANDOFF.md",
+      "to": "llm-gateway-docs/archive/LLM_GATEWAY_PROJECT_CONTEXT_HANDOFF.md",
+      "source_sha256": "da70cf7fd44c97e17617ff0f87ea4e77008f263681bc26237683664f4795484b",
+      "kind": "documentation",
+      "content_updated": true,
+      "destination_sha256": "b5724c2d38c9b50355c9c568184acf2b6fd8c320d6e94d64e8b49fafc2b2bcd9"
+    },
+    {
+      "from": "docs/context/PHASE_1.md",
+      "to": "llm-gateway-docs/architecture/phase-1.md",
+      "source_sha256": "44054a1629103d81a83d5206bb469491241b290c500c6dde30c1acaa81188382",
+      "kind": "documentation",
+      "content_updated": true,
+      "destination_sha256": "da2c27e5f4d98f0724388cfaf75d5e9ebdf31a567e8508777d0f492757ee63c2"
+    },
+    {
+      "from": "docs/context/PHASE_2.md",
+      "to": "llm-gateway-docs/architecture/phase-2.md",
+      "source_sha256": "2719f5872302c38073bb079432423ea22185c09beb1757205aea17ba000fe838",
+      "kind": "documentation",
+      "content_updated": true,
+      "destination_sha256": "0c480f3dc14cb0164c835b8aca4c0f05fddcca65184618a8194bac1fc574ae8a"
+    },
+    {
+      "from": "docs/context/PHASE_3.md",
+      "to": "llm-gateway-docs/architecture/phase-3.md",
+      "source_sha256": "72ddfca031267d6bcdc95022ce4ea7784bd30a9402cc6c070abeedc6be35fdff",
+      "kind": "documentation",
+      "content_updated": true,
+      "destination_sha256": "7cf68863cb5ed40972212b735e3440bf9268b29e459d96f30a71af6b78d8d63f"
+    },
+    {
+      "from": "docs/context/DECISIONS_AND_DRIFT.md",
+      "to": "llm-gateway-docs/adr/README.md",
+      "source_sha256": "b7e429aa689e53c74965b9db24b735170221b5b9e89442bf9ff7015414a7f965",
+      "kind": "documentation",
+      "content_updated": true,
+      "destination_sha256": "84ad07861e34bcc064005c97356007fde4a8f7b0ecf6fc55c9df2a424da5d9e0"
+    },
+    {
+      "from": "docs/context/WORK_LOG.md",
+      "to": "llm-gateway-docs/handover/WORK_LOG.md",
+      "source_sha256": "ec133ff476239154f9d4d550f1aeaad420366bc176cce95b588e3905ab72cfbc",
+      "kind": "documentation",
+      "content_updated": true,
+      "destination_sha256": "06f98970890f59c6faf5b04c5e86209dae35f6a0a4d0069c8e9b75302c679326"
+    },
+    {
+      "from": "llm-gateway-infra/docs/release.md",
+      "to": "llm-gateway-docs/operations/deployment.md",
+      "source_sha256": "45a9d22facb50ceff53bcbabcb89c1cf8d28df3879d87efb51ad409d20077a1b",
+      "kind": "documentation",
+      "content_updated": true,
+      "destination_sha256": "34693853ba7e17fd29e2375619b58231092f3aff17361c94f893e2d306b9755d"
+    },
+    {
+      "from": "llm-gateway-infra/docs/backup-restore.md",
+      "to": "llm-gateway-docs/operations/backup.md",
+      "source_sha256": "e877ed239ce6c7885f42e91e3f7ac509155162096b76a810c0dfd2169709e1a7",
+      "kind": "documentation",
+      "content_updated": true,
+      "destination_sha256": "1c1673d9cce6378195bf3a8224d6142150cc12bb3b0754d1415cd1f67c2da8dd"
+    },
+    {
+      "from": "llm-gateway-infra/docs/operations.md",
+      "to": "llm-gateway-docs/operations/incident.md",
+      "source_sha256": "29da1f8ddfba39a98b4dfd835e67a2392909d34e6a66c99da55295f87b52923d",
+      "kind": "documentation",
+      "content_updated": true,
+      "destination_sha256": "21b1646cf0aa215a750c5cd45841078a5ec10ce27155627a53fcf22bb2679aaa"
+    },
+    {
+      "from": "llm-gateway-infra/docs/phase1-checklist.md",
+      "to": "llm-gateway-docs/operations/phase1-checklist.md",
+      "source_sha256": "06560ede2181127f4f528b9be9dc73a93d4252fa10cb8cce56698777822c3c42",
+      "kind": "documentation",
+      "content_updated": true,
+      "destination_sha256": "4423c759476ef8eff14670b55f9daeb3603740233e21a4f60081800270d92322"
+    },
+    {
+      "from": "llm-gateway-config/docs/model-catalog.md",
+      "to": "llm-gateway-docs/developer/model-catalog.md",
+      "source_sha256": "585e12c7035d569941e5206bc13dedd9081c86e2b7f9d67792d78533551b1af1",
+      "kind": "documentation",
+      "content_updated": true,
+      "destination_sha256": "227f237e38222cedff3b6d61b1dd447c75fb4d2e019aea1e0556eed01c4b2f3d"
+    },
+    {
+      "from": "llm-gateway-config/docs/opencode.md",
+      "to": "llm-gateway-docs/developer/opencode.md",
+      "source_sha256": "bef3c5c78114a645988db843996d264191b27b82c867555f8bb6b5b7c6d0b561",
+      "kind": "documentation",
+      "content_updated": true,
+      "destination_sha256": "6ebe03eb2bfe7c5d658e317b81822653f2d837cfc1937631ee4b22b10ab3af3e"
+    },
+    {
+      "from": "llm-gateway-config/docs/compatibility.md",
+      "to": "llm-gateway-docs/developer/compatibility.md",
+      "source_sha256": "36d51d7e03ccaadc2304673c61d6d678de4b691df23bb833a2313b14f26805ce",
+      "kind": "documentation",
+      "content_updated": true,
+      "destination_sha256": "09c41928e12d7ab10a344495169a265a709590f2620ab37381ef2ef2d772d6f7"
+    },
+    {
+      "from": "reports/CONTEXT_ALIGNMENT_REVIEW.md",
+      "to": "llm-gateway-docs/reports/CONTEXT_ALIGNMENT_REVIEW.md",
+      "source_sha256": "46cc1cadfcf2e84750851b3842ddfd7db3110719eb8c95c9dc0699a3109d57d7",
+      "kind": "documentation",
+      "content_updated": true,
+      "destination_sha256": "30a5d9879e8547ec2673d7487d1498b4dae059de72fa250ebe5662bb3e0fd287"
+    },
+    {
+      "from": "reports/PHASE1_H1_H10_REPORT.md",
+      "to": "llm-gateway-docs/reports/PHASE1_H1_H10_REPORT.md",
+      "source_sha256": "1b281351c36e48eabebccb3c6d1de3e4e02fa4e8f8bcbb99625af388419c371e",
+      "kind": "documentation",
+      "content_updated": true,
+      "destination_sha256": "bbdbdf49c22f33df0d2af0785932fd461b06dd1ba484a3253e03991397b64afc"
+    },
+    {
+      "from": "reports/PHASE1_CODE_APPENDIX.md",
+      "to": "llm-gateway-docs/reports/PHASE1_CODE_APPENDIX.md",
+      "source_sha256": "46174f5da16726c8705c74c31be56e59cb8433f0323082836e87bfba05694a13",
+      "kind": "documentation",
+      "content_updated": true,
+      "destination_sha256": "705f0d2f78a2b69e11b7417aed84722cf94c6d997844113675ee8b3351b84a3a"
+    },
+    {
+      "from": "reports/phase1-evidence/vulnerability-details.json",
+      "to": "llm-gateway-docs/reports/phase1-evidence/vulnerability-details.json",
+      "source_sha256": "46903a3f42b2a67ca92d8102ca2034991d4ea8ba60e6cd272ac75e578360f39c",
+      "kind": "historical-evidence",
+      "content_updated": false,
+      "destination_sha256": "46903a3f42b2a67ca92d8102ca2034991d4ea8ba60e6cd272ac75e578360f39c"
+    },
+    {
+      "from": "reports/phase1-evidence/final-candidate.txt",
+      "to": "llm-gateway-docs/reports/phase1-evidence/final-candidate.txt",
+      "source_sha256": "926ecf40e32880164172761beace9594851cc5df72b3d15f683f7d7718e11e35",
+      "kind": "historical-evidence",
+      "content_updated": false,
+      "destination_sha256": "926ecf40e32880164172761beace9594851cc5df72b3d15f683f7d7718e11e35"
+    },
+    {
+      "from": "reports/phase1-evidence/runtime-audit.txt",
+      "to": "llm-gateway-docs/reports/phase1-evidence/runtime-audit.txt",
+      "source_sha256": "619d996f124f59ee52ddabdca671a2a9c39a4c5272454188cc3a8ed3d1128343",
+      "kind": "historical-evidence",
+      "content_updated": false,
+      "destination_sha256": "619d996f124f59ee52ddabdca671a2a9c39a4c5272454188cc3a8ed3d1128343"
+    },
+    {
+      "from": "reports/phase1-evidence/release-rollback.txt",
+      "to": "llm-gateway-docs/reports/phase1-evidence/release-rollback.txt",
+      "source_sha256": "5919c4668d1642c4911a97da3a36e156f29c0ff2ab64623333b057408fdcda73",
+      "kind": "historical-evidence",
+      "content_updated": false,
+      "destination_sha256": "5919c4668d1642c4911a97da3a36e156f29c0ff2ab64623333b057408fdcda73"
+    },
+    {
+      "from": "reports/phase1-evidence/containers-security.txt",
+      "to": "llm-gateway-docs/reports/phase1-evidence/containers-security.txt",
+      "source_sha256": "431eb0f60ef5b89217c82532933d78270ded80e4f70558d7c00ad3f61c6dab33",
+      "kind": "historical-evidence",
+      "content_updated": false,
+      "destination_sha256": "431eb0f60ef5b89217c82532933d78270ded80e4f70558d7c00ad3f61c6dab33"
+    },
+    {
+      "from": "reports/phase1-evidence/infra-validation.txt",
+      "to": "llm-gateway-docs/reports/phase1-evidence/infra-validation.txt",
+      "source_sha256": "f05528f347fb74e30322f5ab87ca84c0ca69fb6d98b6a760a38b1fb4c3bad6d9",
+      "kind": "historical-evidence",
+      "content_updated": false,
+      "destination_sha256": "f05528f347fb74e30322f5ab87ca84c0ca69fb6d98b6a760a38b1fb4c3bad6d9"
+    },
+    {
+      "from": "reports/phase1-evidence/backup-restore.txt",
+      "to": "llm-gateway-docs/reports/phase1-evidence/backup-restore.txt",
+      "source_sha256": "cad31bf7df06fc5f4212bc3a57dd58a3fbaef8c15c983873387da269eb479bd1",
+      "kind": "historical-evidence",
+      "content_updated": false,
+      "destination_sha256": "cad31bf7df06fc5f4212bc3a57dd58a3fbaef8c15c983873387da269eb479bd1"
+    },
+    {
+      "from": "reports/phase1-evidence/report-secret-scan.txt",
+      "to": "llm-gateway-docs/reports/phase1-evidence/report-secret-scan.txt",
+      "source_sha256": "8cc18da6b97141bb1babab95c61ef37b0648d4b0c744e7ce93106f65615df032",
+      "kind": "historical-evidence",
+      "content_updated": false,
+      "destination_sha256": "8cc18da6b97141bb1babab95c61ef37b0648d4b0c744e7ce93106f65615df032"
+    },
+    {
+      "from": "reports/phase1-evidence/failure-recovery.txt",
+      "to": "llm-gateway-docs/reports/phase1-evidence/failure-recovery.txt",
+      "source_sha256": "e38201381027d474f83e5590739d1885a594c82c6a27a3e544e287a39c4c7cca",
+      "kind": "historical-evidence",
+      "content_updated": false,
+      "destination_sha256": "e38201381027d474f83e5590739d1885a594c82c6a27a3e544e287a39c4c7cca"
+    },
+    {
+      "from": "reports/phase1-evidence/secrets-infra.txt",
+      "to": "llm-gateway-docs/reports/phase1-evidence/secrets-infra.txt",
+      "source_sha256": "69b464dceb15fd57a1f33c0e452ad9f0fdfb8c998dd63676ee043db155eb389d",
+      "kind": "historical-evidence",
+      "content_updated": false,
+      "destination_sha256": "69b464dceb15fd57a1f33c0e452ad9f0fdfb8c998dd63676ee043db155eb389d"
+    },
+    {
+      "from": "reports/phase1-evidence/dependencies-infra.txt",
+      "to": "llm-gateway-docs/reports/phase1-evidence/dependencies-infra.txt",
+      "source_sha256": "15950a68a7ed99c59779717acefdceb3f69cfd31bde67d2c954f2a3cea4d7955",
+      "kind": "historical-evidence",
+      "content_updated": false,
+      "destination_sha256": "15950a68a7ed99c59779717acefdceb3f69cfd31bde67d2c954f2a3cea4d7955"
+    },
+    {
+      "from": "reports/phase1-evidence/full-regression-final.txt",
+      "to": "llm-gateway-docs/reports/phase1-evidence/full-regression-final.txt",
+      "source_sha256": "9366ee7df8feab0a002ec56e2615c17f180e2411356f209799da0dcc6c0a4996",
+      "kind": "historical-evidence",
+      "content_updated": false,
+      "destination_sha256": "9366ee7df8feab0a002ec56e2615c17f180e2411356f209799da0dcc6c0a4996"
+    },
+    {
+      "from": "reports/phase1-evidence/opencode.txt",
+      "to": "llm-gateway-docs/reports/phase1-evidence/opencode.txt",
+      "source_sha256": "7c4b91371c3d18b24829de3caeb3e707e204783fc284da60fe846758211bf89f",
+      "kind": "historical-evidence",
+      "content_updated": false,
+      "destination_sha256": "7c4b91371c3d18b24829de3caeb3e707e204783fc284da60fe846758211bf89f"
+    },
+    {
+      "from": "reports/phase1-evidence/dependencies-e2e.txt",
+      "to": "llm-gateway-docs/reports/phase1-evidence/dependencies-e2e.txt",
+      "source_sha256": "15950a68a7ed99c59779717acefdceb3f69cfd31bde67d2c954f2a3cea4d7955",
+      "kind": "historical-evidence",
+      "content_updated": false,
+      "destination_sha256": "15950a68a7ed99c59779717acefdceb3f69cfd31bde67d2c954f2a3cea4d7955"
+    },
+    {
+      "from": "reports/phase1-evidence/secrets-config.txt",
+      "to": "llm-gateway-docs/reports/phase1-evidence/secrets-config.txt",
+      "source_sha256": "6862d5c8b0185c2c0f829e1e698fad46d3e25d5d0949a9837d42a8cdc99812b5",
+      "kind": "historical-evidence",
+      "content_updated": false,
+      "destination_sha256": "6862d5c8b0185c2c0f829e1e698fad46d3e25d5d0949a9837d42a8cdc99812b5"
+    },
+    {
+      "from": "reports/phase1-evidence/full-regression.txt",
+      "to": "llm-gateway-docs/reports/phase1-evidence/full-regression.txt",
+      "source_sha256": "82e15ac8fb2946dd740177842a73a1bf8e3dab2b739da97ec879e82dffaeddae",
+      "kind": "historical-evidence",
+      "content_updated": false,
+      "destination_sha256": "82e15ac8fb2946dd740177842a73a1bf8e3dab2b739da97ec879e82dffaeddae"
+    },
+    {
+      "from": "reports/phase1-evidence/e2e-validation.txt",
+      "to": "llm-gateway-docs/reports/phase1-evidence/e2e-validation.txt",
+      "source_sha256": "c664582b8b51e1d76463ec04521bd1428392170408ea61b13dce79d3197e1e0c",
+      "kind": "historical-evidence",
+      "content_updated": false,
+      "destination_sha256": "c664582b8b51e1d76463ec04521bd1428392170408ea61b13dce79d3197e1e0c"
+    },
+    {
+      "from": "reports/phase1-evidence/secrets-e2e.txt",
+      "to": "llm-gateway-docs/reports/phase1-evidence/secrets-e2e.txt",
+      "source_sha256": "1a87fed471ca5bff97291131e7b89c3acdc2ca13c5ed9c93234df390cf38ac2a",
+      "kind": "historical-evidence",
+      "content_updated": false,
+      "destination_sha256": "1a87fed471ca5bff97291131e7b89c3acdc2ca13c5ed9c93234df390cf38ac2a"
+    },
+    {
+      "from": "reports/phase1-evidence/failure-recovery-final.txt",
+      "to": "llm-gateway-docs/reports/phase1-evidence/failure-recovery-final.txt",
+      "source_sha256": "81a6e0bc04d5b11ab37bcaa3351268740f6f48fc7419fe2d9644296e740fd84c",
+      "kind": "historical-evidence",
+      "content_updated": false,
+      "destination_sha256": "81a6e0bc04d5b11ab37bcaa3351268740f6f48fc7419fe2d9644296e740fd84c"
+    },
+    {
+      "from": "reports/phase1-evidence/dependencies-config.txt",
+      "to": "llm-gateway-docs/reports/phase1-evidence/dependencies-config.txt",
+      "source_sha256": "15950a68a7ed99c59779717acefdceb3f69cfd31bde67d2c954f2a3cea4d7955",
+      "kind": "historical-evidence",
+      "content_updated": false,
+      "destination_sha256": "15950a68a7ed99c59779717acefdceb3f69cfd31bde67d2c954f2a3cea4d7955"
+    },
+    {
+      "from": "reports/phase1-evidence/config-validation.txt",
+      "to": "llm-gateway-docs/reports/phase1-evidence/config-validation.txt",
+      "source_sha256": "a40265517a1a1adbe8907cfc093e75978fe66e8458498a7debc08746e56d1f59",
+      "kind": "historical-evidence",
+      "content_updated": false,
+      "destination_sha256": "a40265517a1a1adbe8907cfc093e75978fe66e8458498a7debc08746e56d1f59"
+    },
+    {
+      "from": "reports/context-review/validator-contract-check.json",
+      "to": "llm-gateway-docs/reports/context-review/validator-contract-check.json",
+      "source_sha256": "a8a7261c422abbb3fcd3017090643963fc893f7f1b98966370db5bc243d0d29f",
+      "kind": "historical-evidence",
+      "content_updated": false,
+      "destination_sha256": "a8a7261c422abbb3fcd3017090643963fc893f7f1b98966370db5bc243d0d29f"
+    },
+    {
+      "from": "reports/context-review/source-provenance.json",
+      "to": "llm-gateway-docs/reports/context-review/source-provenance.json",
+      "source_sha256": "fb74956e41f27ee4a0cb051734946dad42ced2517b4f9e64329e62b597bf8b20",
+      "kind": "historical-evidence",
+      "content_updated": false,
+      "destination_sha256": "fb74956e41f27ee4a0cb051734946dad42ced2517b4f9e64329e62b597bf8b20"
+    },
+    {
+      "from": "reports/context-review/documentation-validation.json",
+      "to": "llm-gateway-docs/reports/context-review/documentation-validation.json",
+      "source_sha256": "948a8c672d7fd07dd932e602f60946d324a407cb934984f158af39bd86ef90bd",
+      "kind": "historical-evidence",
+      "content_updated": false,
+      "destination_sha256": "948a8c672d7fd07dd932e602f60946d324a407cb934984f158af39bd86ef90bd"
+    }
+  ]
+}

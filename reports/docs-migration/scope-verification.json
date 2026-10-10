@@ -1,0 +1,12 @@
+{
+  "moved_files": 42,
+  "historical_evidence_files_unchanged": 24,
+  "old_document_directories_removed": true,
+  "non_documentation_changes": [
+    "llm-gateway-config/scripts/ci/validate.sh",
+    "llm-gateway-config/scripts/validate.sh"
+  ],
+  "change_scope": "Only the required docs/model-catalog.md entry changed to README.md; all other component source bytes unchanged",
+  "runtime_operations": false,
+  "commit_or_push": false
+}
