@@ -47,8 +47,11 @@ CI lokalconfig63/infra31/E2E97unitPASS; fullrun97unit/5smoke/30live/2outage+13na
 Baca reports/PHASE1_FINAL_CROSSCHECK_REPORT.md dan WORK_LOG untuk hasil/proses terbaru.
 Pilot nyata/peserta/PIC ditundaO-07, bukan pilotPASS atau waiver gate teknis/server/CVE.
 O-08 menyetujui hostedoffline + live manual4000; workflowstaging dihapus.
-Tiga draftPRcandidate kedevelop ada; CI/review/docsPR dituntaskan. Main3komponen unrelated;
-jangan merge/forcepushmain tanpa keputusan reports/PHASE1_MAIN_PROMOTION_PROPOSAL.md.
+Tiga candidate PR ke develop dan docs #1 tersedia; enam CI candidate PASS.
+O-09 menyetujui penyiapan promosi kedua history: config #4/infra #7/E2E #6 ke main,
+tree identik candidate. Baca reports/PHASE1_MAIN_PROMOTION_PROPOSAL.md untuk SHA/bukti.
+Periksa CI SHA promosi/docs terbaru; review manusia dan CVE/server tetap terbuka.
+O-09 bukan izin merge protected branch, force-push, tag, deploy atau perubahan image.
 Jangan outage dari tugas dokumentasi atau menjalankan gatewaytests paralel.
 Reset30d ke awal bulan UTC; scheduler sekitar10menit. Batasi jumlah request/token tes.
 Jangan buat staging/container baru atau mengubah roadmap/ADR tanpa persetujuan.

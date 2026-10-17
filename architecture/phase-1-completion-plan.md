@@ -9,9 +9,13 @@ Nomor urutan di bawah adalah paket pengerjaan, bukan milestone atau phase baru.
 cross-check/test. P1-06/P1-09…P1-13 memiliki bukti lokal; lock, auditprivasi, restore,
 rotasi key dan configrollback diperluas padaP1-FINAL. CI lokal config63/infra31/
 E2E97unitPASS; fullrun97unit/5smoke/30live/2outage+13nativePASS,exit0. O-08 menetapkan
-hostedoffline + live manual4000; candidateCI/review dituntaskan. Pilot nyata/peserta/PIC ditunda
+hosted offline + live manual4000; enam CI candidate PASS dan docs #1 tersedia.
+O-09 menyetujui penyiapan tiga draft PR promosi ke main dengan kedua history
+dipertahankan dan tree identik candidate. Review/merge masih terbuka.
+Pilot nyata/peserta/PIC ditunda
 O-07. Lanjut dari [laporan aktif](../reports/PHASE1_FINAL_CROSSCHECK_REPORT.md),
-bukan dari posisi awal12Oktober di bawah. TargetliveCI/CVE/server tetap memerlukan
+bukan dari posisi awal12Oktober di bawah. Target live CI telah disetujui O-08;
+CVE/server tetap memerlukan
 [keputusan konkret](../reports/PHASE1_RELEASE_DECISIONS.md); Phase2 belum dimulai.
 
 ## Posisi awal yang sudah diperiksa

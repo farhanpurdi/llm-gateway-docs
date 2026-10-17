@@ -1,0 +1,45 @@
+{
+  "checked_date": "2026-10-17",
+  "scope": "New promotion draft PRs authorized by O-09; protected main not merged",
+  "repositories": [
+    {
+      "repo": "llm-gateway-config",
+      "url": "https://github.com/farhanpurdi/llm-gateway-config/pull/4",
+      "number": 4,
+      "base": "main",
+      "base_sha": "89b2f099c00ab664e424678ba00461ed80c618ab",
+      "head": "release/phase1-main-review-20261017",
+      "head_sha": "4cdc1ba1e555404010ab12f0f0b28e775fbea065",
+      "draft": true,
+      "state": "open",
+      "merged": false,
+      "mergeable": true
+    },
+    {
+      "repo": "llm-gateway-infra",
+      "url": "https://github.com/farhanpurdi/llm-gateway-infra/pull/7",
+      "number": 7,
+      "base": "main",
+      "base_sha": "4015f860bc5f5d78f8076e256840e9c155686a2a",
+      "head": "release/phase1-main-review-20261017",
+      "head_sha": "1289cbfafd0d8545053a221cb31fc16b1cd10f6d",
+      "draft": true,
+      "state": "open",
+      "merged": false,
+      "mergeable": true
+    },
+    {
+      "repo": "llm-gateway-e2e",
+      "url": "https://github.com/farhanpurdi/llm-gateway-e2e/pull/6",
+      "number": 6,
+      "base": "main",
+      "base_sha": "c234a7d9ec623d0ef5c28f00685d2a96016669e6",
+      "head": "release/phase1-main-review-20261017",
+      "head_sha": "9eca7149d967c607146ab282421567eecd072626",
+      "draft": true,
+      "state": "open",
+      "merged": false,
+      "mergeable": true
+    }
+  ]
+}

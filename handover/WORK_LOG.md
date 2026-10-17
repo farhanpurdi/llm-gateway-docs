@@ -3,6 +3,56 @@
 Baca [master](../MASTER_CONTEXT.md), lalu [Phase1](../architecture/phase-1.md).
 File ini catatan sesi/keputusan; status acceptance per-task hanya dikelola di dokumen fase.
 
+## Checkpoint terbaru — P1-FINAL-MAIN-PR, 17 Oktober 2026 (Asia/Jakarta)
+
+**O-09 disetujui pengguna:** "Setuju, siapkan PR promosi main (disarankan)".
+Scope: satukan history main dan candidate pada branch baru melalui
+`merge --allow-unrelated-histories`, push tanpa force dan buat draft PR ke main.
+Izin ini tidak mencakup merge protected main/develop, tag, deploy, perubahan image
+atau sign-off. O-01/O-06/O-07/O-08 tetap berlaku.
+
+- Branch promosi tiga komponen: `release/phase1-main-review-20261017`.
+  Config `4cdc1ba1e555404010ab12f0f0b28e775fbea065`, infra
+  `1289cbfafd0d8545053a221cb31fc16b1cd10f6d`, E2E
+  `9eca7149d967c607146ab282421567eecd072626`. Setiap commit mempunyai parent
+  candidate dan initial main; konflik hanya README. **Ketiga Git tree persis sama
+  dengan candidate**, inode/byte config runtime dipertahankan. Tidak mengganti image,
+  membuat container/environment atau mengubah policy/template/provider/model.
+- Draft PR aktif ke main, seluruhnya terpasang pada chat:
+  [config #4](https://github.com/farhanpurdi/llm-gateway-config/pull/4),
+  [infra #7](https://github.com/farhanpurdi/llm-gateway-infra/pull/7),
+  [E2E #6](https://github.com/farhanpurdi/llm-gateway-e2e/pull/6).
+  Ketiganya open/draft, belum merged dan terverifikasi tanpa konflik merge.
+  Draft lama ke develop (config #3/infra #6/E2E #5) tetap terbuka sebagai riwayat;
+  tidak digabung/ditutup tanpa permintaan.
+- **Enam CI promosi validate/security PASS** pada SHA baru, bukan mengandalkan
+  hasil candidate lama. [CI](../reports/phase1-final-evidence/main-promotion-ci-final.json),
+  [PR metadata](../reports/phase1-final-evidence/main-promotion-pull-requests.json),
+  [parent/tree](../reports/phase1-final-evidence/main-promotion-candidates.json).
+- [Docs #1](https://github.com/farhanpurdi/llm-gateway-docs/pull/1) sudah dipublikasikan;
+  CI pada `5bfd9d9bc83bf59d5d884b9c6ec1e8e11bf2aff6` PASS, run39008234039.
+  Perubahan konteks O-09 dipush sebagai follow-up pada PR yang sama; status CI pada
+  SHA paling baru di PR tetap menjadi acuan, bukan otomatis mewarisi PASS lama.
+- Master v1.10, README, fase/rencana, ADR011/register, handover dan laporan aktif
+  diselaraskan dengan O-09/PR/CI terbaru. Petunjuk stale "next P1-13" diperbarui.
+  Proposal promosi sekarang APPROVED_OVERRIDE dengan batas izin jelas. Work log
+  lama/attempt gagal dan 24 evidence historis tetap dipertahankan.
+- Verifikasi offline: validator docs workspace PASS, **32/32 hash kode cocok**,
+  tiga tree/parent promosi cocok dan working tree komponen bersih.
+  [Proof integritas](../reports/phase1-final-evidence/promotion-integrity-check.json).
+  Validasi standalone/diff dan scan secret docs diulang sebelum publikasi; hasil
+  penutup disimpan pada indeks evidence. Tidak mengulang paid/live/outage untuk
+  perubahan Git metadata atau docs; source perilaku tetap identik dengan full run.
+- Bukti runtime tetap: 97 unit/5 smoke/30 live/2 outage +13 native PASS, exit0;
+  config63/infra31 offline PASS; restore83tabel, rotasi key, config rollback dan
+  audit privasi/cleanup PASS. **Ini bukan release server atau Phase1 DONE.**
+
+**Next exact action:** pastikan follow-up docs CI lulus pada SHA terbaru, lalu review
+manusia atas draft promosi dan keputusan CVE/server/data/billing/license yang masih
+terbuka. Main tidak di-merge dari izin penyiapan PR; tag/deploy/sign-off memerlukan
+gate/otorisasi masing-masing. Jangan menanyakan ulang peserta/PIC yang ditunda O-07
+atau menganggap baseline scan sebagai penerimaan PG1Critical/28High dan Redis2High.
+
 ## Checkpoint terbaru — P1-FINAL-LOCAL-PASS,17Oktober2026 (Asia/Jakarta)
 
 Goal sampai akhir/fulltest masihaktif; **verifikasi teknis lokal selesaiPASS**.

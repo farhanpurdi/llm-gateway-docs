@@ -1,6 +1,10 @@
 # Keputusan sebelum penutupan release Phase 1
 
-Status17Oktober2026: **opsiA disetujuiO-08 dan diterapkan**; usulan lain tetapOPEN/PROPOSED. [Hasil teknis aktif](PHASE1_FINAL_CROSSCHECK_REPORT.md)
+Status 17 Oktober 2026: **target CI opsi A disetujui O-08 dan diterapkan**.
+**Penyiapan PR promosi main opsi A juga disetujui O-09** pada
+[proposal terpisah](PHASE1_MAIN_PROMOTION_PROPOSAL.md); tiga draft tersedia dan
+enam CI promosi PASS. Keputusan CVE/server/billing/data tetap OPEN/PROPOSED.
+[Hasil teknis aktif](PHASE1_FINAL_CROSSCHECK_REPORT.md)
 dan [register M-01/M-04/M-05](../adr/README.md) menjadi dasarnya. Workflow live staging dihapus sesuaiO-08. Image, jaringan, secrets dan runner/environment
 tetap existing; tidak membuat target baru.
 Pilot nyata/peserta/PIC ditundaO-07 dan tidak ditanyakan ulang di sini.
@@ -57,12 +61,14 @@ tetap terpisah dari hasil tes lokal; jangan membuat server/proxy/container baru 
 menutupnya tanpa target/persetujuan. Rotasi virtual key disposable sudah diuji;
 master/provider/salt produksi memerlukan koordinasi distribusi credential/recovery.
 
-Empat repoGitHub telah dikonfirmasi private. CI padaHEAD lama infra/config/E2E
-berhasil, tetapi source awal dirty kini disimpan pada candidate commit; [snapshotCI](phase1-final-evidence/github-head-ci.json)
-tidak mengesahkan candidate yang belum dipublikasikan. Laporan akhir harus menyertakan
-hash source yang benar-benar diuji; commit/PR/requiredCI kandidat dan sign-off tetap
-dicatat terpisah. Branch candidate tiga komponen sudahdipush untuk draftPR kedevelop existing;
-belum merge, deploy/tag atau promosi main.
+Empat repo GitHub telah dikonfirmasi private. Source awal dirty kini disimpan pada
+candidate commit; enam validate/security checks pada SHA candidate PASS. O-09
+mengizinkan penyatuan kedua history pada branch promosi baru, dengan tree persis
+sama. Draft PR ke main sudah dibuat: config #4, infra #7, E2E #6; enam CI pada
+SHA promosi juga PASS. [Bukti CI](phase1-final-evidence/main-promotion-ci-final.json)
+dan [refs/PR](PHASE1_MAIN_PROMOTION_PROPOSAL.md) mengikat hasil ke source yang diuji.
+Docs #1 dipublikasikan dan CI pada 5bfd9d9 PASS; pembaruan berikutnya tetap harus
+lulus pada SHA terbaru. Belum ada merge protected branch, tag, deploy atau sign-off.
 
 [Inventaris lisensi](../operations/license-inventory.md) tersedia. Billing/cap provider,
 penerimaan lisensi dan aturan data/backup perusahaan belum menjadiPASS hanya karena

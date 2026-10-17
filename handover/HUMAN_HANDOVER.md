@@ -54,13 +54,18 @@ read/edit/shell/hasil tool, kode terverifikasi dan SSE/API tools PASS.
 **Task aktifP1-FINAL:** user meminta sampai akhir dan full cross-check/test. Native
 error/retry13kasus, HTTPguard6, outagePG/Redis2, rotasikey2 dan configrollbackPASS;
 CI lokalconfig63/infra31/E2E97unitPASS; fullrun97unit/5smoke/30live/2outage+13nativePASS,exit0.
-O-08 hostedoffline + live manual4000 diterapkan;3draftPRcandidate kedevelop tersedia.
+O-08 hosted offline + live manual4000 diterapkan; tiga draft PR candidate ke develop
+tersedia dengan enam CI PASS. Docs #1 dipublikasikan dan CI pada 5bfd9d9 PASS.
+O-09 menyetujui penyiapan promosi ke main: config #4, infra #7, E2E #6; kedua history
+dipertahankan dan tree sama persis dengan candidate. [Refs dan bukti](../reports/PHASE1_MAIN_PROMOTION_PROPOSAL.md).
+Periksa CI SHA terbaru dan review manusia; belum ada izin merge protected branch,
+tag atau deploy.
 [laporan aktif](../reports/PHASE1_FINAL_CROSSCHECK_REPORT.md) dan checkpointlog menjadi
 acuan melanjutkan. Pilot nyata/peserta/PIC ditundaO-07, bukan pilotPASS.
 TargetCI/CVE/server mengikuti [proposal keputusan](../reports/PHASE1_RELEASE_DECISIONS.md).
 Anggota lama belum dimigrasikan dan billing invoice/cap provider
 tetap tersisa. M-01/M-02/M-04 dan bagian lain M-05 perlu keputusan owner sebelum
 perubahan besar. M-03 penempatan docs telah dipilih user:
-repo docs existing; commit migrasi lokal `1d07d02` terverifikasi 2026-10-12, publikasi/review
-remote belum diperiksa. Source komponen masih perlu dicakup commit/review final.
+repo docs existing; commit migrasi `1d07d02` dipertahankan dan publikasi docs #1
+terverifikasi 17 Oktober. Source komponen sudah dicakup commit; review/merge final belum.
 Urutan pekerjaan lengkap ada pada [rencana penutupan Phase 1](../architecture/phase-1-completion-plan.md).

@@ -1,6 +1,6 @@
 # ADR-011 — Tiga repo komponen dan repo dokumentasi
 
-Status: **BASELINE + APPROVED_OVERRIDE O-04**. Sumber: [baseline awal §2](../archive/PROJECT_MASTER_CONTEXT.md#2-architecture-decision-registry),
+Status: **BASELINE + APPROVED_OVERRIDE O-04/O-09**. Sumber: [baseline awal §2](../archive/PROJECT_MASTER_CONTEXT.md#2-architecture-decision-registry),
 [register konsolidasi](README.md). Dievaluasi 2026-10-10; penulisan file individual
 bukan persetujuan baru atau klaim fitur selesai.
 
@@ -15,9 +15,26 @@ Dokumentasi mempunyai satu pemilik dan navigasi; source/runtime tetap di repo ko
 ## Keadaan aktual dan batas bukti
 
 Migrasi dokumentasi diizinkan user dalam percakapan; empat repo sibling, root bukan Git.
-Commit lokal docs `1d07d02` terverifikasi 2026-10-12; push/review remote belum diperiksa.
+Commit migrasi docs `1d07d02` terverifikasi 2026-10-12. Pada 17 Oktober, docs telah
+dipublikasikan melalui [draft PR #1](https://github.com/farhanpurdi/llm-gateway-docs/pull/1);
+CI dokumentasi pada `5bfd9d9` PASS. Review/merge tetap terpisah.
 Tiga file context root sudah tidak ada; sumber awal tetap di `archive/`. Tidak membuat
-repo/remote baru. Pembaruan rencana terbaru belum commit; source komponen masih dirty.
+repo/remote baru. Source komponen telah disimpan pada candidate commit dan draft PR
+ke develop; enam validate/security checks pada SHA candidate PASS.
+
+## O-09 — penyiapan promosi ke main, 17 Oktober 2026
+
+Main ketiga komponen hanya initial README dan history-nya terpisah dari develop.
+Pengguna menyetujui opsi A pada [proposal promosi](../reports/PHASE1_MAIN_PROMOTION_PROPOSAL.md):
+"Setuju, siapkan PR promosi main (disarankan)". Kedua history digabung pada branch
+promosi baru melalui `merge --allow-unrelated-histories`; konflik README diselesaikan
+dengan mempertahankan panduan candidate. Tree hasil sama persis dengan candidate.
+Draft PR ke main: config #4, infra #7, E2E #6; refs dan bukti ada pada proposal.
+
+Ini tidak membentuk parent repository/monorepo atau menulis ulang protected main.
+Main belum di-merge; required review/checks tetap berlaku. Sebelum merge, pembatalan
+cukup menutup PR promosi. Setelah merge, gunakan revert yang direview. O-09 tidak
+mengizinkan force-push, merge protected branch, tag, deploy atau perubahan image.
 
 Lihat [Phase1](../architecture/phase-1.md) untuk acceptance/test dan
 [work log](../handover/WORK_LOG.md) untuk perubahan terbaru.

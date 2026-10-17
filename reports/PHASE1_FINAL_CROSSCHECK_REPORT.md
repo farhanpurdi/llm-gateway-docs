@@ -1,7 +1,7 @@
 # Cross-check dan pengujian akhir Phase 1
 
 Tanggal: **17 Oktober 2026, Asia/Jakarta**. Status: **IN_PROGRESS**.
-**Pengujian teknis lokal akhir PASS**; candidate/review dan gate server masih diproses.
+**Pengujian teknis lokal akhir dan CI promosi PASS**; review dan gate server masih terbuka.
 User meminta melanjutkan sampai akhir, memeriksa dari awal dan menjalankan full test.
 Scope tetap Docker existing port4000, environment Python existing, OpenAI saja dan
 tepat dua alias. Tidak ada environment/container baru atau deployment server.
@@ -20,6 +20,9 @@ bila perlu meninjau implementasi. Status acceptance dimiliki
 - **O-08:** pengguna menyetujui CI offline GitHub + full live manual existing4000.
   Workflow staging lama dihapus; [gate lokal](../operations/local-release-gate.md)
   mengikat bukti SHA/hash/image/output/cleanup dengan review.
+- **O-09:** pengguna menyetujui penyiapan draft PR promosi ke main dengan kedua
+  history dipertahankan. Tiga PR dibuat; isi file identik candidate dan enam CI
+  promosi PASS. Ini bukan izin merge protected branch, tag, deploy atau sign-off.
 - **O-07:** jawaban pengguna "untuk itu bisa di skip dulu" menunda pilot nyata
   serta penentuan peserta/PIC yang ditanyakan. Ini penundaan, bukan pilot PASS,
   feedback buatan, penerimaan CVE/billing/server, atau izin Phase2.
@@ -31,6 +34,8 @@ bila perlu meninjau implementasi. Status acceptance dimiliki
 | CI config | **PASS 7/7**, 63 tes kontrak |
 | CI infra | **PASS 7/7**, 23 tes operasi +8 regresi Compose |
 | GitHub candidateCI | **6/6 validate/security PASS**, padaSHAcandidate3repo; infra diperbaiki dan diujiulang |
+| GitHub promosi main O-09 | **6/6 validate/security PASS** pada tiga SHA merge baru; semua draft PR tanpa konflik merge |
+| GitHub docs | **PASS** pada 5bfd9d9, run39008234039; pembaruan docs berikutnya harus lulus CI pada SHA terbaru |
 | CI E2E | **PASS 8/8**, 97 tes offline |
 | Checkout E2E terisolasi | **97 unit PASS**, tanpa repo config/infra di sebelahnya |
 | Full regression pertama | 85 unit +5 smoke +28 live **PASS**, 13 skenario native **PASS**; live517,07detik |
@@ -41,7 +46,7 @@ bila perlu meninjau implementasi. Status acceptance dimiliki
 | Rotasi virtual key | **2 PASS,24,80detik**:kedua alias, scope sama, old denied, new accepted, audit retained |
 | Release/rollback config | **PASS**:timeout180→181→180,5smoke pada setiap apply, inode/byte/ID/image sama |
 | Backup/restore | **PASS 83 tabel**, jumlah baris dan fingerprint sama; DB uji khusus dalam PG existing |
-| Secret scanner | History/current tiga komponen **PASS** setelah source stabil; docs diperiksa lagi pada penutupan |
+| Secret scanner | History/current tiga komponen dan docs **PASS** setelah source stabil; pembaruan docs dipindai lagi sebelum push |
 | Audit dependency Python | Range dan lock tiga repo **PASS**, tidak ada vulnerability yang diketahui auditor pada snapshot ini |
 | Lock dependency | Tiga lock memakai versi existing; checksum PyPI dan `--require-hashes --dry-run` **PASS** |
 | Image scanner | **PASS baseline existing**:LiteLLM0Critical/0High,PG1Critical/28High,Redis0Critical/2High |
@@ -59,7 +64,7 @@ Tes rotasi, agent dan guard terfokus juga berada dalam live suite; jangan dihitu
 | Milestone | Penambahan/pembaruan dan hasil sederhana | Status/batas |
 |---|---|---|
 | P1-00: akses dan kepemilikan | Kedua model dapat dipakai via gateway. Empat repo GitHub dikonfirmasi private. Inventaris lisensi dengan sumber resmi ditambahkan | PARTIAL:billing/cap/lisensi perusahaan belum diterima; peserta/PIC ditundaO-07 |
-| P1-01: repo dan workflow | Layout empat repo dipertahankan. GitHub membuktikan validate/security pada HEAD lama sukses | PARTIAL:candidate tiga komponen sudahcommit/push pada branch baru, draftPR kedevelop existing; CI candidatevalidate/security6/6PASS; review dan promosi mainterpisah |
+| P1-01: repo dan workflow | Source disimpan pada commit/draft PR. O-09 menyatukan kedua history pada branch baru; isi file tetap sama. Enam CI promosi PASS | PARTIAL: tiga draft PR ke main dan docs #1 tersedia; review/merge belum dilakukan |
 | P1-02: runtime dan database | PG dipadamkan singkat pada container yang sama; request yang tak dapat diverifikasi ditolak. Setelah pulih kedua alias dan pencatatan biaya bekerja | LOCAL proof tersedia; jaringan/TLS server belum |
 | P1-03: secret/health/versi | Tidak mengganti image atau secret pengguna. Error tes disensor; health dicek setelah maintenance | LOCAL_VERIFIED; rotasi master/provider/salt produksi belum dilakukan |
 | P1-04: fast | Inference `company-fast` diuji ulang dalam full suite | Mapping tetap `openai/gpt-5.6-terra` |
@@ -72,11 +77,11 @@ Tes rotasi, agent dan guard terfokus juga berada dalam live suite; jangan dihitu
 | P1-11: onboarding | Script operator asli dan virtual key developer dipakai ulang oleh OpenCode | Native onboarding/fixture; distribusi credential kepada manusia belum diuji |
 | P1-12: agent/tools/streaming | Kedua agent membaca/mengedit kode, menjalankan shell verifier dan memakai receipt hasil tool; SSE/API tools diperiksa ulang | Fixture coding kecil; bukan seluruh proyek/tool/adapter |
 | P1-13: failure semantics | Tambah guardHTTP,13probe native dan tes outagePG/Redis dengan recovery otomatis | LOCAL_VERIFIED; error upstream disimulasikan tanpa providerIO; outage memakai layanan nyata existing |
-| P1-14: reproducibility/CI | Tambah3lock berhash dan pemasangan lock di validate workflows; perbaiki unit yang gagal pada checkout tunggal | PARTIAL:targetCI dipilihO-08; stagingworkflow dihapus. CandidateCI6/6PASS; review/mainpromotion/servergate tersisa |
+| P1-14: reproducibility/CI | Tambah tiga lock berhash di validate workflows; perbaiki unit checkout tunggal dan perbedaan JSON Compose di CI | PARTIAL: O-08 diterapkan; CI candidate dan enam CI promosi PASS. Review, SHA docs terbaru dan server gate tetap diperiksa |
 | P1-15: keamanan/privasi | Periksa log dan spend tanpa menyimpan isi sensitif; scan source/dependency/image. Dua false-positive scanner docs diverifikasi sebagai hashID blocked | PARTIAL:TLS/admin boundary, CVE dan keputusan data perusahaan belum |
 | P1-16: operasional | Ulang restore83tabel, config-only release/rollback dan rotasi virtualkey kedua alias; perbarui incident/lifecycle runbook | PARTIAL:server/upgrade schema/image, backup luarhost dan rotasi secret produksi belum |
 | P1-17: pilot manusia | Tidak membuat data peserta/feedback palsu | APPROVED_OVERRIDE sementaraO-07; pilot nyata tetap NOT_VERIFIED |
-| P1-18: exit gate | Source hash,3draftPR dan6/6CIcandidatePASS dihimpun untuk reviewer | OPEN sampai keputusan/review/candidateCI/sign-off yang relevan tersedia |
+| P1-18: exit gate | Source hash, tiga draft PR promosi ke main, docs #1 dan enam CI promosi PASS dihimpun untuk reviewer | OPEN sampai review/keputusan release dan sign-off tersedia; belum merge/tag/deploy |
 
 ## 4. Cross-check H1–H10 dari awal
 
@@ -148,23 +153,32 @@ menghapus audit. Jangan menjalankan kedua runner bersamaan atau mengaktifkan
 ## 7. Keputusan/gate yang belum ditutup
 
 [Proposal konkret](PHASE1_RELEASE_DECISIONS.md) menjelaskan tindakan, dampak dan
-rollback sebelum perubahan major. TargetliveCI sudah disetujuiO-08/ADR-015 dan diterapkan; belum mengesahkan CI/review
-candidate, promosi main atau deployment server.
+rollback sebelum perubahan major. Target live CI disetujui O-08/ADR-015 dan diterapkan.
+Penyiapan PR promosi main disetujui O-09 dan selesai dengan CI PASS; persetujuan
+tersebut tidak mencakup merge protected main atau deployment server.
 
 ImagebaselinePASS tetap menyisakanPG1Critical/28High danRedis2High. Critical berada
 pada Go stdlib dalam binarygosu; package finding bukan bukti exploitability maupun
 penerimaan risiko. Image/runtime tidak diubah diam-diam. TLS/admin isolation pada
 server, backup terenkripsi luarhost, billing/cap dan penerimaan lisensi belum diuji
-atau disetujui. Tiga branch candidate telahdipush untuk draftPR; belum merge/tag/deploy atau sign-off Phase1.
+atau disetujui. Tiga branch promosi telah dipush untuk draft PR ke main; belum merge
+protected main/develop, tag, deploy atau sign-off Phase 1.
 
-**Goal tetap aktif.** Fullsuite dan privacy/cleanup lokal sudahPASS; review/promosi main,
-dokumentasi akhir dan keputusan release yang tersisa harus ditutup sesuai bukti.
+**Penutupan Phase 1 tetap terbuka.** Full suite dan privacy/cleanup lokal sudah PASS;
+review manusia dan keputusan release yang tersisa harus ditutup sesuai bukti.
 
-Candidate tiga komponen: [config#3](https://github.com/farhanpurdi/llm-gateway-config/pull/3),
-[infra#6](https://github.com/farhanpurdi/llm-gateway-infra/pull/6),
-[E2E#5](https://github.com/farhanpurdi/llm-gateway-e2e/pull/5). Semuanya draftkedevelop
-existing. Main3komponen hanya initialREADME dengan historyterpisah; [proposal promosi](PHASE1_MAIN_PROMOTION_PROPOSAL.md)
-tersedia sebelum perubahanmajor. Docs kandidat sedang disiapkan. Tidak ada merge/tag/deploy.
+PR aktif untuk review ke **main**:
+[config #4](https://github.com/farhanpurdi/llm-gateway-config/pull/4),
+[infra #7](https://github.com/farhanpurdi/llm-gateway-infra/pull/7),
+[E2E #6](https://github.com/farhanpurdi/llm-gateway-e2e/pull/6) dan
+[docs #1](https://github.com/farhanpurdi/llm-gateway-docs/pull/1).
+Ketiganya memakai branch `release/phase1-main-review-20261017`; draft lama ke
+develop (config #3/infra #6/E2E #5) tetap terbuka sebagai jejak candidate sebelumnya.
+Main tiga komponen masih initial README. O-09 hanya mengizinkan penyiapan PR;
+[keputusan promosi](PHASE1_MAIN_PROMOTION_PROPOSAL.md),
+[bukti tree/parent](phase1-final-evidence/main-promotion-candidates.json) dan
+[enam CI promosi PASS](phase1-final-evidence/main-promotion-ci-final.json)
+menjadi acuan reviewer. Tidak ada force-push, merge protected branch, tag atau deploy.
 
 Scan docs penutupan sempat menandai14nilai pada dua manifest source. Semuanya
 cocok dengan7path file asli (5checksum unik), bukan credential. Nilai tersebut

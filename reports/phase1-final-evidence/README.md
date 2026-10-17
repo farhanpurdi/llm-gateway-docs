@@ -36,6 +36,9 @@ klaim seluruh proyek selesai. Goal closure dan audit acceptance masih berjalan.
 | [hasil fullrun](full-test-result-final.json) / [audit penutup](privacy-cleanup-runtime-final.json) / [exit audit](privacy-cleanup-audit-final.txt) |134pytest+13nativePASS exit0;261rowprivasi,296key/97teamblocked,IDs/image sama |
 | [candidate source](candidate-source-manifest.json) / [refs](component-candidates.json) / [draftPR](candidate-pull-requests.json) |Hashsource current terikat keSHA; runtime/test sama denganfullrun, perubahanCI/README terpisah |
 | [candidateCI](candidate-ci-final.json) |Validate/security enamjob padaSHA tiga komponenPASS; bukan statusHEADlama |
+| [promosi main](main-promotion-candidates.json) / [draft PR](main-promotion-pull-requests.json) / [CI promosi](main-promotion-ci-final.json) |O-09: dua parent/history dipertahankan, tree identik candidate; config #4/infra #7/E2E #6 ke main, enam CI SHA promosi PASS; protected main belum diubah |
+| [integritas promosi](promotion-integrity-check.json) |32/32 hash appendix cocok, tiga tree/parent sama dengan candidate, working tree komponen bersih; pengecekan offline setelah merge metadata |
+| [docs workspace promosi](docs-promotion-workspace-validation.txt) / [standalone](docs-promotion-standalone-validation.txt) / [secret scan](secrets-docs-promotion.txt) |Validasi konteks/tautan dan 24 evidence historis PASS; native Gitleaks history/current PASS sebelum follow-up docs dipush |
 | [ComposeCI gagal](ci-infra-compose-failure.txt) / [fix lokal](infra-validation-compose-fix.txt) / [scanfix](infra-secrets-compose-fix.txt) |False JSON hilang diCI;8regresi baruPASS, explicitfalseYAML tetapwajib |
 | [main audit](remote-main-audit.json) / [validasi docs](docs-validation-final.txt) / [standalone](docs-standalone-final.txt) |Historymain terpisah; tautan/roadmap/evidence diuji lokal dan modecheckout tunggal |
 

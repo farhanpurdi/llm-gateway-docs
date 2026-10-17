@@ -1,6 +1,6 @@
 # Project Context Master — LLM Gateway
 
-Versi konsolidasi 1.9 · diperbarui 2026-10-17 · Bahasa kerja: Indonesia.
+Versi konsolidasi 1.10 · diperbarui 2026-10-17 · Bahasa kerja: Indonesia.
 **Baca [README](README.md) untuk navigasi, lalu mulai context proyek di sini.** Dokumen ini menggabungkan rancangan awal dan pekerjaan aktual;
 keputusan desain tidak berubah hanya karena kode atau tes yang ada berbeda.
 
@@ -44,8 +44,12 @@ SSE/API tools kedua alias PASS. Sesi ini 79 unit/5 smoke/6 live terfokus PASS;
 Full run akhir **PASS, exit0**:97unit,5smoke,30live,2outage dan13skenario native.
 Config63tes dan infra31tes(23operasi+8regresi Compose) PASS lokal. Restore83tabel,
 rotasi key kedua alias, config rollback dan audit privasi/cleanup PASS. Tiga candidate
-sudahcommit/push sebagai draftPR kedevelop existing; CI/review dan docs candidate
-masih dituntaskan. [Laporan](reports/PHASE1_FINAL_CROSSCHECK_REPORT.md),
+sudah commit/push sebagai draft PR ke develop existing; enam validate/security checks
+candidate PASS. Docs #1 juga tersedia dan CI pada `5bfd9d9` PASS. Sesuai **O-09**,
+tiga draft PR promosi ke main disiapkan pada branch baru dengan kedua history
+dipertahankan dan tree identik dengan candidate. Review/main merge belum dilakukan.
+[PR dan refs promosi](reports/PHASE1_MAIN_PROMOTION_PROPOSAL.md),
+[laporan](reports/PHASE1_FINAL_CROSSCHECK_REPORT.md),
 [manifest source](reports/phase1-final-evidence/candidate-source-manifest.json)
 dan checkpoint terbaru [work log](handover/WORK_LOG.md) menjadi acuan kelanjutan.
 **O-07:**pilot nyata/peserta/PIC ditunda. **O-08:**CIofflineGitHub + full live manual
@@ -122,11 +126,15 @@ akses langsung API/billing corporate dan akurasi harga belum otomatis terbukti.
 ## 5. Keadaan penting dan langkah berikutnya
 
 Root workspace bukan repo Git; tiga komponen dan satu repo dokumentasi terpisah.
-Remote main docs cocokHEAD1d07d02 saat audit. Source komponen kini tersimpan pada
-branchcandidate baru yang bersih; draftPR kedevelop mengikuti jalurPRH7/H8 yang
-sudahmerged. Main tiga komponen masih initialREADME dan historynya terpisah;
-jangan forcepush/mergeunrelated tanpa [keputusan promosi](reports/PHASE1_MAIN_PROMOTION_PROPOSAL.md).
-Docs baru difinalisasi. CI lama bukan pengganti CI candidate yang sedang diperiksa.
+Remote main docs cocok HEAD `1d07d02` saat audit; draft docs #1 kini dipublikasikan.
+Source komponen tersimpan pada candidate bersih dengan enam CI checks PASS.
+Draft ke develop mengikuti jalur H7/H8 yang sudah merged dan tetap terbuka.
+Main tiga komponen masih initial README. **O-09 mengizinkan penyiapan draft PR
+promosi**, bukan merge main: config #4, infra #7, E2E #6 pada branch
+`release/phase1-main-review-20261017`. Merge commit mempertahankan kedua history
+dengan tree identik candidate; [keputusan dan bukti](reports/PHASE1_MAIN_PROMOTION_PROPOSAL.md).
+Required review/checks tetap berlaku; jangan force-push, merge protected branch,
+tag atau deploy dari izin penyiapan ini. CI harus sesuai SHA promosi terbaru.
 Belum ada tag/sign-off/deployment server. Pilot nyata ditunda sementaraO-07.
 
 **Risiko/gap yang harus dibaca sebelum deploy:**
@@ -164,13 +172,13 @@ Identitas tes diblokir, audit dipertahankan; sembilan asset config/policy tetap 
 dan tiga ID container sama. P1-06/F-01/F-02 sebelumnya tetap LOCAL_VERIFIED,
 [114 tes offline pada snapshot12Oktober](reports/P1_06_MODEL_CONTRACT_REPORT.md).
 P1-CLOSEOUT-PLAN/DOC-MIGRATE/DOC-CONSOLIDATE tetap tercatat sebagai sesi sebelumnya.
-**Next action aktif:** tutup CI candidate dan docsPR/validasi, lalu review keputusan
-promosi main/CVE/server yang tersisa. Full test, outage, rotasi, rollback dan privacy
+**Next action aktif:** pastikan CI PR promosi dan pembaruan docs lulus pada SHA
+terbaru, lalu review manusia/keputusan CVE dan server yang tersisa. Full test, outage, rotasi, rollback dan privacy
 lokal sudahPASS. Jangan mengulang paidtest untuk metadataCI saja tanpa alasan baru.
 P1-09…P1-13 tetap LOCAL_VERIFIED; commit/review/CI/sign-off sesuai gate masing-masing
 sebelum releaseDONE. Tidak mulai deployment atau Phase2 otomatis.
 M-03 penempatan dokumentasi diselesaikan dengan repo docs existing atas instruksi user;
-commit lokal docs terverifikasi, publikasi remote belum diperiksa.
+publikasi draft docs #1 terverifikasi; review/merge belum dilakukan.
 M-01/M-02/M-04 tetap terbuka; bagian lain M-05 (PIC/billing/provider cap, lisensi,
 data/retensi dan peserta pilot) tetap terbuka dalam register drift.
 
@@ -187,8 +195,10 @@ Pilot memakai pilot.yaml (O-06): kedua alias, teamUS$10/anggotaUS$2/RPM30/TPM100
 Durasi team/anggota30d memakai awal bulan berikutnya UTC; pemeriksaan reset sekitar10menit.
 P1-11/P1-12 LOCAL_VERIFIED17Oktober:79unit/5smoke/6live terfokus PASS, bukan seluruh suite.
 Lanjut checkpointP1-FINAL sesuai instruksi user sampai akhir dan full test;
-lihat laporan aktif/worklog untuk hasil terbaru dan proses yang masih berjalan.
+lihat laporan aktif/worklog untuk hasil terbaru dan CI PR promosi.
 Pilot nyata/peserta/PIC ditundaO-07, bukan pilot PASS. Bagian lain M-05/gate releaseOPEN.
+O-08: CI offline + live manual existing4000. O-09: tiga draft PR promosi main disiapkan,
+kedua history dipertahankan dan tree identik candidate; bukan izin merge/tag/deploy.
 Jangan outage tanpa koordinasi scope/recovery atau menjalankan tes gateway paralel.
 Jangan buat staging atau mulai Phase 2; minta keputusan sebelum perubahan major.
 Laporkan ID, file, hasil tes aktual, batasan, commit jika ada, dan update dokumen fase/log.

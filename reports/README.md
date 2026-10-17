@@ -24,7 +24,7 @@ menjalankan langkah berikutnya atau jaminan server siap**.
 | [PHASE1_FINAL_CROSSCHECK_REPORT.md](PHASE1_FINAL_CROSSCHECK_REPORT.md) |Laporan aktif penutupan menyeluruh; IN_PROGRESS sampai seluruh gate yang relevan terbukti |
 | [PHASE1_FINAL_CODE_APPENDIX.md](PHASE1_FINAL_CODE_APPENDIX.md) |32file kode penuh dan hash; buka bagian terkait setelah membaca laporan |
 | [PHASE1_RELEASE_DECISIONS.md](PHASE1_RELEASE_DECISIONS.md) |O-08targetCI disetujui/dijalankan; proposalCVE/server masihOPEN |
-| [PHASE1_MAIN_PROMOTION_PROPOSAL.md](PHASE1_MAIN_PROMOTION_PROPOSAL.md) |Usulan non-force untuk main yang historynya terpisah; belum merge/promosi |
+| [PHASE1_MAIN_PROMOTION_PROPOSAL.md](PHASE1_MAIN_PROMOTION_PROPOSAL.md) |O-09 disetujui: tiga draft PR promosi ke main, tree identik candidate dan enam CI PASS; protected main belum di-merge |
 | [phase1-final-evidence](phase1-final-evidence/README.md) |Full regression baru, native errors/retry, CI/locks/security, privacy dan maintenance |
 
 Output `.txt`/`.json` historis dipindahkan **tanpa mengubah byte**. Path yang tercetak di

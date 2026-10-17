@@ -23,7 +23,12 @@ Paket P1-06/F-01/F-02 selesai dalam scope static/offline pada 12 Oktober;
 telah diuji; [laporan dan kode](reports/P1_09_P1_10_LIMITS_COST_REPORT.md).
 P1-11/P1-12 juga **LOCAL_VERIFIED** pada17Oktober: onboarding dan agent kedua alias,
 79 unit/5 smoke/6 live terfokus PASS; [laporan dan kode](reports/P1_11_P1_12_OPENCODE_REPORT.md).
-Next teknis **P1-13/F-07**, failure semantics provider dan dependency.
+Full cross-check akhir kini PASS: 97 unit, 5 smoke, 30 live, 2 outage dan 13 skenario
+native; config 63 serta infra 31 tes offline PASS. Lihat
+[laporan akhir per milestone](reports/PHASE1_FINAL_CROSSCHECK_REPORT.md).
+Tiga draft PR promosi ke main sudah disiapkan sesuai O-09;
+[proposal dan refs](reports/PHASE1_MAIN_PROMOTION_PROPOSAL.md) menjelaskan batas izin.
+Review, keputusan CVE/server dan sign-off Phase 1 masih terbuka.
 
 ## Jalur baca sesuai kebutuhan
 
