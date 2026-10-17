@@ -1,0 +1,3 @@
+Collecting PyYAML==6.0.3 (from -r scripts/ci/requirements.lock (line 5))
+  Using cached pyyaml-6.0.3-cp312-cp312-macosx_11_0_arm64.whl (173 kB)
+Would install PyYAML-6.0.3

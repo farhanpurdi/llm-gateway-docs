@@ -1,0 +1,27 @@
+{
+  "llm-gateway-config": {
+    "url": "https://github.com/farhanpurdi/llm-gateway-config/pull/3",
+    "number": 3,
+    "draft": true,
+    "base": "develop",
+    "head": "phase1/final-verification-20261017",
+    "head_sha": "9d3cab3b80c98d9c009ed713c041d53b982af616"
+  },
+  "llm-gateway-infra": {
+    "url": "https://github.com/farhanpurdi/llm-gateway-infra/pull/6",
+    "number": 6,
+    "draft": true,
+    "base": "develop",
+    "head": "phase1/final-verification-20261017",
+    "head_sha": "a19ae80f68fa335d1f50187dfd18ccb6d0f9223e",
+    "initial_head_sha": "98b5acf2d798fbb2158daa8a8be0170a1dadc5ce"
+  },
+  "llm-gateway-e2e": {
+    "url": "https://github.com/farhanpurdi/llm-gateway-e2e/pull/5",
+    "number": 5,
+    "draft": true,
+    "base": "develop",
+    "head": "phase1/final-verification-20261017",
+    "head_sha": "5644c9a2d8fc4e1543eaad5121f25eab1e1c2254"
+  }
+}

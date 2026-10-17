@@ -9,11 +9,13 @@ berdampingan. Jangan menganggap contoh perintah sebagai izin menjalankan operasi
 | Kebutuhan | Baca | Dampak |
 |---|---|---|
 | Capture/release config | [Deployment](deployment.md) | Capture read-only terhadap runtime; deploy backup+restart existing gateway |
+| Verifikasi release tanpa staging | [Gate lokal](local-release-gate.md) | GitHub offline dan full live manual existing4000, cocokkan SHA/hash/bukti |
 | Kembali ke config sebelumnya | [Rollback](rollback.md) | Restart, verifikasi same image/schema; bukan restore transaksi DB |
 | Backup/recovery data | [Backup](backup.md) | Drill menghentikan gateway sementara dan menimpa hanya DB restore-test |
 | Gangguan kesehatan/akses | [Incident](incident.md) | Diagnosis kemudian tindakan sesuai gejala |
 | Onboarding/offboarding | [Lifecycle](lifecycle.md) | Mengubah identitas/key; freeze provisioning saat offboard |
 | Keputusan server/pilot | [Checklist Phase1](phase1-checklist.md) | Gate belum otomatis lulus dari hasil lokal |
+| Lisensi komponen | [Inventaris lisensi](license-inventory.md) | Sumber/versi dibedakan dari penerimaan perusahaan |
 
 Environment existing4000, tidak ada staging baru. Simpan secret di `.env` privat atau
 mekanisme yang disetujui; jangan menyalin ke docs/log. Backup asli tetap di lokasi

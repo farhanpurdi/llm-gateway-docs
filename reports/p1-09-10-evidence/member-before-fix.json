@@ -1,0 +1,16 @@
+{
+  "case": "before_fix_member_duration",
+  "team_duration": "30d",
+  "member_budget": 2.0,
+  "member_duration": null,
+  "member_reset_at": null,
+  "member_fields": [
+    "budget_id",
+    "budget_source",
+    "litellm_budget_table",
+    "spend",
+    "team_id",
+    "total_spend",
+    "user_id"
+  ]
+}

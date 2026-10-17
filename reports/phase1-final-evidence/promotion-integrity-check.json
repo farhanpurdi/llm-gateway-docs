@@ -1,0 +1,9 @@
+{
+  "checked_date": "2026-10-17",
+  "code_appendix_hashes_matched": 32,
+  "promotion_trees_identical_to_candidate": 3,
+  "promotion_parents_verified": 3,
+  "component_worktrees_clean": true,
+  "local_remote_tracking_main_unchanged": true,
+  "scope": "Offline content/Git proof; live tests not rerun for merge metadata or docs changes"
+}

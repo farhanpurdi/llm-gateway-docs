@@ -1,0 +1,110 @@
+[
+  {
+    "path": "llm-gateway-e2e/tests/client.py",
+    "sha256": "7450a7e1aeedf410f6bba6e93f0acdf229a83a8bb12536c72d475cbd29059cad"
+  },
+  {
+    "path": "llm-gateway-e2e/tests/conftest.py",
+    "sha256": "b815d1bf001eb1478dd9c5f94587d174ec833385cd4ea81f29880a020b5dbd69"
+  },
+  {
+    "path": "llm-gateway-e2e/tests/test_limits.py",
+    "sha256": "a2806fb8a669f3d024ab06f87e58a2546c6d793f4392640544725293daccaf63"
+  },
+  {
+    "path": "llm-gateway-e2e/tests/test_failure_semantics.py",
+    "sha256": "d7a8cae32977f254579309db37868a65d5429351be5ea626188965823740aa4d"
+  },
+  {
+    "path": "llm-gateway-e2e/tests/native_failure_probe.py",
+    "sha256": "875fe8aef7d4a356628be79090d85a13a523e110c16a8bd92892ddddd59e246e"
+  },
+  {
+    "path": "llm-gateway-e2e/tests/maintenance.py",
+    "sha256": "2f1205c7220ac0c8be25ac0ae3be4fb448dc211e880942c1330c9f53bb93f26e"
+  },
+  {
+    "path": "llm-gateway-e2e/tests/test_dependency_outage.py",
+    "sha256": "a13a7e731a974113dad21e31153563aa4d0e3dce7b66b1a0ac3c7b01f926577c"
+  },
+  {
+    "path": "llm-gateway-e2e/tests/test_key_rotation.py",
+    "sha256": "d8981aafad6fa0409814a2ac06ba2da679ad9abb5a54f9f11d8431d6a7a140ce"
+  },
+  {
+    "path": "llm-gateway-e2e/tests/unit/test_fixture_cleanup.py",
+    "sha256": "e75e65f577095f34e94c52d297568c4e7ab0d335f4f0bc01889f5e4066ea6f1f"
+  },
+  {
+    "path": "llm-gateway-e2e/tests/unit/test_transport_privacy.py",
+    "sha256": "7cdc23828b76ee86ee854bcfcf89858bd732450311f9148006b50cbcd143b5b1"
+  },
+  {
+    "path": "llm-gateway-e2e/tests/unit/test_maintenance.py",
+    "sha256": "b0936db1915cc811cb833bc5cba1ce95a84a256081348554c09917b8e1775db3"
+  },
+  {
+    "path": "llm-gateway-e2e/tests/unit/test_opencode.py",
+    "sha256": "e29908e576b2741f235fb29eb5a1ef1ed689cda11090c22b2360a5e9fbffee76"
+  },
+  {
+    "path": "llm-gateway-e2e/tests/unit/test_suite_validator.py",
+    "sha256": "4857ee10684b70477331931558d3f76bdf318eebd9e3c62209d958bc611870c4"
+  },
+  {
+    "path": "llm-gateway-e2e/scripts/ci/validate-suite.py",
+    "sha256": "1acd2d497e5fff34907b08e70e9771d70572a3c38994e98d8858140e76bedd00"
+  },
+  {
+    "path": "llm-gateway-e2e/scripts/run-native.sh",
+    "sha256": "51eb333afb31a72f17843c849b5fd928582dd4bcdf177f4622ded54ecb1a2601"
+  },
+  {
+    "path": "llm-gateway-e2e/scripts/run-outage.sh",
+    "sha256": "bc7449481c2dad02ecb85f14bac3a22db080fd0d2e15aa744dfb74908fdc657d"
+  },
+  {
+    "path": "llm-gateway-e2e/scripts/run-all.sh",
+    "sha256": "212089e105c43d4b40fbe15a46683b8f06929d735fb7ec0c5f46b9ceccf423a7"
+  },
+  {
+    "path": "llm-gateway-e2e/scripts/run-live.sh",
+    "sha256": "dd6decb2ffb02a07b5ea96010a624700cf749c5abcc5fec16d4aa5bdfbb6b3ed"
+  },
+  {
+    "path": "llm-gateway-e2e/pytest.ini",
+    "sha256": "78250e6bb8bfc186a2fc6ea9cd69c357005c22a626dab0b0dbdf75bf4d120a67"
+  },
+  {
+    "path": "llm-gateway-e2e/.github/workflows/validate.yml",
+    "sha256": "0f46d999ec11abae4a7c3c599abc030ac7ab6ac968a8e73364b0972b8bda1b08"
+  },
+  {
+    "path": "llm-gateway-infra/.github/workflows/validate.yml",
+    "sha256": "9f0cdd8817878118eaf686a464001d3904fa54c8e4690acdccb3aca9ff1bd905"
+  },
+  {
+    "path": "llm-gateway-config/.github/workflows/validate.yml",
+    "sha256": "77f34be3701200920a19736bdbaa4e41e3da47c0e3b11937702623c5a646f792"
+  },
+  {
+    "path": "llm-gateway-config/scripts/ci/requirements.lock",
+    "sha256": "c9202ee0b7d35153154ac1cc5ae2a58891736f68dcea2fe766b74206ce6d6b7f"
+  },
+  {
+    "path": "llm-gateway-infra/scripts/requirements.lock",
+    "sha256": "bb1ddcc99e410fba8ab5a332aded0549b2cf214bb4bb63b8a1c83478a9573b7a"
+  },
+  {
+    "path": "llm-gateway-e2e/requirements.lock",
+    "sha256": "b568b242bba5c1d3fc407fb47e0a5fa1ca1f91dd9274a00692e37d3f388f690a"
+  },
+  {
+    "path": "llm-gateway-docs/.gitleaks.toml",
+    "sha256": "e2a878294624593604492886dcf5156e75a07b9d95fd5d822443a7c276a68e05"
+  },
+  {
+    "path": "llm-gateway-docs/reports/phase1-final-evidence/config-drill.py",
+    "sha256": "92fc9809e9f382bd06c2693ba3fb531fb8346d27af28869b4d368da176765b8c"
+  }
+]

@@ -1,0 +1,3 @@
+llm-gateway|9c77da1dea53|ghcr.io/berriai/litellm:1.104.0|0.0.0.0:4000->4000/tcp, [::]:4000->4000/tcp
+llm-gateway-postgres|2abff28af371|postgres:16.15|5432/tcp
+llm-gateway-redis|04c48e8f579d|redis:7.4.11-alpine|6379/tcp

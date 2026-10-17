@@ -1,0 +1,45 @@
+{
+  "llm-gateway-config": {
+    "branch": "release/phase1-main-review-20261017",
+    "sha": "4cdc1ba1e555404010ab12f0f0b28e775fbea065",
+    "candidate_sha": "9d3cab3b80c98d9c009ed713c041d53b982af616",
+    "main_parent_sha": "89b2f099c00ab664e424678ba00461ed80c618ab",
+    "source_tree_identical_to_candidate": true,
+    "parents": [
+      "9d3cab3b80c98d9c009ed713c041d53b982af616",
+      "89b2f099c00ab664e424678ba00461ed80c618ab"
+    ],
+    "only_readme_conflict_resolved": true,
+    "protected_main_modified": false,
+    "git_tree_sha": "09f56f69c057cde3b26ee9dbd4d7a8b8583cfd15"
+  },
+  "llm-gateway-infra": {
+    "branch": "release/phase1-main-review-20261017",
+    "sha": "1289cbfafd0d8545053a221cb31fc16b1cd10f6d",
+    "candidate_sha": "a19ae80f68fa335d1f50187dfd18ccb6d0f9223e",
+    "main_parent_sha": "4015f860bc5f5d78f8076e256840e9c155686a2a",
+    "source_tree_identical_to_candidate": true,
+    "parents": [
+      "a19ae80f68fa335d1f50187dfd18ccb6d0f9223e",
+      "4015f860bc5f5d78f8076e256840e9c155686a2a"
+    ],
+    "only_readme_conflict_resolved": true,
+    "protected_main_modified": false,
+    "git_tree_sha": "b921ee04a56bd2b6735ecacfc472cc7ae0d17f37"
+  },
+  "llm-gateway-e2e": {
+    "branch": "release/phase1-main-review-20261017",
+    "sha": "9eca7149d967c607146ab282421567eecd072626",
+    "candidate_sha": "5644c9a2d8fc4e1543eaad5121f25eab1e1c2254",
+    "main_parent_sha": "c234a7d9ec623d0ef5c28f00685d2a96016669e6",
+    "source_tree_identical_to_candidate": true,
+    "parents": [
+      "5644c9a2d8fc4e1543eaad5121f25eab1e1c2254",
+      "c234a7d9ec623d0ef5c28f00685d2a96016669e6"
+    ],
+    "only_readme_conflict_resolved": true,
+    "protected_main_modified": false,
+    "git_tree_sha": "eb8b3be6483fe663035a007e9cedb4660c3474d3"
+  },
+  "runtime_config_inode_and_bytes_preserved": true
+}

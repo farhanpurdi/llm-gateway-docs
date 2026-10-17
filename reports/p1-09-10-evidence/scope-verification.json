@@ -1,0 +1,111 @@
+{
+  "source_before": {
+    "llm-gateway-config": {
+      "head": "b2cf9b04d83cca45db4f350ac5c4be9fbf8ea030",
+      "status": " M README.md\n D docs/compatibility.md\n D docs/model-catalog.md\n D docs/opencode.md\n M scripts/ci/validate-model-catalog.py\n M scripts/ci/validate-runtime-config.py\n M scripts/ci/validate-yaml.py\n M scripts/ci/validate.sh\n M scripts/security/audit-python.sh\n M scripts/security/scan-secrets.sh\n M scripts/validate.sh\n?? policies/teams/pilot.yaml\n?? scripts/ci/model_contract.py\n?? scripts/ci/test-model-contract.py\n"
+    },
+    "llm-gateway-infra": {
+      "head": "05f77497f18c2c4edf2ab1cbf938d10ca0f5b484",
+      "status": " M .env.example\n M .github/workflows/validate.yml\n M .gitignore\n M README.md\n M docker-compose.yml\n D docs/backup-restore.md\n M scripts/backup/backup-postgres.sh\n M scripts/backup/check-restore.sh\n M scripts/backup/drill.sh\n M scripts/backup/restore-postgres-test.sh\n M scripts/backup/restore-postgres.sh\n M scripts/backup/verify-backup.sh\n M scripts/ci/validate-compose.py\n M scripts/ci/validate.sh\n M scripts/health/dependencies.sh\n M scripts/health/functional.sh\n M scripts/health/liveness.sh\n M scripts/health/readiness.sh\n M scripts/lib/common.sh\n M scripts/onboard-developer.sh\n M scripts/security/audit-python.sh\n M scripts/security/scan-containers.sh\n M scripts/security/scan-secrets.sh\n?? scripts/backup/fingerprint.py\n?? scripts/ci/test-operations.py\n?? scripts/lib/restore-target.sh\n?? scripts/release/\n"
+    },
+    "llm-gateway-e2e": {
+      "head": "6151e07109c9832ce776a078921574d695f45134",
+      "status": " M .github/workflows/live.yml\n M README.md\n M pytest.ini\n M scripts/ci/validate-suite.py\n M scripts/ci/validate.sh\n M scripts/run-all.sh\n M scripts/run-live.sh\n M scripts/run-smoke.sh\n M scripts/security/audit-python.sh\n M scripts/security/scan-secrets.sh\n M tests/client.py\n M tests/conftest.py\n M tests/test_inference.py\n M tests/test_models.py\n?? scripts/run-unit.sh\n?? tests/test_lifecycle.py\n?? tests/unit/\n"
+    },
+    "llm-gateway-docs": {
+      "head": "1d07d02ef942379263bd690c8dc3fe6a9f7c03a7",
+      "status": " M MASTER_CONTEXT.md\n M README.md\n M adr/009-logical-model-contract.md\n M adr/011-repository-layout.md\n M adr/016-pilot-limits.md\n M adr/INDEX.md\n M adr/README.md\n M architecture/phase-1.md\n M developer/model-catalog.md\n M handover/AI_CONTINUATION.md\n M handover/HUMAN_HANDOVER.md\n M handover/WORK_LOG.md\n M operations/phase1-checklist.md\n M reports/README.md\n?? architecture/phase-1-completion-plan.md\n?? reports/P1_06_CODE_APPENDIX.md\n?? reports/P1_06_MODEL_CONTRACT_REPORT.md\n?? reports/p1-06-evidence/\n"
+    }
+  },
+  "component_changes": [
+    {
+      "file": "llm-gateway-infra/scripts/ci/test-operations.py",
+      "before_sha256": "f074363184c6542cc084155f7e83e608face36e390955f0d48db3a77741e25b2",
+      "after_sha256": "dd4122fc15dc68b03e3e13a0c650633af505f378bca2b9fc93aca0b3c3bb9cc8"
+    },
+    {
+      "file": "llm-gateway-infra/scripts/teams/add-member.sh",
+      "before_sha256": "d7ecbb2151b6f419d0859f12f80ea19a5dc2938f1e55f50876f9cb670b1a5e54",
+      "after_sha256": "2497cedc9fa4896e2afa018f7a58e906500363aeeab70d7a3dca72afd4a7c76a"
+    },
+    {
+      "file": "llm-gateway-e2e/README.md",
+      "before_sha256": "e07180629d24b43f771e2d31c317b96a78c14ae3f07a541a9188bb5ff8d05a4a",
+      "after_sha256": "d76b18b855bbced8a9eef7708fe5b646caa9d306e7e838de8cb96b54c7389d64"
+    },
+    {
+      "file": "llm-gateway-e2e/requirements.txt",
+      "before_sha256": "6042a6282d69f2838b4249f506b8b4baa4d758931c81697124798f46976679d6",
+      "after_sha256": "3329ef44d4e998ae4854a3804b7016800b702ff34c5a65bc9973b5da053aaab2"
+    },
+    {
+      "file": "llm-gateway-e2e/scripts/ci/validate-suite.py",
+      "before_sha256": "43417e713a454812eb06ad522e3239f919ab1605b0514b81660ca44e1dda0c0c",
+      "after_sha256": "66d657679e74793e81c0e0606a6859c2527e49bdb471aac8b5b163ac2badd08e"
+    },
+    {
+      "file": "llm-gateway-e2e/tests/accounting.py",
+      "before_sha256": null,
+      "after_sha256": "4404fc37a5c1d941f24f478cae72bbb4ef809e135072d8a29506910bb02b25df"
+    },
+    {
+      "file": "llm-gateway-e2e/tests/client.py",
+      "before_sha256": "090a767f294d18e4cb3af10c7d37aad8f9a6e9227e7eb41250e151151a2959d7",
+      "after_sha256": "403ca0bc397aef52615a554299c8c2528f661fdedea902e1e6527c89e549e751"
+    },
+    {
+      "file": "llm-gateway-e2e/tests/conftest.py",
+      "before_sha256": "633557354777d9a046be61ed4608b9716a9abbcfcf037f22bf31a31b1d4d0bf1",
+      "after_sha256": "33f0eb27d5ce4804690dbe71dbfa1e13a688840dd8ca1b67b85b99a0e3fcc87d"
+    },
+    {
+      "file": "llm-gateway-e2e/tests/test_pilot_limits.py",
+      "before_sha256": null,
+      "after_sha256": "2436f542d19fed52a145236398cad8b9921625a679b208cecda843a3e4ac5312"
+    },
+    {
+      "file": "llm-gateway-e2e/tests/test_spend.py",
+      "before_sha256": "8c99e757356c80f6b20da5941e79ec6283c1e4978aed894d11f2785c502640b3",
+      "after_sha256": "d74c339724a8fd60ad450b8e7922f16f428b73c0dae7ceee53f6962222660d1a"
+    },
+    {
+      "file": "llm-gateway-e2e/tests/unit/test_accounting.py",
+      "before_sha256": null,
+      "after_sha256": "a69ebad2f27e4b283096ad91c2f59d0c1edb9ef01542050c2d6afbe58993feef"
+    },
+    {
+      "file": "llm-gateway-e2e/tests/unit/test_suite_validator.py",
+      "before_sha256": "6afa75cd9997beb0e599f8abe206fb27c6c56ad8671ec2fd1479380aeaf420d9",
+      "after_sha256": "30988ed8539270071626e3ff8b2f88266250c3672ea56bdb6395eaf70d2fcfd9"
+    }
+  ],
+  "active_assets_unchanged": [
+    "llm-gateway-config/config/litellm_config.yaml",
+    "llm-gateway-config/models/company-coding.yaml",
+    "llm-gateway-config/models/company-fast.yaml",
+    "llm-gateway-config/providers/openai.yaml",
+    "llm-gateway-config/policies/teams/healthcheck.yaml",
+    "llm-gateway-config/policies/teams/engineering.yaml",
+    "llm-gateway-config/policies/teams/pilot.yaml",
+    "llm-gateway-config/policies/teams/default.yaml",
+    "llm-gateway-config/clients/opencode/opencode.jsonc"
+  ],
+  "code_appendix_file_count": 11,
+  "checks": {
+    "component_scope": true,
+    "nine_assets_unchanged": true,
+    "eleven_appendix_hashes_current": true
+  },
+  "containers_unchanged": {
+    "llm-gateway": "9c77da1dea53",
+    "llm-gateway-postgres": "2abff28af371",
+    "llm-gateway-redis": "04c48e8f579d"
+  },
+  "constraints": {
+    "new_environment_or_container": false,
+    "restart_or_image_change": false,
+    "provider_or_routing_change": false,
+    "hard_delete": false,
+    "commit_push_deploy": false
+  }
+}

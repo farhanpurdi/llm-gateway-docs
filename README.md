@@ -17,6 +17,18 @@ custom baru direncanakan pada Phase2; keandalan enterprise dikembangkan pada Pha
 **Posisi sekarang:** fungsi Phase1 teruji lokal sampai H10D, tetapi seluruh acceptance
 Phase1, pilot, release dan sign-off **belum selesai**. Phase2/3 belum dimulai.
 Constraint user tetap: **Docker existing port4000; jangan membuat staging/container baru.**
+Paket P1-06/F-01/F-02 selesai dalam scope static/offline pada 12 Oktober;
+[laporan dan kode](reports/P1_06_MODEL_CONTRACT_REPORT.md). P1-09/P1-10 kini
+**LOCAL_VERIFIED**: limit pilot, reset budget anggota, token dan biaya kedua alias
+telah diuji; [laporan dan kode](reports/P1_09_P1_10_LIMITS_COST_REPORT.md).
+P1-11/P1-12 juga **LOCAL_VERIFIED** pada17Oktober: onboarding dan agent kedua alias,
+79 unit/5 smoke/6 live terfokus PASS; [laporan dan kode](reports/P1_11_P1_12_OPENCODE_REPORT.md).
+Full cross-check akhir kini PASS: 97 unit, 5 smoke, 30 live, 2 outage dan 13 skenario
+native; config 63 serta infra 31 tes offline PASS. Lihat
+[laporan akhir per milestone](reports/PHASE1_FINAL_CROSSCHECK_REPORT.md).
+Tiga draft PR promosi ke main sudah disiapkan sesuai O-09;
+[proposal dan refs](reports/PHASE1_MAIN_PROMOTION_PROPOSAL.md) menjelaskan batas izin.
+Review, keputusan CVE/server dan sign-off Phase 1 masih terbuka.
 
 ## Jalur baca sesuai kebutuhan
 
@@ -25,6 +37,7 @@ Constraint user tetap: **Docker existing port4000; jangan membuat staging/contai
 | Orang baru / pemilik project | [Overview](architecture/overview.md) → [master](MASTER_CONTEXT.md) → [Phase1](architecture/phase-1.md) |
 | AI yang melanjutkan pekerjaan | [Master](MASTER_CONTEXT.md) → [Phase1](architecture/phase-1.md) → [keputusan/drift](adr/README.md) → [log](handover/WORK_LOG.md) → [protokol AI](handover/AI_CONTINUATION.md) |
 | Developer pengguna gateway | [Model catalog](developer/model-catalog.md) → [OpenCode](developer/opencode.md) → [API](developer/api.md) |
+| Pengembang dengan Codex | [Skill proyek dan contoh penggunaan](developer/codex-skills.md) |
 | Operator | [Panduan operasi](operations/README.md) → [deployment](operations/deployment.md) / [backup](operations/backup.md) / [incident](operations/incident.md) / [rollback](operations/rollback.md) |
 | Engineer pengganti | [Checklist handover](handover/HUMAN_HANDOVER.md) → source terkait → bukti pada [reports](reports/README.md) |
 | Reviewer arsitektur | [Indeks ADR](adr/INDEX.md) → [drift/open decisions](adr/README.md) → dokumen fase yang relevan |
@@ -54,7 +67,9 @@ llm-gateway-docs/
 - Source implementasi tetap di tiga repo komponen; **docs bukan runtime config**.
 - Semua dokumen operasional sekarang dipusatkan di repo ini. README komponen hanya
   memberi navigasi/petunjuk menjalankan repo masing-masing.
-- File context root lama hanya penunjuk. Tidak ada master aktif kedua di root workspace.
+- Tiga file context root sudah tidak ada pada pemeriksaan 2026-10-12. Master aktif ada di
+  repo ini; rancangan awal dan handoff lama tetap tersedia di `archive/`.
+- Urutan pekerjaan sampai rilis tersedia pada [rencana penutupan Phase 1](architecture/phase-1-completion-plan.md).
 
 ## Cara menyimpan workspace untuk handover
 
@@ -77,6 +92,7 @@ validasi handover lengkap memerlukan empat repo dan mode `--workspace`.
 python3 scripts/validate-docs.py --workspace
 ```
 
-Migrasi lokal **belum commit/push**. Tidak membuat repo/remote/submodule baru. Jangan
-hanya menyerahkan commit HEAD lama: perubahan source dan dokumen masih perlu dipublikasikan
-sesuai review/gate masing-masing. Data rahasia diserahkan lewat jalur terpisah yang aman.
+Migrasi docs sudah tercatat pada commit lokal **`1d07d02`** (diperiksa 2026-10-12).
+Push/review remote belum diverifikasi. Perubahan ketiga repo komponen masih belum tercakup
+seluruhnya di HEAD; pembaruan rencana terbaru juga perlu dicakup saat publikasi berikutnya.
+Tidak membuat repo/remote/submodule baru. Data rahasia diserahkan lewat jalur terpisah yang aman.

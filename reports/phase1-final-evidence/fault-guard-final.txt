@@ -1,0 +1,24 @@
+WARNING:
+This test suite sends real requests to the LLM provider.
+
+============================= test session starts ==============================
+platform darwin -- Python 3.12.15, pytest-9.0.3, pluggy-1.6.0 -- /Users/pur/MyProject/company-ai-platform/.venv/bin/python3
+cachedir: .pytest_cache
+rootdir: /Users/pur/MyProject/company-ai-platform/llm-gateway-e2e
+configfile: pytest.ini
+collecting ... collected 6 items
+
+tests/test_failure_semantics.py::test_fault_injection_parameters_are_rejected[rate_limit-company-fast] P1_NATIVE_FAULT {"alias": "company-fast", "fault": "rate_limit", "status": 400, "elapsed_seconds": 0.071, "recovery_status": 200, "error_type": "invalid_request_error", "simulation": "rejected-by-runtime-security-guard"}
+PASSED
+tests/test_failure_semantics.py::test_fault_injection_parameters_are_rejected[rate_limit-company-coding] P1_NATIVE_FAULT {"alias": "company-coding", "fault": "rate_limit", "status": 400, "elapsed_seconds": 0.022, "recovery_status": 200, "error_type": "invalid_request_error", "simulation": "rejected-by-runtime-security-guard"}
+PASSED
+tests/test_failure_semantics.py::test_fault_injection_parameters_are_rejected[server_error-company-fast] P1_NATIVE_FAULT {"alias": "company-fast", "fault": "server_error", "status": 400, "elapsed_seconds": 0.024, "recovery_status": 200, "error_type": "invalid_request_error", "simulation": "rejected-by-runtime-security-guard"}
+PASSED
+tests/test_failure_semantics.py::test_fault_injection_parameters_are_rejected[server_error-company-coding] P1_NATIVE_FAULT {"alias": "company-coding", "fault": "server_error", "status": 400, "elapsed_seconds": 0.023, "recovery_status": 200, "error_type": "invalid_request_error", "simulation": "rejected-by-runtime-security-guard"}
+PASSED
+tests/test_failure_semantics.py::test_fault_injection_parameters_are_rejected[timeout-company-fast] P1_NATIVE_FAULT {"alias": "company-fast", "fault": "timeout", "status": 400, "elapsed_seconds": 0.02, "recovery_status": 200, "error_type": "invalid_request_error", "simulation": "rejected-by-runtime-security-guard"}
+PASSED
+tests/test_failure_semantics.py::test_fault_injection_parameters_are_rejected[timeout-company-coding] P1_NATIVE_FAULT {"alias": "company-coding", "fault": "timeout", "status": 400, "elapsed_seconds": 0.024, "recovery_status": 200, "error_type": "invalid_request_error", "simulation": "rejected-by-runtime-security-guard"}
+PASSED
+
+============================== 6 passed in 10.50s ==============================

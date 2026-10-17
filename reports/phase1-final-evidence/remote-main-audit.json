@@ -1,0 +1,32 @@
+{
+  "llm-gateway-infra": {
+    "local_head": "05f77497f18c2c4edf2ab1cbf938d10ca0f5b484",
+    "remote_main": "4015f860bc5f5d78f8076e256840e9c155686a2a",
+    "shallow": "false",
+    "remote_tree_files": [
+      "README.md"
+    ],
+    "remote_commits": "1",
+    "common_ancestor_exists": false
+  },
+  "llm-gateway-config": {
+    "local_head": "b2cf9b04d83cca45db4f350ac5c4be9fbf8ea030",
+    "remote_main": "89b2f099c00ab664e424678ba00461ed80c618ab",
+    "shallow": "false",
+    "remote_tree_files": [
+      "README.md"
+    ],
+    "remote_commits": "1",
+    "common_ancestor_exists": false
+  },
+  "llm-gateway-e2e": {
+    "local_head": "6151e07109c9832ce776a078921574d695f45134",
+    "remote_main": "c234a7d9ec623d0ef5c28f00685d2a96016669e6",
+    "shallow": "false",
+    "remote_tree_files": [
+      "README.md"
+    ],
+    "remote_commits": "1",
+    "common_ancestor_exists": false
+  }
+}

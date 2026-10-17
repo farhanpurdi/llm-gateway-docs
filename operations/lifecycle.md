@@ -26,8 +26,21 @@ mengembangkan alur operasional selanjutnya.
 
 ## Rotasi
 
-Alur konseptual: identifikasi pemilik → terbitkan key pengganti dengan scope yang sama
-sesuai policy → serahkan aman → verifikasi client → block key lama → verifikasi deny
- dan histori → catat audit. **Drill rotasi lengkap belum tercatat sebagai PASS.**
+1. Identifikasi pemilik dan hentikan provisioning bersamaan selama cutover.
+2. Terbitkan key pengganti untuk user/team sama. Salin izin model, RPM/TPM, budget
+   dan durasinya; jangan memperlebar scope. Distribusikan lewat jalur privat.
+3. Verifikasi akses model/inference dengan key baru sebelum memblokir key lama.
+4. Block key lama, baca ulang statusnya dan buktikan credential lama ditolak401/403.
+5. Ulangi inference dengan key baru; periksa kedua record key, user/team dan histori
+   spend tetap ada. Counter native dapat terlambat dibanding rowspend; tunggu flush
+   dengan batas waktu, jangan menyimpulkan data hilang dari satu pembacaan awal.
+6. Catat waktu/pemilik/hasil tanpa rawkey. Jangan hard-delete keylama/audit.
+
+**Drill disposable17Oktober2026 PASS untuk kedua alias:** scope sama, old deny,
+new inference200 sebelum/sesudah cutover, kedua key+spend retained. Keycap pengganti
+memulai counter baru; budget user/team tetap sama. Ini bukan migrasi/rotasi seluruh
+credential developer nyata atau pengganti distribusi credential aman.
+[Tes aktual](../../llm-gateway-e2e/tests/test_key_rotation.py) dan
+[bukti](../reports/phase1-final-evidence/key-rotation-final.txt).
 Rotasi master/provider/salt berbeda dampaknya dan memerlukan rencana terpisah; jangan
 mengubah salt tanpa menilai data terenkripsi dan recovery.

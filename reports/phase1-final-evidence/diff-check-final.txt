@@ -1,0 +1,4 @@
+llm-gateway-infra:git diff --check PASS
+llm-gateway-config:git diff --check PASS
+llm-gateway-e2e:git diff --check PASS
+llm-gateway-docs:git diff --check PASS

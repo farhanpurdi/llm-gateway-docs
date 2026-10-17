@@ -1,0 +1,90 @@
+
+======================================
+LLM Gateway Infra Validation
+======================================
+
+[1/7] Bash syntax
+Checking: scripts/logs.sh
+Checking: scripts/onboard-developer.sh
+Checking: scripts/security/scan-secrets.sh
+Checking: scripts/security/check-all.sh
+Checking: scripts/security/scan-containers.sh
+Checking: scripts/security/audit-python.sh
+Checking: scripts/ci/validate.sh
+Checking: scripts/health/functional.sh
+Checking: scripts/health/readiness.sh
+Checking: scripts/health/dependencies.sh
+Checking: scripts/health/liveness.sh
+Checking: scripts/health/check-all.sh
+Checking: scripts/release/release.sh
+Checking: scripts/users/show-user.sh
+Checking: scripts/users/create-user.sh
+Checking: scripts/teams/show-team.sh
+Checking: scripts/teams/add-member.sh
+Checking: scripts/teams/get-team-id.sh
+Checking: scripts/teams/create-team.sh
+Checking: scripts/teams/update-team-models.sh
+Checking: scripts/lib/common.sh
+Checking: scripts/lib/restore-target.sh
+Checking: scripts/keys/block-key.sh
+Checking: scripts/keys/create-key.sh
+Checking: scripts/reset.sh
+Checking: scripts/down.sh
+Checking: scripts/backup/drill.sh
+Checking: scripts/backup/verify-backup.sh
+Checking: scripts/backup/backup-postgres.sh
+Checking: scripts/backup/restore-postgres.sh
+Checking: scripts/backup/check-restore.sh
+Checking: scripts/backup/restore-postgres-test.sh
+Checking: scripts/up.sh
+Checking: scripts/healthcheck.sh
+Bash syntax: PASS
+
+[2/7] ShellCheck
+ShellCheck: PASS
+
+[3/7] Environment template
+.env.example contains 14 variable(s)
+.env.example validation: PASS
+
+[4/7] Base Docker Compose
+Docker Compose base validation: PASS
+
+[5/7] Development override
+Docker Compose dev validation: PASS
+
+[6/7] Operational regression tests
+test_capture_rejects_wrong_contract_before_creating_artifact (__main__.Operations.test_capture_rejects_wrong_contract_before_creating_artifact) ... ok
+test_common_preserves_callers_script_directory (__main__.Operations.test_common_preserves_callers_script_directory) ... ok
+test_config_write_preserves_bind_mount_inode (__main__.Operations.test_config_write_preserves_bind_mount_inode) ... ok
+test_corrupted_backup_rejected_before_docker (__main__.Operations.test_corrupted_backup_rejected_before_docker) ... ok
+test_failed_deployment_recovers_original_config_and_records_failure (__main__.Operations.test_failed_deployment_recovers_original_config_and_records_failure) ... ok
+test_main_database_restore_rejected_before_docker (__main__.Operations.test_main_database_restore_rejected_before_docker) ... ok
+test_onboard_requires_policy_before_creating_user (__main__.Operations.test_onboard_requires_policy_before_creating_user) ... ok
+test_policy_scripts_preserve_team_and_member_monthly_limits (__main__.Operations.test_policy_scripts_preserve_team_and_member_monthly_limits) ... ok
+test_readiness_rejects_healthy_http_when_dependency_fails (__main__.Operations.test_readiness_rejects_healthy_http_when_dependency_fails) ... ok
+test_release_accepts_approved_models_with_changed_timeout (__main__.Operations.test_release_accepts_approved_models_with_changed_timeout) ... ok
+test_release_checksum_and_identity_guards (__main__.Operations.test_release_checksum_and_identity_guards) ... ok
+test_release_rejects_alternate_routing (__main__.Operations.test_release_rejects_alternate_routing) ... ok
+test_release_rejects_different_environment_references (__main__.Operations.test_release_rejects_different_environment_references) ... ok
+test_release_rejects_duplicate_and_extra_aliases (__main__.Operations.test_release_rejects_duplicate_and_extra_aliases) ... ok
+test_release_rejects_inline_credentials (__main__.Operations.test_release_rejects_inline_credentials) ... ok
+test_release_rejects_invalid_and_duplicate_yaml (__main__.Operations.test_release_rejects_invalid_and_duplicate_yaml) ... ok
+test_release_rejects_malformed_shapes_with_value_error (__main__.Operations.test_release_rejects_malformed_shapes_with_value_error) ... ok
+test_release_rejects_path_traversal (__main__.Operations.test_release_rejects_path_traversal) ... ok
+test_release_rejects_provider_and_endpoint_overrides (__main__.Operations.test_release_rejects_provider_and_endpoint_overrides) ... ok
+test_release_rejects_removed_alias (__main__.Operations.test_release_rejects_removed_alias) ... ok
+test_release_rejects_wrong_contract_even_with_matching_checksum (__main__.Operations.test_release_rejects_wrong_contract_even_with_matching_checksum) ... ok
+test_release_rejects_wrong_upstreams_for_each_alias (__main__.Operations.test_release_rejects_wrong_upstreams_for_each_alias) ... ok
+test_restore_rejects_postgres_identifier_truncation (__main__.Operations.test_restore_rejects_postgres_identifier_truncation) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 1.224s
+
+OK
+
+[7/7] Git safety
+
+======================================
+INFRA VALIDATION: PASSED
+======================================

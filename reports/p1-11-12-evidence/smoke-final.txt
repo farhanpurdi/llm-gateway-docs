@@ -1,0 +1,15 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.12.15, pytest-9.0.3, pluggy-1.6.0 -- /Users/pur/MyProject/company-ai-platform/.venv/bin/python3
+cachedir: .pytest_cache
+rootdir: /Users/pur/MyProject/company-ai-platform/llm-gateway-e2e
+configfile: pytest.ini
+testpaths: tests
+collecting ... collected 106 items / 101 deselected / 5 selected
+
+tests/test_auth.py::test_invalid_key_is_rejected PASSED                  [ 20%]
+tests/test_health.py::test_litellm_is_alive PASSED                       [ 40%]
+tests/test_models.py::test_user_can_see_expected_models PASSED           [ 60%]
+tests/test_opencode.py::test_opencode_onboarding_uses_developer_key PASSED [ 80%]
+tests/test_pilot_limits.py::test_pilot_policy_is_persisted PASSED        [100%]
+
+====================== 5 passed, 101 deselected in 1.13s =======================

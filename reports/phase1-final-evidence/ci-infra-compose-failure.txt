@@ -1,0 +1,9 @@
+2026-10-17T05:46:51.7840824Z
+2026-10-17T05:46:51.7841820Z [3/7] Environment template
+2026-10-17T05:46:51.8086094Z .env.example contains 14 variable(s)
+2026-10-17T05:46:51.8086881Z .env.example validation: PASS
+2026-10-17T05:46:51.8122167Z
+2026-10-17T05:46:51.8122624Z [4/7] Base Docker Compose
+2026-10-17T05:46:52.2040724Z ERROR: LiteLLM config bind must set create_host_path=false
+2026-10-17T05:46:52.2119384Z ##[error]Process completed with exit code 1.
+2026-10-17T05:46:52.2282709Z Post job cleanup.

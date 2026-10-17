@@ -1,0 +1,61 @@
+{
+  "captured_at": "2026-10-17T05:39:22.316423+00:00",
+  "since_utc": "2026-10-17T03:54:52Z",
+  "scope": "current goal window; aggregate inspection, not all historical traffic",
+  "spend_privacy": {
+    "rows": 261,
+    "messages_nonempty": 0,
+    "responses_nonempty": 0,
+    "raw_key_pattern_rows": 0
+  },
+  "fixture_keys": {
+    "created": 296,
+    "unblocked": 0
+  },
+  "fixture_teams": {
+    "created": 97,
+    "unblocked": 0
+  },
+  "fixture_usage": {
+    "paid_rows": 140,
+    "native_spend_usd": 0.0605837
+  },
+  "runtime_log_privacy": {
+    "lines": 3666,
+    "raw_key_pattern_matches": 0,
+    "toy_source_marker_present": false,
+    "toy_response_marker_present": false
+  },
+  "runtime": {
+    "llm-gateway": {
+      "id": "9c77da1dea53e29ed4c6f682d4da1ce3ce22ad05d273edee1827ab16caad1657",
+      "image_id": "sha256:625981c83410a3ea68eb0697590a57ec1d764d634514d54fa5db0591077ee839",
+      "image_tag": "ghcr.io/berriai/litellm:1.104.0",
+      "running": true,
+      "repo_digests": [
+        "ghcr.io/berriai/litellm@sha256:625981c83410a3ea68eb0697590a57ec1d764d634514d54fa5db0591077ee839"
+      ],
+      "platform": "linux/arm64"
+    },
+    "llm-gateway-postgres": {
+      "id": "2abff28af3710f101b598e7c2c93f725862d1708790540239a5d6da19056a78c",
+      "image_id": "sha256:1a6ab3f5345eb6dbe04a1349529caabdb0ab09293a09590fad07b2246bfa4b54",
+      "image_tag": "postgres:16.15",
+      "running": true,
+      "repo_digests": [
+        "postgres@sha256:1a6ab3f5345eb6dbe04a1349529caabdb0ab09293a09590fad07b2246bfa4b54"
+      ],
+      "platform": "linux/arm64"
+    },
+    "llm-gateway-redis": {
+      "id": "04c48e8f579d86db4be33142424bd5e3d165dc7019bef33a99a656667b2c3909",
+      "image_id": "sha256:858f009f9709ce576febc734aa78b8f6d624b82571f9ddb6bda4377c833b3499",
+      "image_tag": "redis:7.4.11-alpine",
+      "running": true,
+      "repo_digests": [
+        "redis@sha256:858f009f9709ce576febc734aa78b8f6d624b82571f9ddb6bda4377c833b3499"
+      ],
+      "platform": "linux/arm64"
+    }
+  }
+}

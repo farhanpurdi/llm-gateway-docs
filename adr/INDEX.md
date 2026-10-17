@@ -22,5 +22,5 @@ CONFIRMED/BASELINE/OPEN dibedakan; BASELINE bukan bukti implementasi lengkap. O-
 | ADR-013 | [Pin versi release](013-release-version-pinning.md) | BASELINE |
 | ADR-014 | [Pilihan IdP SSO](014-sso-provider.md) | OPEN |
 | ADR-015 | [Hosting dan target release](015-hosting-environment.md) | OPEN; target lokal ditetapkan O-01 |
-| ADR-016 | [Budget, rate limits dan peserta pilot](016-pilot-limits.md) | OPEN |
+| ADR-016 | [Budget, rate limits dan peserta pilot](016-pilot-limits.md) | PARTIAL; policy CONFIRMED O-06, enforcement/accounting LOCAL_VERIFIED; peserta/PIC/cap OPEN |
 | ADR-017 | [Lisensi dan fitur enterprise](017-licensing.md) | OPEN |

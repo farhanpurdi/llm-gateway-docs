@@ -24,8 +24,10 @@ Bukan bukti jaringan/TLS/storage/CI server tujuan sudah siap.
 - [ ] Kapasitas disk dan jadwal backup/retensi aktif; alarm kegagalan dan PIC incident jelas.
 - [ ] Kompatibilitas migrasi diperiksa jika versi image/database berubah.
 - [ ] Aturan freeze provisioning/offboarding dipahami seluruh operator.
-- [ ] Kelompok pilot, budget, pemilik layanan, RPO/RTO disetujui dan dicatat.
+- [x] Policy pengerjaan/tes final pilot disetujui user 2026-10-13: pilot.yaml (kedua alias, team US$10, anggota US$2, RPM30/TPM100000); detail [ADR-016](../adr/016-pilot-limits.md).
+- [ ] Penerapan policy pada target pilot, kelompok peserta, pemilik layanan dan RPO/RTO disetujui/diverifikasi dan dicatat.
+- [ ] Anggota lama yang akan dipakai pilot diperiksa: script sebelumnya tidak mengirim durasi reset. Perbaikan script tidak memigrasikan record lama; lihat [laporan P1-09](../reports/P1_09_P1_10_LIMITS_COST_REPORT.md).
 - [ ] Ulangi health, smoke/live, TLS/access check dan restore di target setelah deploy.
 
-Checklist kosong di atas disengaja: tidak ditandai lulus hanya karena tes lokal berhasil.
+Kotak yang masih kosong disengaja: tidak ditandai lulus hanya karena tes lokal berhasil.
 Laporan lintas milestone dan bukti eksekusi ada di folder `llm-gateway-docs/reports/`.

@@ -1,0 +1,7 @@
+{
+  "case": "after_fix_native_member_script",
+  "member_budget": 2.0,
+  "member_duration": "30d",
+  "member_reset_at": "2026-11-01T00:00:00Z",
+  "team_reset_at": "2026-11-01T00:00:00Z"
+}

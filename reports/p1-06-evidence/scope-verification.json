@@ -1,0 +1,145 @@
+{
+  "date": "2026-10-12",
+  "timezone": "Asia/Jakarta",
+  "task": "P1-06/F-01/F-02",
+  "result": "PASS",
+  "repositories": {
+    "llm-gateway-config": {
+      "head_before": "b2cf9b04d83cca45db4f350ac5c4be9fbf8ea030",
+      "head_after": "b2cf9b04d83cca45db4f350ac5c4be9fbf8ea030",
+      "changed_during_session": [
+        {
+          "path": "README.md",
+          "sha256_before": "d96229c7c64c1216e57f87f121d7b2220c0652c08d3682687072870dedf86e78",
+          "sha256_after": "6ac2f07a61932ca1935e7f322785aed86f22d31f701f1057036bc7f66fafe65f"
+        },
+        {
+          "path": "scripts/ci/model_contract.py",
+          "sha256_before": null,
+          "sha256_after": "b2b7c84e945d38388c1c745e324a5f9d5e320ff2b826d6df9bb97209e61f12ce"
+        },
+        {
+          "path": "scripts/ci/test-model-contract.py",
+          "sha256_before": null,
+          "sha256_after": "452612fd5f4703be79a5c6097c619cb9d612586336abdaf7168ad5bcded4fdeb"
+        },
+        {
+          "path": "scripts/ci/validate-model-catalog.py",
+          "sha256_before": "6b3c87acc467996b162d3e13754d57e21475b2913f655d5f2359a2954220aafd",
+          "sha256_after": "19e9ce9857b4441ae1f5650658dd162e058b9346aeadee3b20838d0fc5641f4e"
+        },
+        {
+          "path": "scripts/ci/validate-runtime-config.py",
+          "sha256_before": "294a704bc5f88ced049ae9d126c77d9cb49ab4c29772b5dfd7cf01a9f1273b75",
+          "sha256_after": "579a15188a2838d0b4739bd0ca302ed6f040ae1d83c0f6a42938efd5a3f37ab6"
+        },
+        {
+          "path": "scripts/ci/validate.sh",
+          "sha256_before": "286e8f12b2430d62dcf5406367508e9221c91c533c52ca99d3decf24941080de",
+          "sha256_after": "36932f3876179fc032a431087b003866c62971216da0f4ab5e9f39b50031a738"
+        },
+        {
+          "path": "scripts/validate.sh",
+          "sha256_before": "62e222ad408a30583c603ef83d8cb310a9af863cb1c7085569821ce229b1a0b8",
+          "sha256_after": "2524d8dc811d3ada7f2dc218e70efc09c42665919b054d52db7ee87341b213c9"
+        }
+      ]
+    },
+    "llm-gateway-infra": {
+      "head_before": "05f77497f18c2c4edf2ab1cbf938d10ca0f5b484",
+      "head_after": "05f77497f18c2c4edf2ab1cbf938d10ca0f5b484",
+      "changed_during_session": [
+        {
+          "path": "scripts/ci/test-operations.py",
+          "sha256_before": "c88ff5568af5cd1193d1f407f2062fa72619133c614c969fc54b4dafd8c1ad23",
+          "sha256_after": "f074363184c6542cc084155f7e83e608face36e390955f0d48db3a77741e25b2"
+        },
+        {
+          "path": "scripts/release/manage.py",
+          "sha256_before": "88cd68228c47ab394028c89ad8e4ff80d97ab7790f8c7863852363ef1c125ecd",
+          "sha256_after": "6ac0a3cd3455e8e7f17685f3b64d2580bbe46b08ef8009d24a3c80ef31514496"
+        }
+      ]
+    },
+    "llm-gateway-e2e": {
+      "head_before": "6151e07109c9832ce776a078921574d695f45134",
+      "head_after": "6151e07109c9832ce776a078921574d695f45134",
+      "changed_during_session": [
+        {
+          "path": "tests/test_models.py",
+          "sha256_before": "0e735ea1fe8d43b3038f2541c9fefc14a1dfc2c9966d4e7054afcc3ffa1651b8",
+          "sha256_after": "1a009528145be3ebc6c5b83ae785d6c57655801a49c509ee6e5b7673012825c9"
+        },
+        {
+          "path": "tests/unit/test_model_contract.py",
+          "sha256_before": null,
+          "sha256_after": "f51d19e018f3c7aade9a682870f79ee52ab753cdf9e1c055a40909b76c078038"
+        }
+      ]
+    },
+    "llm-gateway-docs": {
+      "head_before": "1d07d02ef942379263bd690c8dc3fe6a9f7c03a7",
+      "head_after": "1d07d02ef942379263bd690c8dc3fe6a9f7c03a7",
+      "changed_paths_during_session": [
+        "MASTER_CONTEXT.md",
+        "README.md",
+        "adr/009-logical-model-contract.md",
+        "adr/README.md",
+        "architecture/phase-1-completion-plan.md",
+        "architecture/phase-1.md",
+        "developer/model-catalog.md",
+        "handover/AI_CONTINUATION.md",
+        "handover/HUMAN_HANDOVER.md",
+        "handover/WORK_LOG.md",
+        "reports/P1_06_CODE_APPENDIX.md",
+        "reports/P1_06_MODEL_CONTRACT_REPORT.md",
+        "reports/README.md",
+        "reports/p1-06-evidence/README.md",
+        "reports/p1-06-evidence/config-validation.txt",
+        "reports/p1-06-evidence/contract-matrix.json",
+        "reports/p1-06-evidence/docs-validation.txt",
+        "reports/p1-06-evidence/e2e-validation.txt",
+        "reports/p1-06-evidence/infra-validation.txt",
+        "reports/p1-06-evidence/scope-verification.json"
+      ],
+      "note": "Docs are updated after source verification; only changed paths are recorded to avoid self-referential artifact hashes."
+    }
+  },
+  "active_assets_unchanged": [
+    {
+      "path": "llm-gateway-config/clients/opencode/opencode.jsonc",
+      "sha256": "d0c219008a1d54d5b59ebf5ed4307b38bca1b12c89e81921caae65dbf8308bde"
+    },
+    {
+      "path": "llm-gateway-config/config/litellm_config.yaml",
+      "sha256": "5bc327e951ebd02c9f33934e09940c91a66cd2233bb056efeb58f80be2d75a9b"
+    },
+    {
+      "path": "llm-gateway-config/models/company-coding.yaml",
+      "sha256": "4ae12c32890bfa947d5eb6cdc4921d0dfcfd9a65cbd14ed75baf889210797841"
+    },
+    {
+      "path": "llm-gateway-config/models/company-fast.yaml",
+      "sha256": "5cc15d1003212d4984edc799bafd2f2470242ff6c9e20eff06224fa6677effcb"
+    },
+    {
+      "path": "llm-gateway-config/policies/teams/default.yaml",
+      "sha256": "fe924b6e5b3f56855c4b397d9c2e571b9221b2978c55d49651414ffe8a0bd446"
+    },
+    {
+      "path": "llm-gateway-config/policies/teams/engineering.yaml",
+      "sha256": "47f4c2f6511a5258f114a9f76b351784446cf3a9f3b762ac547fe5ff23544efc"
+    },
+    {
+      "path": "llm-gateway-config/policies/teams/healthcheck.yaml",
+      "sha256": "ead19c60b5138bf25c9864e12281d6c7aaf54998cebbfe7ab2c23d0d0f613f49"
+    },
+    {
+      "path": "llm-gateway-config/providers/openai.yaml",
+      "sha256": "2959b19e9d34c58450a916be64cdc1ab5bc4009e39ab1aeec4be6eceeba64065"
+    }
+  ],
+  "approved_mapping_parity": "PASS: config and standalone infra guard have identical approved mappings",
+  "diff_check": "PASS: all four repositories",
+  "code_appendix_sha256": "PASS: ten source hashes match current code"
+}

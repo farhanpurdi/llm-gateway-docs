@@ -1,0 +1,31 @@
+Traceback (most recent call last):
+  File "/app/.venv/lib/python3.13/site-packages/litellm/router.py", line 7609, in async_function_with_retries
+    response = await self.make_call(original_function, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/.venv/lib/python3.13/site-packages/litellm/router.py", line 7779, in make_call
+    response = await response
+               ^^^^^^^^^^^^^^
+  File "<stdin>", line 82, in upstream
+litellm.exceptions.InternalServerError: litellm.InternalServerError: Controlled native fault
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<stdin>", line 104, in <module>
+  File "<stdin>", line 100, in main
+  File "/usr/lib/python3.13/asyncio/runners.py", line 196, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/usr/lib/python3.13/asyncio/runners.py", line 119, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/usr/lib/python3.13/asyncio/base_events.py", line 726, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "<stdin>", line 88, in run
+  File "/app/.venv/lib/python3.13/site-packages/litellm/router.py", line 7669, in async_function_with_retries
+    kwargs = self.log_retry(kwargs=kwargs, e=original_exception)
+  File "/app/.venv/lib/python3.13/site-packages/litellm/router.py", line 8294, in log_retry
+    request_metadata: Final[Mapping[str, object]] = kwargs[_metadata_var]
+                                                    ~~~~~~^^^^^^^^^^^^^^^
+KeyError: 'metadata'

@@ -48,9 +48,10 @@ karyawan nyata.
 |---|---|
 | 401/403 pada key developer | Periksa key blocked/expired, kepemilikan user/team, dan akses alias; jangan berikan master key sebagai jalan pintas. |
 | 429 | Periksa RPM/budget team/key dan waktu reset; jangan menaikkan limit otomatis. |
+| 422budget | Native LiteLLMexisting memakai422 untuk budget habis. Periksa scopekey/member/team dan durasi/reset; jangan menganggap semua budgeterror429. |
 | Provider timeout/5xx | Cek health/catalog lalu satu live inference; cek status provider, request ID dan durasi, tanpa merekam secret/prompt sensitif. |
-| PostgreSQL mati | Jalankan dependency check, periksa disk/log DB, `docker start llm-gateway-postgres` pada container existing; tunggu siap dan cek gateway. |
-| Redis mati | Periksa dependency check, `docker start llm-gateway-redis`; verifikasi kesehatan dan enforcement. HTTP gateway yang masih 200 tidak membuktikan Redis sehat. |
+| PostgreSQL mati | Pada drill17Oktober valid warm/cold503; blocked401, negative lain503. Gateway menolak request yang tidak dapat diverifikasi. Periksa disk/logDB, start container existing, tungguPG+gatewayready, lalu periksa deny dan keduaalias/spend. |
+| Redis mati | Pada runtimeexisting Redis belum menjadi nativecache; valid tetap200, invalid/blocked401, deny403 dan budget422. Health operasional tetap gagal sampai Redis pulih. Startcontainer existing dan periksa keduanya; jangan mengklaim distributedlimit dari hasil ini. |
 | Config release gagal | Baca operation JSON; pastikan recovery passed atau lakukan pemulihan config sesuai runbook release. |
 | Secret bocor | Blokir virtual key terdampak, rotasi melalui jalur privat, evaluasi akses/spend, pertahankan audit; provider/master/salt membutuhkan rencana khusus. |
 | Disk penuh/backup gagal | Jangan hapus histori untuk mendapat ruang; identifikasi log/arsip yang boleh dipindah sesuai retensi, verifikasi backup baru. |
@@ -58,6 +59,11 @@ karyawan nyata.
 Akhiri incident setelah dependency, health, smoke dan tes live relevan lulus. Catat
 waktu mulai/pulih, penyebab, tindakan, hasil verifikasi, dan penanggung jawab.
 `docker logs --since 10m llm-gateway` hanya untuk operator: redaksi sebelum membagikan.
+
+Provider429/500/timeout408 dan retry2(3attempt) diperiksa lewatSDK/router/errorhandler
+native terpasang dengan mock tanpa providerIO; HTTPmock berbahaya ditolak400 pada
+gateway nyata. Ini simulasi terkontrol, bukan sengaja membanjiri provider untuk
+memicu error. [Bukti/cakupan](../reports/phase1-final-evidence/README.md).
 
 ## Pilot
 

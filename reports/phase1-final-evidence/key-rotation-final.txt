@@ -1,0 +1,16 @@
+WARNING:
+This test suite sends real requests to the LLM provider.
+
+============================= test session starts ==============================
+platform darwin -- Python 3.12.15, pytest-9.0.3, pluggy-1.6.0 -- /Users/pur/MyProject/company-ai-platform/.venv/bin/python3
+cachedir: .pytest_cache
+rootdir: /Users/pur/MyProject/company-ai-platform/llm-gateway-e2e
+configfile: pytest.ini
+collecting ... collected 2 items
+
+tests/test_key_rotation.py::test_virtual_key_rotation_preserves_scope_and_audit[company-fast] P1_KEY_ROTATION {"alias": "company-fast", "old_denied": true, "new_accepted": true, "same_scope": true, "records_and_spend_retained": true}
+PASSED
+tests/test_key_rotation.py::test_virtual_key_rotation_preserves_scope_and_audit[company-coding] P1_KEY_ROTATION {"alias": "company-coding", "old_denied": true, "new_accepted": true, "same_scope": true, "records_and_spend_retained": true}
+PASSED
+
+============================== 2 passed in 24.80s ==============================

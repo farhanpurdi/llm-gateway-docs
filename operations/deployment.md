@@ -34,7 +34,7 @@ baseline. Pertahankan alias logis dan referensi secret `os.environ/...`.
 
 Deploy/rollback otomatis melakukan backup DB + environment, menyimpan config lama,
 menulis pada inode config yang sama, restart gateway existing, menunggu readiness,
-membandingkan isi mount, health/dependency/catalog check, lalu 3 smoke test. Identitas
+membandingkan isi mount, health/dependency/catalog check, lalu 5 smoke test. Identitas
 container/image harus sama dengan manifest. Tes live dijalankan operator sesudahnya
 untuk memeriksa provider dan enforcement, dengan biaya provider kecil.
 
@@ -62,3 +62,9 @@ berhasil hanya karena perintah restart berhasil.
   database lama untuk memperbaiki config; itu dapat membuang histori baru.
 - Runtime `.env` harus cocok dengan secret yang dipakai container. Mengedit `.env`
   tidak mengubah environment container lewat `docker restart`.
+
+Drill ulang17Oktober2026 PASS:request_timeout180→181→180 lewat capture/deploy/rollback,
+backup pada kedua apply,5smoke tiap tahap, healthPASS, inode dan byte asli pulih,
+ID/image tetap sama. [Kode drill](../reports/phase1-final-evidence/config-drill.py)
+dan [output](../reports/phase1-final-evidence/config-release-rollback.txt).
+Manifest tetap workingtree dirty, bukan tag/candidate yang sudah direview.

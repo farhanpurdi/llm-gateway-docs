@@ -1,0 +1,50 @@
+{
+  "protected_assets": [
+    {
+      "path": "llm-gateway-config/config/litellm_config.yaml",
+      "sha256": "5bc327e951ebd02c9f33934e09940c91a66cd2233bb056efeb58f80be2d75a9b",
+      "unchanged_since_goal_start": true
+    },
+    {
+      "path": "llm-gateway-config/models/company-fast.yaml",
+      "sha256": "5cc15d1003212d4984edc799bafd2f2470242ff6c9e20eff06224fa6677effcb",
+      "unchanged_since_goal_start": true
+    },
+    {
+      "path": "llm-gateway-config/models/company-coding.yaml",
+      "sha256": "4ae12c32890bfa947d5eb6cdc4921d0dfcfd9a65cbd14ed75baf889210797841",
+      "unchanged_since_goal_start": true
+    },
+    {
+      "path": "llm-gateway-config/providers/openai.yaml",
+      "sha256": "2959b19e9d34c58450a916be64cdc1ab5bc4009e39ab1aeec4be6eceeba64065",
+      "unchanged_since_goal_start": true
+    },
+    {
+      "path": "llm-gateway-config/policies/teams/default.yaml",
+      "sha256": "fe924b6e5b3f56855c4b397d9c2e571b9221b2978c55d49651414ffe8a0bd446",
+      "unchanged_since_goal_start": true
+    },
+    {
+      "path": "llm-gateway-config/policies/teams/engineering.yaml",
+      "sha256": "47f4c2f6511a5258f114a9f76b351784446cf3a9f3b762ac547fe5ff23544efc",
+      "unchanged_since_goal_start": true
+    },
+    {
+      "path": "llm-gateway-config/policies/teams/healthcheck.yaml",
+      "sha256": "ead19c60b5138bf25c9864e12281d6c7aaf54998cebbfe7ab2c23d0d0f613f49",
+      "unchanged_since_goal_start": true
+    },
+    {
+      "path": "llm-gateway-config/policies/teams/pilot.yaml",
+      "sha256": "b6f903785da18d0c80857737865a9530bc55b440f6598d862b35259cd14dc304",
+      "unchanged_since_goal_start": true
+    },
+    {
+      "path": "llm-gateway-config/clients/opencode/opencode.jsonc",
+      "sha256": "d0c219008a1d54d5b59ebf5ed4307b38bca1b12c89e81921caae65dbf8308bde",
+      "unchanged_since_goal_start": true
+    }
+  ],
+  "infra_env_permissions": "0o600"
+}

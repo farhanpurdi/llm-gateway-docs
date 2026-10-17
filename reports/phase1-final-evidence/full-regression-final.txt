@@ -1,0 +1,186 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.12.15, pytest-9.0.3, pluggy-1.6.0 -- /Users/pur/MyProject/company-ai-platform/.venv/bin/python3
+cachedir: .pytest_cache
+rootdir: /Users/pur/MyProject/company-ai-platform/llm-gateway-e2e
+configfile: pytest.ini
+testpaths: tests
+collecting ... collected 134 items / 37 deselected / 97 selected
+
+tests/unit/test_accounting.py::test_cost_discounts_cached_input_and_does_not_double_count_reasoning[company-fast-0.000284] PASSED [  1%]
+tests/unit/test_accounting.py::test_cost_discounts_cached_input_and_does_not_double_count_reasoning[company-coding-0.000528] PASSED [  2%]
+tests/unit/test_accounting.py::test_invalid_provider_usage_is_rejected[prompt_tokens--1] PASSED [  3%]
+tests/unit/test_accounting.py::test_invalid_provider_usage_is_rejected[completion_tokens-True] PASSED [  4%]
+tests/unit/test_accounting.py::test_invalid_provider_usage_is_rejected[total_tokens-111] PASSED [  5%]
+tests/unit/test_accounting.py::test_invalid_provider_usage_is_rejected[prompt_tokens-nan] PASSED [  6%]
+tests/unit/test_accounting.py::test_invalid_provider_usage_is_rejected[completion_tokens-None] PASSED [  7%]
+tests/unit/test_accounting.py::test_impossible_cache_usage_is_rejected[-1] PASSED [  8%]
+tests/unit/test_accounting.py::test_impossible_cache_usage_is_rejected[101] PASSED [  9%]
+tests/unit/test_accounting.py::test_impossible_cache_usage_is_rejected[True] PASSED [ 10%]
+tests/unit/test_accounting.py::test_nonstandard_pricing_is_not_silently_counted_as_standard[long-context] PASSED [ 11%]
+tests/unit/test_accounting.py::test_nonstandard_pricing_is_not_silently_counted_as_standard[cache-write] PASSED [ 12%]
+tests/unit/test_accounting.py::test_wrong_attribution_tokens_and_cost_fail_the_live_assertion[request_id-wrong] PASSED [ 13%]
+tests/unit/test_accounting.py::test_wrong_attribution_tokens_and_cost_fail_the_live_assertion[user-other] PASSED [ 14%]
+tests/unit/test_accounting.py::test_wrong_attribution_tokens_and_cost_fail_the_live_assertion[team_id-other] PASSED [ 15%]
+tests/unit/test_accounting.py::test_wrong_attribution_tokens_and_cost_fail_the_live_assertion[api_key-other] PASSED [ 16%]
+tests/unit/test_accounting.py::test_wrong_attribution_tokens_and_cost_fail_the_live_assertion[model_group-company-coding] PASSED [ 17%]
+tests/unit/test_accounting.py::test_wrong_attribution_tokens_and_cost_fail_the_live_assertion[model-wrong] PASSED [ 18%]
+tests/unit/test_accounting.py::test_wrong_attribution_tokens_and_cost_fail_the_live_assertion[prompt_tokens-99] PASSED [ 19%]
+tests/unit/test_accounting.py::test_wrong_attribution_tokens_and_cost_fail_the_live_assertion[completion_tokens-9] PASSED [ 20%]
+tests/unit/test_accounting.py::test_wrong_attribution_tokens_and_cost_fail_the_live_assertion[total_tokens-109] PASSED [ 21%]
+tests/unit/test_accounting.py::test_wrong_attribution_tokens_and_cost_fail_the_live_assertion[spend-0.1] PASSED [ 22%]
+tests/unit/test_accounting.py::test_wrong_attribution_tokens_and_cost_fail_the_live_assertion[spend-nan] PASSED [ 23%]
+tests/unit/test_accounting.py::test_wrong_attribution_tokens_and_cost_fail_the_live_assertion[spend-True] PASSED [ 24%]
+tests/unit/test_accounting.py::test_model_info_and_errors_never_return_credentials PASSED [ 25%]
+tests/unit/test_accounting.py::test_pytest_container_repr_hides_credentials_but_http_auth_still_works PASSED [ 26%]
+tests/unit/test_fixture_cleanup.py::test_cleanup_runs_for_identity_registered_before_setup_failure PASSED [ 27%]
+tests/unit/test_fixture_cleanup.py::test_cleanup_failure_is_visible_and_preserves_team_attempt[offboard-error] PASSED [ 28%]
+tests/unit/test_fixture_cleanup.py::test_cleanup_failure_is_visible_and_preserves_team_attempt[key-not-blocked] PASSED [ 29%]
+tests/unit/test_fixture_cleanup.py::test_cleanup_failure_is_visible_and_preserves_team_attempt[team-not-blocked] PASSED [ 30%]
+tests/unit/test_fixture_cleanup.py::test_cleanup_failure_is_visible_and_preserves_team_attempt[team-http-error] PASSED [ 31%]
+tests/unit/test_history_retention.py::test_lifecycle_assertions_detect_history_regression[intact] PASSED [ 32%]
+tests/unit/test_history_retention.py::test_lifecycle_assertions_detect_history_regression[missing-request] PASSED [ 34%]
+tests/unit/test_history_retention.py::test_lifecycle_assertions_detect_history_regression[changed-key] PASSED [ 35%]
+tests/unit/test_history_retention.py::test_lifecycle_assertions_detect_history_regression[changed-user] PASSED [ 36%]
+tests/unit/test_history_retention.py::test_lifecycle_assertions_detect_history_regression[changed-team] PASSED [ 37%]
+tests/unit/test_history_retention.py::test_lifecycle_assertions_detect_history_regression[changed-spend] PASSED [ 38%]
+tests/unit/test_maintenance.py::test_dependency_is_restored_after_test_assertion_fails[postgres] PASSED [ 39%]
+tests/unit/test_maintenance.py::test_dependency_is_restored_after_test_assertion_fails[redis] PASSED [ 40%]
+tests/unit/test_maintenance.py::test_maintenance_refuses_unapproved_or_remote_target[http://localhost:4000-False] PASSED [ 41%]
+tests/unit/test_maintenance.py::test_maintenance_refuses_unapproved_or_remote_target[https://external.invalid:4000-True] PASSED [ 42%]
+tests/unit/test_maintenance.py::test_maintenance_refuses_unapproved_or_remote_target[http://localhost:4001-True] PASSED [ 43%]
+tests/unit/test_model_contract.py::test_exact_model_exposure_accepts_both_approved_aliases[ids0] PASSED [ 44%]
+tests/unit/test_model_contract.py::test_exact_model_exposure_accepts_both_approved_aliases[ids1] PASSED [ 45%]
+tests/unit/test_model_contract.py::test_exact_model_exposure_rejects_incomplete_or_extra_aliases[ids0] PASSED [ 46%]
+tests/unit/test_model_contract.py::test_exact_model_exposure_rejects_incomplete_or_extra_aliases[ids1] PASSED [ 47%]
+tests/unit/test_model_contract.py::test_exact_model_exposure_rejects_incomplete_or_extra_aliases[ids2] PASSED [ 48%]
+tests/unit/test_model_contract.py::test_exact_model_exposure_rejects_incomplete_or_extra_aliases[ids3] PASSED [ 49%]
+tests/unit/test_model_contract.py::test_exact_model_exposure_rejects_incomplete_or_extra_aliases[ids4] PASSED [ 50%]
+tests/unit/test_offboarding_client.py::test_offboarding_discovers_every_page_before_blocking PASSED [ 51%]
+tests/unit/test_offboarding_client.py::test_invalid_discovery_never_blocks_any_key[other-user] PASSED [ 52%]
+tests/unit/test_offboarding_client.py::test_invalid_discovery_never_blocks_any_key[duplicate] PASSED [ 53%]
+tests/unit/test_offboarding_client.py::test_invalid_discovery_never_blocks_any_key[changed-count] PASSED [ 54%]
+tests/unit/test_offboarding_client.py::test_invalid_discovery_never_blocks_any_key[incomplete] PASSED [ 55%]
+tests/unit/test_offboarding_client.py::test_invalid_discovery_never_blocks_any_key[wrong-page] PASSED [ 56%]
+tests/unit/test_offboarding_client.py::test_invalid_discovery_never_blocks_any_key[empty-page] PASSED [ 57%]
+tests/unit/test_offboarding_client.py::test_invalid_discovery_never_blocks_any_key[missing-token] PASSED [ 58%]
+tests/unit/test_offboarding_client.py::test_partial_block_failure_continues_and_reports_failure[http] PASSED [ 59%]
+tests/unit/test_offboarding_client.py::test_partial_block_failure_continues_and_reports_failure[exception] PASSED [ 60%]
+tests/unit/test_offboarding_client.py::test_partial_block_failure_continues_and_reports_failure[wrong-token] PASSED [ 61%]
+tests/unit/test_offboarding_client.py::test_partial_block_failure_continues_and_reports_failure[wrong-user] PASSED [ 62%]
+tests/unit/test_offboarding_client.py::test_partial_block_failure_continues_and_reports_failure[not-blocked] PASSED [ 63%]
+tests/unit/test_opencode.py::test_actual_tool_sequence_is_accepted PASSED [ 64%]
+tests/unit/test_opencode.py::test_success_text_cannot_replace_actual_tool_result[text-only] PASSED [ 65%]
+tests/unit/test_opencode.py::test_success_text_cannot_replace_actual_tool_result[missing-read] PASSED [ 67%]
+tests/unit/test_opencode.py::test_success_text_cannot_replace_actual_tool_result[missing-edit] PASSED [ 68%]
+tests/unit/test_opencode.py::test_success_text_cannot_replace_actual_tool_result[shell-not-completed] PASSED [ 69%]
+tests/unit/test_opencode.py::test_success_text_cannot_replace_actual_tool_result[wrong-command] PASSED [ 70%]
+tests/unit/test_opencode.py::test_success_text_cannot_replace_actual_tool_result[wrong-tool-result] PASSED [ 71%]
+tests/unit/test_opencode.py::test_success_text_cannot_replace_actual_tool_result[wrong-final-receipt] PASSED [ 72%]
+tests/unit/test_opencode.py::test_success_text_cannot_replace_actual_tool_result[wrong-order] PASSED [ 73%]
+tests/unit/test_opencode.py::test_invalid_cli_events_fail_without_raw_output[not-json unit-credential] PASSED [ 74%]
+tests/unit/test_opencode.py::test_invalid_cli_events_fail_without_raw_output[[]] PASSED [ 75%]
+tests/unit/test_opencode.py::test_invalid_cli_events_fail_without_raw_output[] PASSED [ 76%]
+tests/unit/test_opencode.py::test_invalid_cli_events_fail_without_raw_output[{"type":"error","error":"unit-credential"}] PASSED [ 77%]
+tests/unit/test_opencode.py::test_cli_failure_suppresses_stdout_and_stderr PASSED [ 78%]
+tests/unit/test_opencode.py::test_cli_environment_does_not_inherit_admin_credentials PASSED [ 79%]
+tests/unit/test_opencode.py::test_fixture_uses_real_template_without_mutating_it PASSED [ 80%]
+tests/unit/test_suite_validator.py::test_validator_requires_each_lifecycle_test[None] PASSED [ 81%]
+tests/unit/test_suite_validator.py::test_validator_requires_each_lifecycle_test[test_multiple_user_keys_work_before_offboarding] PASSED [ 82%]
+tests/unit/test_suite_validator.py::test_validator_requires_each_lifecycle_test[test_user_offboarding_blocks_all_keys] PASSED [ 83%]
+tests/unit/test_suite_validator.py::test_validator_requires_each_lifecycle_test[test_pilot_policy_is_persisted] PASSED [ 84%]
+tests/unit/test_suite_validator.py::test_validator_requires_each_lifecycle_test[test_team_rate_limits_are_shared_and_recover] PASSED [ 85%]
+tests/unit/test_suite_validator.py::test_validator_requires_each_lifecycle_test[test_member_budget_is_shared_across_keys] PASSED [ 86%]
+tests/unit/test_suite_validator.py::test_validator_requires_each_lifecycle_test[test_team_budget_blocks_all_members] PASSED [ 87%]
+tests/unit/test_suite_validator.py::test_validator_requires_each_lifecycle_test[test_key_budget_does_not_block_other_keys] PASSED [ 88%]
+tests/unit/test_suite_validator.py::test_validator_requires_each_lifecycle_test[test_member_budget_window_resets_without_losing_total_spend] PASSED [ 89%]
+tests/unit/test_suite_validator.py::test_validator_requires_each_lifecycle_test[test_opencode_onboarding_uses_developer_key] PASSED [ 90%]
+tests/unit/test_suite_validator.py::test_validator_requires_each_lifecycle_test[test_opencode_agent_reads_edits_runs_and_uses_tool_result] PASSED [ 91%]
+tests/unit/test_suite_validator.py::test_validator_requires_each_lifecycle_test[test_fault_injection_parameters_are_rejected] PASSED [ 92%]
+tests/unit/test_suite_validator.py::test_validator_requires_each_lifecycle_test[test_dependency_outage_preserves_denials_and_recovers] PASSED [ 93%]
+tests/unit/test_suite_validator.py::test_validator_requires_each_lifecycle_test[test_virtual_key_rotation_preserves_scope_and_audit] PASSED [ 94%]
+tests/unit/test_transport_privacy.py::test_transport_errors_suppress_credential_urls_and_bodies[Timeout-get] PASSED [ 95%]
+tests/unit/test_transport_privacy.py::test_transport_errors_suppress_credential_urls_and_bodies[Timeout-post] PASSED [ 96%]
+tests/unit/test_transport_privacy.py::test_transport_errors_suppress_credential_urls_and_bodies[ConnectionError-get] PASSED [ 97%]
+tests/unit/test_transport_privacy.py::test_transport_errors_suppress_credential_urls_and_bodies[ConnectionError-post] PASSED [ 98%]
+tests/unit/test_transport_privacy.py::test_header_repr_hides_key_without_changing_http_value PASSED [100%]
+
+====================== 97 passed, 37 deselected in 1.38s =======================
+============================= test session starts ==============================
+platform darwin -- Python 3.12.15, pytest-9.0.3, pluggy-1.6.0 -- /Users/pur/MyProject/company-ai-platform/.venv/bin/python3
+cachedir: .pytest_cache
+rootdir: /Users/pur/MyProject/company-ai-platform/llm-gateway-e2e
+configfile: pytest.ini
+testpaths: tests
+collecting ... collected 134 items / 129 deselected / 5 selected
+
+tests/test_auth.py::test_invalid_key_is_rejected PASSED                  [ 20%]
+tests/test_health.py::test_litellm_is_alive PASSED                       [ 40%]
+tests/test_models.py::test_user_can_see_expected_models PASSED           [ 60%]
+tests/test_opencode.py::test_opencode_onboarding_uses_developer_key PASSED [ 80%]
+tests/test_pilot_limits.py::test_pilot_policy_is_persisted PASSED        [100%]
+
+====================== 5 passed, 129 deselected in 1.53s =======================
+Native LiteLLM fault/retry probe on the existing gateway container.
+No provider requests or gateway configuration changes.
+{"status": "PASS", "num_retries": 2, "cases": [{"alias": "company-coding", "case": "rate_limit", "http_status": 429, "error_type": "throttling_error", "scope": "native-sdk-and-proxy-handler"}, {"alias": "company-coding", "case": "server_error", "http_status": 500, "error_type": "internal_server_error", "scope": "native-sdk-and-proxy-handler"}, {"alias": "company-coding", "case": "timeout", "http_status": 408, "error_type": "invalid_request_error", "scope": "native-sdk-and-proxy-handler"}, {"alias": "company-fast", "case": "rate_limit", "http_status": 429, "error_type": "throttling_error", "scope": "native-sdk-and-proxy-handler"}, {"alias": "company-fast", "case": "server_error", "http_status": 500, "error_type": "internal_server_error", "scope": "native-sdk-and-proxy-handler"}, {"alias": "company-fast", "case": "timeout", "http_status": 408, "error_type": "invalid_request_error", "scope": "native-sdk-and-proxy-handler"}, {"case": "transient_500", "attempts": 3, "succeeded": true, "scope": "native-router-fault-boundary"}, {"case": "persistent_500", "attempts": 3, "succeeded": false, "scope": "native-router-fault-boundary"}, {"case": "transient_429", "attempts": 3, "succeeded": true, "scope": "native-router-fault-boundary"}, {"case": "persistent_429", "attempts": 3, "succeeded": false, "scope": "native-router-fault-boundary"}, {"case": "transient_timeout", "attempts": 3, "succeeded": true, "scope": "native-router-fault-boundary"}, {"case": "persistent_timeout", "attempts": 3, "succeeded": false, "scope": "native-router-fault-boundary"}, {"case": "bad_request", "attempts": 1, "succeeded": false, "scope": "native-router-fault-boundary"}], "provider_requests": 0, "gateway_config_changed": false}
+WARNING:
+This test suite sends real requests to the LLM provider.
+
+============================= test session starts ==============================
+platform darwin -- Python 3.12.15, pytest-9.0.3, pluggy-1.6.0 -- /Users/pur/MyProject/company-ai-platform/.venv/bin/python3
+cachedir: .pytest_cache
+rootdir: /Users/pur/MyProject/company-ai-platform/llm-gateway-e2e
+configfile: pytest.ini
+testpaths: tests
+collecting ... collected 134 items / 104 deselected / 30 selected
+
+tests/test_failure_semantics.py::test_fault_injection_parameters_are_rejected[rate_limit-company-fast] PASSED [  3%]
+tests/test_failure_semantics.py::test_fault_injection_parameters_are_rejected[rate_limit-company-coding] PASSED [  6%]
+tests/test_failure_semantics.py::test_fault_injection_parameters_are_rejected[server_error-company-fast] PASSED [ 10%]
+tests/test_failure_semantics.py::test_fault_injection_parameters_are_rejected[server_error-company-coding] PASSED [ 13%]
+tests/test_failure_semantics.py::test_fault_injection_parameters_are_rejected[timeout-company-fast] PASSED [ 16%]
+tests/test_failure_semantics.py::test_fault_injection_parameters_are_rejected[timeout-company-coding] PASSED [ 20%]
+tests/test_inference.py::test_company_fast_inference PASSED              [ 23%]
+tests/test_inference.py::test_company_coding_inference PASSED            [ 26%]
+tests/test_inference.py::test_streaming[fast_model] PASSED               [ 30%]
+tests/test_inference.py::test_streaming[coding_model] PASSED             [ 33%]
+tests/test_inference.py::test_tool_calling[fast_model] PASSED            [ 36%]
+tests/test_inference.py::test_tool_calling[coding_model] PASSED          [ 40%]
+tests/test_key_rotation.py::test_virtual_key_rotation_preserves_scope_and_audit[company-fast] PASSED [ 43%]
+tests/test_key_rotation.py::test_virtual_key_rotation_preserves_scope_and_audit[company-coding] PASSED [ 46%]
+tests/test_lifecycle.py::test_multiple_user_keys_work_before_offboarding PASSED [ 50%]
+tests/test_lifecycle.py::test_user_offboarding_blocks_all_keys PASSED    [ 53%]
+tests/test_limits.py::test_team_rpm_limit_is_enforced PASSED             [ 56%]
+tests/test_limits.py::test_key_budget_is_enforced PASSED                 [ 60%]
+tests/test_limits.py::test_blocked_key_is_rejected PASSED                [ 63%]
+tests/test_opencode.py::test_opencode_agent_reads_edits_runs_and_uses_tool_result[company-fast] PASSED [ 66%]
+tests/test_opencode.py::test_opencode_agent_reads_edits_runs_and_uses_tool_result[company-coding] PASSED [ 70%]
+tests/test_pilot_limits.py::test_team_rate_limits_are_shared_and_recover[rpm] PASSED [ 73%]
+tests/test_pilot_limits.py::test_team_rate_limits_are_shared_and_recover[tpm] PASSED [ 76%]
+tests/test_pilot_limits.py::test_member_budget_is_shared_across_keys PASSED [ 80%]
+tests/test_pilot_limits.py::test_team_budget_blocks_all_members PASSED   [ 83%]
+tests/test_pilot_limits.py::test_key_budget_does_not_block_other_keys PASSED [ 86%]
+tests/test_pilot_limits.py::test_member_budget_window_resets_without_losing_total_spend PASSED [ 90%]
+tests/test_policy.py::test_team_policy_changes_without_key_rotation PASSED [ 93%]
+tests/test_spend.py::test_spend_is_attributed_to_user[company-fast] PASSED [ 96%]
+tests/test_spend.py::test_spend_is_attributed_to_user[company-coding] PASSED [100%]
+
+================ 30 passed, 104 deselected in 760.34s (0:12:40) ================
+WARNING:
+This test suite sends real requests to the LLM provider.
+
+============================= test session starts ==============================
+platform darwin -- Python 3.12.15, pytest-9.0.3, pluggy-1.6.0 -- /Users/pur/MyProject/company-ai-platform/.venv/bin/python3
+cachedir: .pytest_cache
+rootdir: /Users/pur/MyProject/company-ai-platform/llm-gateway-e2e
+configfile: pytest.ini
+collecting ... collected 2 items
+
+tests/test_dependency_outage.py::test_dependency_outage_preserves_denials_and_recovers[postgres] P1_OUTAGE_RECOVERY {"dependency": "postgres", "recovered": true, "same_container_ids": true, "seconds": 6.97}
+P1_DEPENDENCY_OUTAGE {"dependency": "postgres", "statuses": {"cold": 503, "invalid": 503, "blocked": 401, "denied": 503, "exhausted": 503, "warm": 503}, "recovered_aliases": ["company-fast", "company-coding"], "accepted_requests_persisted": true}
+PASSED
+tests/test_dependency_outage.py::test_dependency_outage_preserves_denials_and_recovers[redis] P1_OUTAGE_RECOVERY {"dependency": "redis", "recovered": true, "same_container_ids": true, "seconds": 3.01}
+P1_DEPENDENCY_OUTAGE {"dependency": "redis", "statuses": {"cold": 200, "invalid": 401, "blocked": 401, "denied": 403, "exhausted": 422, "warm": 200}, "recovered_aliases": ["company-fast", "company-coding"], "accepted_requests_persisted": true}
+PASSED
+
+======================== 2 passed in 191.27s (0:03:11) =========================

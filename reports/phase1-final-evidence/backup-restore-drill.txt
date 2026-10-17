@@ -1,0 +1,8 @@
+Backup completed (dump + checksum + protected environment).
+Backup checksums: PASS
+Backup archive readable: PASS
+Restore completed into dedicated test database: litellm_restore_test
+Restore verification: PASS (83 public tables)
+Restore data comparison: PASS (83 tables; counts and fingerprints identical)
+BACKUP / RESTORE DRILL: PASS
+Backup: /Users/pur/MyProject/company-ai-platform/llm-gateway-infra/backups/litellm-20261017T043337Z-dAgRmIyh

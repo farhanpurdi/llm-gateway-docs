@@ -1,0 +1,7 @@
+{
+  "scope": "last60minutes existing gateway stdout/stderr",
+  "lines": 978,
+  "raw_key_pattern_matches": 0,
+  "toy_source_marker_present": false,
+  "toy_response_marker_present": false
+}

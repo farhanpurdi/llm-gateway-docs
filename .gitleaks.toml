@@ -1,0 +1,23 @@
+title = "LLM Gateway documentation secret scanning"
+
+[extend]
+useDefault = true
+
+# Exact values below are two blocked native token identifiers and five verified
+# source-file checksums. None is an API credential; no path or rule is excluded.
+# Evidence: reports/phase1-final-evidence/docs-secret-findings-verification.json
+[allowlist]
+description = "Exact verified audit identifiers and source-file checksums"
+regexTarget = "secret"
+regexes = [
+  '''^032cceed19a1b385dd7d4fea7e965c98a59f70da3e82bbc818674d9b52ede7c2$''',
+  '''^648efb4502c4f258073b52e01fab950bdabdc184110349731d755164d17ae96b$''',
+  '''^b9ab0f23d15f33aeb87a5c2548012279a94521854f57eb54894ef98ef281f000$''',
+  '''^d8981aafad6fa0409814a2ac06ba2da679ad9abb5a54f9f11d8431d6a7a140ce$''',
+  '''^dccad2518497c3c49ea7ab8bc52b452080d780d26306d8d397ad0a872eb8c867$''',
+  '''^055d975c489424025eb355a477f6183434ac1b4eafa37f4f1d530b33caf36849$''',
+  '''^d4266b9a40dd5c715d3290a76a08c20db8a9b093c215d6e0cdb3e8748f17dd67$''',
+]
+
+# Verified source-manifest checksums, not API credentials.
+# Evidence: reports/phase1-final-evidence/docs-source-hash-findings-verification.json

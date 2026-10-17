@@ -1,0 +1,19 @@
+WARNING:
+This test suite sends real requests to the LLM provider.
+
+============================= test session starts ==============================
+platform darwin -- Python 3.12.15, pytest-9.0.3, pluggy-1.6.0 -- /Users/pur/MyProject/company-ai-platform/.venv/bin/python3
+cachedir: .pytest_cache
+rootdir: /Users/pur/MyProject/company-ai-platform/llm-gateway-e2e
+configfile: pytest.ini
+collecting ... collected 3 items / 1 deselected / 2 selected
+
+tests/test_opencode.py::test_opencode_agent_reads_edits_runs_and_uses_tool_result[company-fast] P1_OPENCODE_TRACE {"alias": "company-fast", "events": [{"type": "step_start", "tool": null, "status": null}, {"type": "tool_use", "tool": "read", "status": "completed"}, {"type": "step_finish", "tool": null, "status": null}, {"type": "step_start", "tool": null, "status": null}, {"type": "tool_use", "tool": "edit", "status": "completed"}, {"type": "step_finish", "tool": null, "status": null}, {"type": "step_start", "tool": null, "status": null}, {"type": "tool_use", "tool": "shell", "status": "completed"}, {"type": "step_finish", "tool": null, "status": null}, {"type": "step_start", "tool": null, "status": null}, {"type": "text", "tool": null, "status": null}]}
+P1_OPENCODE_AGENT {"completed_tools": ["read", "edit", "shell"], "receipt_consumed": true, "read_edit_verify_order": true, "event_count": 11, "alias": "company-fast", "user_id": "e2e-p1112-6a5da8d3", "team_id": "02779b6f-b4d7-4ff6-ab9d-475d73f24f54", "persisted_requests": 4, "prompt_tokens": 6285, "completion_tokens": 164, "native_spend_usd": 0.007154300000000001, "code": "def subtotal_cents(prices):\n    return sum(prices)\n", "code_sha256": "689e42a3f446a225c812a26480b057ed4b2e27cdc844745648c920540681a73b"}
+PASSED
+tests/test_opencode.py::test_opencode_agent_reads_edits_runs_and_uses_tool_result[company-coding] P1_OPENCODE_TRACE {"alias": "company-coding", "events": [{"type": "step_start", "tool": null, "status": null}, {"type": "tool_use", "tool": "read", "status": "completed"}, {"type": "step_finish", "tool": null, "status": null}, {"type": "step_start", "tool": null, "status": null}, {"type": "tool_use", "tool": "edit", "status": "completed"}, {"type": "step_finish", "tool": null, "status": null}, {"type": "step_start", "tool": null, "status": null}, {"type": "tool_use", "tool": "shell", "status": "completed"}, {"type": "step_finish", "tool": null, "status": null}, {"type": "step_start", "tool": null, "status": null}, {"type": "text", "tool": null, "status": null}]}
+P1_OPENCODE_AGENT {"completed_tools": ["read", "edit", "shell"], "receipt_consumed": true, "read_edit_verify_order": true, "event_count": 11, "alias": "company-coding", "user_id": "e2e-p1112-6a5da8d3", "team_id": "02779b6f-b4d7-4ff6-ab9d-475d73f24f54", "persisted_requests": 4, "prompt_tokens": 6644, "completion_tokens": 252, "native_spend_usd": 0.016172600000000002, "code": "def subtotal_cents(prices):\n    return sum(prices)\n", "code_sha256": "689e42a3f446a225c812a26480b057ed4b2e27cdc844745648c920540681a73b"}
+PASSEDP1_OPENCODE_CLEANUP {"user_id": "e2e-p1112-6a5da8d3", "discovered_count": 1, "blocked_count": 1}
+
+
+======================= 2 passed, 1 deselected in 20.90s =======================

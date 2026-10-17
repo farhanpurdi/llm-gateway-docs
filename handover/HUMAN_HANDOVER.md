@@ -20,6 +20,11 @@
 
 Jangan mengisi nama atau budget berdasarkan tebakan. Serahkan akses repository/provider/
 server melalui jalur aman; jangan mencantumkan key, `.env`, salt atau dump pada dokumen ini.
+Pada 2026-10-13, user mengoreksi acuan pengerjaan/tes final pilot ke `pilot.yaml`: kedua alias,
+team US$10, anggota US$2, RPM30/TPM100000. Script team/anggota kini memakai `30d`;
+reset awal bulan UTC dan scheduler sekitar10menit terverifikasi pada LiteLLM1.104.0.
+[ADR-016](../adr/016-pilot-limits.md) mencatat keputusan;
+nama PIC dan cap provider tetap belum ditentukan. Skenario tes dibatasi sesuai policy.
 
 ## Yang harus tersedia sebelum engineer lama melepas tugas
 
@@ -40,7 +45,27 @@ inference punya dampak/biaya; jangan dijalankan serentak hanya untuk membaca dok
 
 ## Rekomendasi tugas berikutnya
 
-Usulan teknis tetap **P1-06/F-01**, menutup gap validator exact alias/provider/upstream.
-Tidak perlu rewrite arsitektur berdasarkan bukti sekarang. M-01/M-02/M-04/M-05 perlu
-keputusan owner sebelum perubahan besar. M-03 penempatan docs telah dipilih user:
-repo docs existing; migrasi masih perlu commit/review/push, tanpa membuat parent repo.
+P1-06/F-01/F-02 sudah LOCAL_VERIFIED static/offline pada 2026-10-12;
+[laporan dan kode](../reports/P1_06_MODEL_CONTRACT_REPORT.md). P1-09/P1-10 juga kini
+LOCAL_VERIFIED: 147 offline,4 smoke,11 live PASS; [laporan/kode terbaru](../reports/P1_09_P1_10_LIMITS_COST_REPORT.md).
+P1-11/P1-12 kini LOCAL_VERIFIED17Oktober: onboarding operator asli, agent kedua alias
+read/edit/shell/hasil tool, kode terverifikasi dan SSE/API tools PASS.
+[79unit/5smoke/6live terfokus dan kode](../reports/P1_11_P1_12_OPENCODE_REPORT.md).
+**Task aktifP1-FINAL:** user meminta sampai akhir dan full cross-check/test. Native
+error/retry13kasus, HTTPguard6, outagePG/Redis2, rotasikey2 dan configrollbackPASS;
+CI lokalconfig63/infra31/E2E97unitPASS; fullrun97unit/5smoke/30live/2outage+13nativePASS,exit0.
+O-08 hosted offline + live manual4000 diterapkan; tiga draft PR candidate ke develop
+tersedia dengan enam CI PASS. Docs #1 dipublikasikan dan CI pada 5bfd9d9 PASS.
+O-09 menyetujui penyiapan promosi ke main: config #4, infra #7, E2E #6; kedua history
+dipertahankan dan tree sama persis dengan candidate. [Refs dan bukti](../reports/PHASE1_MAIN_PROMOTION_PROPOSAL.md).
+Periksa CI SHA terbaru dan review manusia; belum ada izin merge protected branch,
+tag atau deploy.
+[laporan aktif](../reports/PHASE1_FINAL_CROSSCHECK_REPORT.md) dan checkpointlog menjadi
+acuan melanjutkan. Pilot nyata/peserta/PIC ditundaO-07, bukan pilotPASS.
+TargetCI/CVE/server mengikuti [proposal keputusan](../reports/PHASE1_RELEASE_DECISIONS.md).
+Anggota lama belum dimigrasikan dan billing invoice/cap provider
+tetap tersisa. M-01/M-02/M-04 dan bagian lain M-05 perlu keputusan owner sebelum
+perubahan besar. M-03 penempatan docs telah dipilih user:
+repo docs existing; commit migrasi `1d07d02` dipertahankan dan publikasi docs #1
+terverifikasi 17 Oktober. Source komponen sudah dicakup commit; review/merge final belum.
+Urutan pekerjaan lengkap ada pada [rencana penutupan Phase 1](../architecture/phase-1-completion-plan.md).

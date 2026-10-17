@@ -1,0 +1,141 @@
+{
+  "date": "2026-10-12",
+  "timezone": "Asia/Jakarta",
+  "task": "P1-06/F-01/F-02",
+  "target": "offline temporary config copies; active config untouched",
+  "result": "PASS",
+  "cases": [
+    {
+      "case": "approved",
+      "validators": {
+        "validate-runtime-config.py": {
+          "exit_code": 0,
+          "stdout": "  company-coding -> openai/gpt-5.6-sol\n  company-fast -> openai/gpt-5.6-terra\nLiteLLM runtime config: PASS (runtime + model catalog + OpenAI provider contract)\n",
+          "stderr": "",
+          "expected_exit_code": 0
+        },
+        "validate-model-catalog.py": {
+          "exit_code": 0,
+          "stdout": "  company-coding -> openai/gpt-5.6-sol\n  company-fast -> openai/gpt-5.6-terra\nModel catalog validation: PASS (runtime + model catalog + OpenAI provider contract)\n",
+          "stderr": "",
+          "expected_exit_code": 0
+        }
+      },
+      "release_runtime_guard": {
+        "accepted": true,
+        "expected": true,
+        "scope": "validates release config bytes; descriptive catalogs are checked by config CI"
+      }
+    },
+    {
+      "case": "wrong_upstream_provider",
+      "validators": {
+        "validate-runtime-config.py": {
+          "exit_code": 1,
+          "stdout": "",
+          "stderr": "ERROR: company-fast: upstream must be openai/gpt-5.6-terra\n",
+          "expected_exit_code": 1
+        },
+        "validate-model-catalog.py": {
+          "exit_code": 1,
+          "stdout": "",
+          "stderr": "ERROR: company-fast: upstream must be openai/gpt-5.6-terra\n",
+          "expected_exit_code": 1
+        }
+      },
+      "release_runtime_guard": {
+        "accepted": false,
+        "expected": false,
+        "scope": "validates release config bytes; descriptive catalogs are checked by config CI"
+      }
+    },
+    {
+      "case": "extra_alias",
+      "validators": {
+        "validate-runtime-config.py": {
+          "exit_code": 1,
+          "stdout": "",
+          "stderr": "ERROR: model_list: expected exactly company-fast and company-coding\n",
+          "expected_exit_code": 1
+        },
+        "validate-model-catalog.py": {
+          "exit_code": 1,
+          "stdout": "",
+          "stderr": "ERROR: model_list: expected exactly company-fast and company-coding\n",
+          "expected_exit_code": 1
+        }
+      },
+      "release_runtime_guard": {
+        "accepted": false,
+        "expected": false,
+        "scope": "validates release config bytes; descriptive catalogs are checked by config CI"
+      }
+    },
+    {
+      "case": "catalog_drift",
+      "validators": {
+        "validate-runtime-config.py": {
+          "exit_code": 1,
+          "stdout": "",
+          "stderr": "ERROR: /private/var/folders/ys/xdz_c_b9059bynsvr4sq6mrr0000gn/T/tmpxprcw8hm/catalog_drift/models/company-fast.yaml: primary route differs from the approved contract\n",
+          "expected_exit_code": 1
+        },
+        "validate-model-catalog.py": {
+          "exit_code": 1,
+          "stdout": "",
+          "stderr": "ERROR: /private/var/folders/ys/xdz_c_b9059bynsvr4sq6mrr0000gn/T/tmpxprcw8hm/catalog_drift/models/company-fast.yaml: primary route differs from the approved contract\n",
+          "expected_exit_code": 1
+        }
+      },
+      "release_runtime_guard": {
+        "accepted": true,
+        "expected": true,
+        "scope": "validates release config bytes; descriptive catalogs are checked by config CI"
+      }
+    },
+    {
+      "case": "provider_drift",
+      "validators": {
+        "validate-runtime-config.py": {
+          "exit_code": 1,
+          "stdout": "",
+          "stderr": "ERROR: provider.company-fast: upstream differs from runtime/model catalog\n",
+          "expected_exit_code": 1
+        },
+        "validate-model-catalog.py": {
+          "exit_code": 1,
+          "stdout": "",
+          "stderr": "ERROR: provider.company-fast: upstream differs from runtime/model catalog\n",
+          "expected_exit_code": 1
+        }
+      },
+      "release_runtime_guard": {
+        "accepted": true,
+        "expected": true,
+        "scope": "validates release config bytes; descriptive catalogs are checked by config CI"
+      }
+    },
+    {
+      "case": "coordinated_wrong_upstream",
+      "validators": {
+        "validate-runtime-config.py": {
+          "exit_code": 1,
+          "stdout": "",
+          "stderr": "ERROR: company-fast: upstream must be openai/gpt-5.6-terra\n",
+          "expected_exit_code": 1
+        },
+        "validate-model-catalog.py": {
+          "exit_code": 1,
+          "stdout": "",
+          "stderr": "ERROR: company-fast: upstream must be openai/gpt-5.6-terra\n",
+          "expected_exit_code": 1
+        }
+      },
+      "release_runtime_guard": {
+        "accepted": false,
+        "expected": false,
+        "scope": "validates release config bytes; descriptive catalogs are checked by config CI"
+      }
+    }
+  ]
+}
