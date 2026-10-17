@@ -1,0 +1,27 @@
+{
+  "recorded_at": "2026-10-17T05:41:13.667351+00:00",
+  "command": "./scripts/run-all.sh --include-outage",
+  "observed_process_exit_code": 0,
+  "e2e_pytest": {
+    "unit_passed": 97,
+    "smoke_passed": 5,
+    "regular_live_passed": 30,
+    "outage_passed": 2,
+    "total_passed": 134
+  },
+  "additional_native_scenarios_passed": 13,
+  "component_offline": {
+    "config_passed": 63,
+    "infra_passed": 23
+  },
+  "unique_offline_total": 183,
+  "pytest_summaries": [
+    "====================== 97 passed, 37 deselected in 1.38s =======================",
+    "====================== 5 passed, 129 deselected in 1.53s =======================",
+    "================ 30 passed, 104 deselected in 760.34s (0:12:40) ================",
+    "======================== 2 passed in 191.27s (0:03:11) ========================="
+  ],
+  "output_path": "full-regression-final.txt",
+  "output_sha256": "4238eaa90fae76e36237f2f7df00282ce50c3d45a386317b2182b633d1cc713b",
+  "scope": "existing Docker4000; working tree source captured separately; no production release sign-off"
+}

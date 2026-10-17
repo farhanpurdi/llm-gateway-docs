@@ -1,0 +1,134 @@
+Captured release: p1-final-base-20261017T044739480618
+Captured release: p1-final-test-20261017T044739480618
+
+======================================
+LLM Gateway Health Check
+======================================
+
+Checking LiteLLM liveness...
+LiteLLM liveness: OK
+
+Checking LiteLLM readiness...
+LiteLLM readiness (HTTP + dependencies): OK
+
+======================================
+Dependency Health
+======================================
+
+[1/2] PostgreSQL
+/var/run/postgresql:5432 - accepting connections
+PostgreSQL: OK
+
+[2/2] Redis
+Redis: OK
+
+All dependencies: OK
+
+Checking authenticated model catalog...
+Functional health: OK
+Available required models:
+  - company-coding
+  - company-fast
+
+======================================
+ALL HEALTH CHECKS PASSED
+======================================
+============================= test session starts ==============================
+platform darwin -- Python 3.12.15, pytest-9.0.3, pluggy-1.6.0 -- /Users/pur/MyProject/company-ai-platform/.venv/bin/python3
+cachedir: .pytest_cache
+rootdir: /Users/pur/MyProject/company-ai-platform/llm-gateway-e2e
+configfile: pytest.ini
+testpaths: tests
+collecting ... collected 134 items / 129 deselected / 5 selected
+
+tests/test_auth.py::test_invalid_key_is_rejected PASSED                  [ 20%]
+tests/test_health.py::test_litellm_is_alive PASSED                       [ 40%]
+tests/test_models.py::test_user_can_see_expected_models PASSED           [ 60%]
+tests/test_opencode.py::test_opencode_onboarding_uses_developer_key PASSED [ 80%]
+tests/test_pilot_limits.py::test_pilot_policy_is_persisted PASSED        [100%]
+
+====================== 5 passed, 129 deselected in 1.60s =======================
+Release verification: PASS (p1-final-test-20261017T044739480618); same container IDs/images
+
+======================================
+LLM Gateway Health Check
+======================================
+
+Checking LiteLLM liveness...
+LiteLLM liveness: OK
+
+Checking LiteLLM readiness...
+LiteLLM readiness (HTTP + dependencies): OK
+
+======================================
+Dependency Health
+======================================
+
+[1/2] PostgreSQL
+/var/run/postgresql:5432 - accepting connections
+PostgreSQL: OK
+
+[2/2] Redis
+Redis: OK
+
+All dependencies: OK
+
+Checking authenticated model catalog...
+Functional health: OK
+Available required models:
+  - company-coding
+  - company-fast
+
+======================================
+ALL HEALTH CHECKS PASSED
+======================================
+============================= test session starts ==============================
+platform darwin -- Python 3.12.15, pytest-9.0.3, pluggy-1.6.0 -- /Users/pur/MyProject/company-ai-platform/.venv/bin/python3
+cachedir: .pytest_cache
+rootdir: /Users/pur/MyProject/company-ai-platform/llm-gateway-e2e
+configfile: pytest.ini
+testpaths: tests
+collecting ... collected 134 items / 129 deselected / 5 selected
+
+tests/test_auth.py::test_invalid_key_is_rejected PASSED                  [ 20%]
+tests/test_health.py::test_litellm_is_alive PASSED                       [ 40%]
+tests/test_models.py::test_user_can_see_expected_models PASSED           [ 60%]
+tests/test_opencode.py::test_opencode_onboarding_uses_developer_key PASSED [ 80%]
+tests/test_pilot_limits.py::test_pilot_policy_is_persisted PASSED        [100%]
+
+====================== 5 passed, 129 deselected in 1.51s =======================
+Release verification: PASS (p1-final-base-20261017T044739480618); same container IDs/images
+
+======================================
+LLM Gateway Health Check
+======================================
+
+Checking LiteLLM liveness...
+LiteLLM liveness: OK
+
+Checking LiteLLM readiness...
+LiteLLM readiness (HTTP + dependencies): OK
+
+======================================
+Dependency Health
+======================================
+
+[1/2] PostgreSQL
+/var/run/postgresql:5432 - accepting connections
+PostgreSQL: OK
+
+[2/2] Redis
+Redis: OK
+
+All dependencies: OK
+
+Checking authenticated model catalog...
+Functional health: OK
+Available required models:
+  - company-coding
+  - company-fast
+
+======================================
+ALL HEALTH CHECKS PASSED
+======================================
+P1_CONFIG_ROLLBACK {"baseline": "p1-final-base-20261017T044739480618", "candidate": "p1-final-test-20261017T044739480618", "original_config_sha256": "5bc327e951ebd02c9f33934e09940c91a66cd2233bb056efeb58f80be2d75a9b", "config_exactly_restored": true, "inode_preserved": true, "same_container_ids_and_images": true, "scope": "config-only; same image/schema"}

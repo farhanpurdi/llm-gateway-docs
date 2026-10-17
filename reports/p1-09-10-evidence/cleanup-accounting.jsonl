@@ -1,0 +1,4 @@
+{"case" : "cleanup", "teams" : 22, "unblocked_teams" : 0}
+{"case" : "cleanup", "keys" : 80, "unblocked_keys" : 0}
+{"case" : "session_spend", "model" : "openai/gpt-5.6-sol", "paid_requests" : 4, "prompt_tokens" : 48, "completion_tokens" : 20, "spend_usd" : 0.000592}
+{"case" : "session_spend", "model" : "openai/gpt-5.6-terra", "paid_requests" : 29, "prompt_tokens" : 416, "completion_tokens" : 116, "spend_usd" : 0.0022240000000000003}

@@ -103,5 +103,6 @@ dan [master](../MASTER_CONTEXT.md).
 Katalog mesin ada di [models](../../llm-gateway-config/models/company-fast.yaml) dan
 [provider metadata](../../llm-gateway-config/providers/openai.yaml); runtime aktif memakai
 [config YAML](../../llm-gateway-config/config/litellm_config.yaml). Katalog bukan file yang
-otomatis di-load gateway. Validator belum mengunci semua kesetaraan routing; F-01/F-02
-masih terbuka di [register drift](../adr/README.md).
+otomatis di-load gateway. Kedua CLI config mengunci exact dua alias, upstream/provider
+dan konsistensi ketiga sumber; file yang tidak sesuai ditolak. Hasil offline dan batas
+bukti ada pada [laporan P1-06](../reports/P1_06_MODEL_CONTRACT_REPORT.md).

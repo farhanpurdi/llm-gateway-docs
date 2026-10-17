@@ -1,0 +1,84 @@
+{
+  "checked_date": "2026-10-17",
+  "scope": "PR-triggered candidate runs, first page; not old HEAD results",
+  "repositories": {
+    "llm-gateway-config": {
+      "sha": "9d3cab3b80c98d9c009ed713c041d53b982af616",
+      "pr": "https://github.com/farhanpurdi/llm-gateway-config/pull/3",
+      "runs": [
+        {
+          "id": 39007494242,
+          "name": "Validate Config",
+          "status": "completed",
+          "conclusion": "success",
+          "run_number": 4,
+          "jobs_url": "https://api.github.com/repos/farhanpurdi/llm-gateway-config/actions/runs/39007494242/jobs",
+          "logs_url": "https://api.github.com/repos/farhanpurdi/llm-gateway-config/actions/runs/39007494242/logs",
+          "workflow_id": 374413498
+        },
+        {
+          "id": 39007494323,
+          "name": "Security Scan",
+          "status": "completed",
+          "conclusion": "success",
+          "run_number": 2,
+          "jobs_url": "https://api.github.com/repos/farhanpurdi/llm-gateway-config/actions/runs/39007494323/jobs",
+          "logs_url": "https://api.github.com/repos/farhanpurdi/llm-gateway-config/actions/runs/39007494323/logs",
+          "workflow_id": 374472774
+        }
+      ]
+    },
+    "llm-gateway-infra": {
+      "sha": "a19ae80f68fa335d1f50187dfd18ccb6d0f9223e",
+      "pr": "https://github.com/farhanpurdi/llm-gateway-infra/pull/6",
+      "runs": [
+        {
+          "id": 39007715789,
+          "name": "Validate Infrastructure",
+          "status": "completed",
+          "conclusion": "success",
+          "run_number": 9,
+          "jobs_url": "https://api.github.com/repos/farhanpurdi/llm-gateway-infra/actions/runs/39007715789/jobs",
+          "logs_url": "https://api.github.com/repos/farhanpurdi/llm-gateway-infra/actions/runs/39007715789/logs",
+          "workflow_id": 374385239
+        },
+        {
+          "id": 39007715729,
+          "name": "Security Scan",
+          "status": "completed",
+          "conclusion": "success",
+          "run_number": 7,
+          "jobs_url": "https://api.github.com/repos/farhanpurdi/llm-gateway-infra/actions/runs/39007715729/jobs",
+          "logs_url": "https://api.github.com/repos/farhanpurdi/llm-gateway-infra/actions/runs/39007715729/logs",
+          "workflow_id": 374475630
+        }
+      ]
+    },
+    "llm-gateway-e2e": {
+      "sha": "5644c9a2d8fc4e1543eaad5121f25eab1e1c2254",
+      "pr": "https://github.com/farhanpurdi/llm-gateway-e2e/pull/5",
+      "runs": [
+        {
+          "id": 39007500719,
+          "name": "Validate E2E Suite",
+          "status": "completed",
+          "conclusion": "success",
+          "run_number": 5,
+          "jobs_url": "https://api.github.com/repos/farhanpurdi/llm-gateway-e2e/actions/runs/39007500719/jobs",
+          "logs_url": "https://api.github.com/repos/farhanpurdi/llm-gateway-e2e/actions/runs/39007500719/logs",
+          "workflow_id": 374404117
+        },
+        {
+          "id": 39007500723,
+          "name": "Security Scan",
+          "status": "completed",
+          "conclusion": "success",
+          "run_number": 4,
+          "jobs_url": "https://api.github.com/repos/farhanpurdi/llm-gateway-e2e/actions/runs/39007500723/jobs",
+          "logs_url": "https://api.github.com/repos/farhanpurdi/llm-gateway-e2e/actions/runs/39007500723/logs",
+          "workflow_id": 374474112
+        }
+      ]
+    }
+  }
+}

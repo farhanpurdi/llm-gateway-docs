@@ -14,7 +14,10 @@ Katalog deskriptif dan runtime YAML harus konsisten; perubahan alias/backend mel
 
 ## Keadaan aktual dan batas bukti
 
-Runtime benar; F-01/F-02 pada exact alias/upstream/cross-catalog validation belum diperbaiki.
+Runtime sesuai kontrak. F-01/F-02 diperbaiki 2026-10-12: exact alias/upstream,
+filename identity, provider metadata dan runtime diperiksa bersama oleh validator config;
+guard release diperketat dan assertion model exposure dibuat exact. Bukti static/offline
+**LOCAL_VERIFIED**, bukan release DONE; lihat [laporan P1-06](../reports/P1_06_MODEL_CONTRACT_REPORT.md).
 
 Lihat [Phase1](../architecture/phase-1.md) untuk acceptance/test dan
 [work log](../handover/WORK_LOG.md) untuk perubahan terbaru.

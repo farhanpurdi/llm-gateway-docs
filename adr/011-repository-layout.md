@@ -14,7 +14,10 @@ Dokumentasi mempunyai satu pemilik dan navigasi; source/runtime tetap di repo ko
 
 ## Keadaan aktual dan batas bukti
 
-Migrasi dokumentasi lokal diizinkan user dalam percakapan; empat repo sibling, root bukan Git. Tidak membuat repo/remote baru; commit/review/push migrasi belum dilakukan.
+Migrasi dokumentasi diizinkan user dalam percakapan; empat repo sibling, root bukan Git.
+Commit lokal docs `1d07d02` terverifikasi 2026-10-12; push/review remote belum diperiksa.
+Tiga file context root sudah tidak ada; sumber awal tetap di `archive/`. Tidak membuat
+repo/remote baru. Pembaruan rencana terbaru belum commit; source komponen masih dirty.
 
 Lihat [Phase1](../architecture/phase-1.md) untuk acceptance/test dan
 [work log](../handover/WORK_LOG.md) untuk perubahan terbaru.

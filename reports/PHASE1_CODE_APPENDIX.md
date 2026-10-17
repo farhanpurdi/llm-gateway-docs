@@ -2626,7 +2626,10 @@ echo "SECRET SCAN: PASSED"
 
 ## llm-gateway-e2e/.github/workflows/live.yml
 
-Source: [.github/workflows/live.yml](../../llm-gateway-e2e/.github/workflows/live.yml) — SHA256 `836c4bbd99a07e518d1cc6c0502bb3af83ab70292a7dbc3277b42d67e1d919ff`
+Source historis: [.github/workflows/live.yml — snapshot di bawah](#llm-gateway-e2egithubworkflowsliveyml) — SHA256 `836c4bbd99a07e518d1cc6c0502bb3af83ab70292a7dbc3277b42d67e1d919ff`
+
+File aktif dihapus sesuaiO-08 pada17Oktober2026; kode snapshot historis berikut tetap
+dipertahankan dan bukan workflow yang harus dihidupkan kembali.
 
 ```yaml
 name: Live Gateway E2E

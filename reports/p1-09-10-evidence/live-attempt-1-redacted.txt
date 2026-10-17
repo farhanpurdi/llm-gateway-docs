@@ -1,0 +1,29 @@
+WARNING:
+This test suite sends real requests to the LLM provider.
+
+============================= test session starts ==============================
+platform darwin -- Python 3.12.15, pytest-9.0.3, pluggy-1.6.0 -- /Users/pur/MyProject/company-ai-platform/.venv/bin/python3
+cachedir: .pytest_cache
+rootdir: /Users/pur/MyProject/company-ai-platform/llm-gateway-e2e
+configfile: pytest.ini
+collecting ... collected 9 items / 4 deselected / 5 selected
+
+tests/test_spend.py::test_spend_is_attributed_to_user[company-fast] FAILED
+tests/test_spend.py::test_spend_is_attributed_to_user[company-fast] ERROR
+
+==================================== ERRORS ====================================
+_____ ERROR at teardown of test_spend_is_attributed_to_user[company-fast] ______
+Pilot fixture cleanup failed: team block not confirmed
+=================================== FAILURES ===================================
+________________ test_spend_is_attributed_to_user[company-fast] ________________
+tests/test_spend.py:54: in test_spend_is_attributed_to_user
+    assert len(rows) == len(requests), 'Spend records did not persist before deadline'
+E   AssertionError: Spend records did not persist before deadline
+E   assert 0 == 2
+E    +  where 0 = len({})
+E    +  and   2 = len([{'expected': Decimal('0.0000720'), 'key': {'client': <tests.client.LiteLLMClient object at 0x10b19f1a0>, 'user_id': 'e2e-p109-ec596e1d-0', 'virtual_key': '[REDACTED_KEY]'}, 'request_id': 'acfc8a86-05b5-4a69-8a9d-9d4ab052142e', 'token': '055d975c489424025eb355a477f6183434ac1b4eafa37f4f1d530b33caf36849', ...}, {'expected': Decimal('0.0000720'), 'key': {'client': <tests.client.LiteLLMClient object at 0x10b19fa10>, 'user_id': 'e2e-p109-ec596e1d-1', 'virtual_key': '[REDACTED_KEY]'}, 'request_id': '4a649dc3-d661-453d-addf-bd990875b9ba', 'token': 'd4266b9a40dd5c715d3290a76a08c20db8a9b093c215d6e0cdb3e8748f17dd67', ...}])
+=========================== short test summary info ============================
+ERROR tests/test_spend.py::test_spend_is_attributed_to_user[company-fast] - F...
+FAILED tests/test_spend.py::test_spend_is_attributed_to_user[company-fast] - ...
+!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 2 failures !!!!!!!!!!!!!!!!!!!!!!!!!!!
+================== 1 failed, 4 deselected, 1 error in 51.31s ===================

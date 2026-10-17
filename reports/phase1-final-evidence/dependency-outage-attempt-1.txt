@@ -1,0 +1,18 @@
+WARNING:
+This test suite sends real requests to the LLM provider.
+
+============================= test session starts ==============================
+platform darwin -- Python 3.12.15, pytest-9.0.3, pluggy-1.6.0 -- /Users/pur/MyProject/company-ai-platform/.venv/bin/python3
+cachedir: .pytest_cache
+rootdir: /Users/pur/MyProject/company-ai-platform/llm-gateway-e2e
+configfile: pytest.ini
+collecting ... collected 2 items
+
+tests/test_dependency_outage.py::test_dependency_outage_preserves_denials_and_recovers[postgres] P1_OUTAGE_RECOVERY {"dependency": "postgres", "recovered": true, "same_container_ids": true, "seconds": 9.93}
+P1_DEPENDENCY_OUTAGE {"dependency": "postgres", "statuses": {"cold": 503, "invalid": 503, "blocked": 401, "denied": 503, "exhausted": 503, "warm": 503}, "recovered_aliases": ["company-fast", "company-coding"], "accepted_requests_persisted": true}
+PASSED
+tests/test_dependency_outage.py::test_dependency_outage_preserves_denials_and_recovers[redis] P1_OUTAGE_RECOVERY {"dependency": "redis", "recovered": true, "same_container_ids": true, "seconds": 2.85}
+P1_DEPENDENCY_OUTAGE {"dependency": "redis", "statuses": {"cold": 200, "invalid": 401, "blocked": 401, "denied": 403, "exhausted": 422, "warm": 200}, "recovered_aliases": ["company-fast", "company-coding"], "accepted_requests_persisted": true}
+PASSED
+
+======================== 2 passed in 190.48s (0:03:10) =========================

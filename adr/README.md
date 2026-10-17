@@ -21,21 +21,21 @@ Phase 1 penuh belum selesai menurut exit gate awal.
 | ID | Keputusan awal / status asli | Posisi setelah evaluasi |
 |---|---|---|
 | ADR-001 | LiteLLM Data Plane / CONFIRMED | Sesuai implementasi |
-| ADR-002 | OpenAI-only Phase1 / CONFIRMED | Runtime sesuai; perlindungan validator belum kuat (F-01) |
+| ADR-002 | OpenAI-only Phase1 / CONFIRMED | Runtime sesuai; exact guard F-01/F-02 terverifikasi static/offline 12 Oktober |
 | ADR-003 | fast→Terra / CONFIRMED | Runtime sesuai; jangan substitusi diam-diam |
 | ADR-004 | coding→Sol / CONFIRMED | Runtime sesuai; jangan substitusi diam-diam |
-| ADR-005 | OpenCode client awal / CONFIRMED | Sesuai; coverage workflow penuh masih sebagian |
+| ADR-005 | OpenCode client awal / CONFIRMED | Sesuai; workflow agent kecil kedua alias LOCAL_VERIFIED17Oktober, release/pilot nyata tetap belum |
 | ADR-006 | Virtual key user/team, provider key server / BASELINE | Dipakai dan dites; bukan izin master key di client |
 | ADR-007 | PostgreSQL sejak Phase1 / BASELINE | Terpasang, restore teruji |
 | ADR-008 | Redis opsional saat bootstrap / BASELINE | Redis kini mandatory operasional; alasan aktivasi/kebutuhan perlu dicatat (M-02) |
-| ADR-009 | Alias sebagai kontrak / BASELINE | Sesuai runtime; validator masih bisa menerima pelanggaran |
+| ADR-009 | Alias sebagai kontrak / BASELINE | Exact alias/upstream dan konsistensi katalog/runtime diperiksa; LOCAL_VERIFIED static/offline, gate release belum |
 | ADR-010 | Control Plane terpisah mulai Phase2 / BASELINE | Belum dibangun; tetap tertunda |
-| ADR-011 | Tiga repo; root/submodules bila root Git / BASELINE | Tiga repo sesuai, root bukan Git; docs dipusatkan di repo docs existing (O-04/M-03); belum commit/push migrasi |
-| ADR-012 | Git desired config, satu writer policy / BASELINE | Manual Git→API pada P1; konsistensi katalog belum dijamin; reconciler tetap Phase2 |
+| ADR-011 | Tiga repo; root/submodules bila root Git / BASELINE | Tiga repo sesuai, root bukan Git; docs dipusatkan di repo docs existing (O-04/M-03), commit lokal `1d07d02` terverifikasi 2026-10-12; push/review remote belum diperiksa |
+| ADR-012 | Git desired config, satu writer policy / BASELINE | Manual Git→API pada P1; konsistensi katalog dijaga validator config; reconciler tetap Phase2 |
 | ADR-013 | Repo/image/dependency pinned saat deploy / BASELINE | Tag image spesifik + manifest lokal ada; Python range, dirty source, belum release lock/tag |
 | ADR-014 | IdP SSO / OPEN | Tetap OPEN, tidak menebak vendor |
 | ADR-015 | Hosting final / OPEN | Local existing4000 dipilih; hosting/server final tetap OPEN |
-| ADR-016 | Budget/RPM/TPM/jumlah user / OPEN | Angka policy ada sebagai config existing, **bukan persetujuan budget corporate/pilot** |
+| ADR-016 | Budget/RPM/TPM/jumlah user / OPEN pada baseline | Kini PARTIAL: policy pilot disetujui O-06; P1-09/P1-10 enforcement/reset/accounting LOCAL_VERIFIED13Oktober. Peserta, PIC/billing corporate dan cap/alert provider tetap OPEN |
 | ADR-017 | Lisensi/fitur enterprise / OPEN | Belum ditemukan bukti matriks lisensi yang menutup keputusan |
 
 ADR-001…017 tetap memakai identitas asli. Keputusan penempatan dokumentasi baru tercatat
@@ -52,6 +52,10 @@ mengganti makna ID lama: ADR-002 tetap OpenAI-only; model alias adalah ADR-003/0
 | O-02 | User mengonfirmasi H7 merge gate GitHub sudah berjalan | Gate sebelumnya diterima sebagai konfirmasi user | Bukan bukti workflow candidate yang masih dirty sudah hijau |
 | O-03 | User meminta gabungan context atau master+per-phase | Organisasi dokumen baru, evaluasi, navigasi sumber lama | Bukan izin perubahan major implementasi |
 | O-04 | User meminta seluruh docs/report dipindah ke `llm-gateway-docs` dan handover diperjelas | Repo docs existing menjadi pemilik dokumentasi; master root lama menjadi penunjuk, ADR tetap bernomor asli | Bukan izin commit/push, parent Git/submodule, perubahan runtime atau penutupan gate Phase1 |
+| O-05 | User 2026-10-13: limit final pilot memakai setting existing `default.yaml` | **SUPERSEDED oleh O-06** setelah user mengoreksi nama policy; dipertahankan sebagai riwayat | Bukan acuan pilot aktif; jangan memakai scope fast-only dari keputusan ini untuk final pilot |
+| O-06 | Koreksi user 2026-10-13: gunakan `pilot.yaml` yang sudah disediakan untuk pengerjaan dan pengetesan final pilot | Policy pilot disetujui: `company-fast` dan `company-coding`, team US$10, anggota US$2, RPM30/TPM100000; script team existing memakai `30d`. Detail di [ADR-016](016-pilot-limits.md) | PIC/billing corporate, cap provider dan peserta belum diputuskan; persetujuan bukan bukti penerapan/enforcement pada team existing |
+| O-07 | User2026-10-17 menjawab pertanyaan peserta pilot/PIC layanan-billing: "untuk itu bisa di skip dulu" | **APPROVED_OVERRIDE sementara:** pilot pengguna nyata P1-17 serta penentuan peserta/PIC yang ditanyakan ditunda; lanjut pekerjaan/pengujian teknis sampai tahap akhir | Bukan bukti pilot/feedback, penetapan PIC, approval billing/CVE/server, penghapusan gate teknis atau izin memulai Phase2 |
+| O-08 | User17Oktober2026 memilih "Setuju A: CI offline + live lokal4000 (disarankan)" atas proposal M-01/ADR-015 | **APPROVED_OVERRIDE:** hapus workflow live staging lama, pertahankan hosted validate/security offline; full live manual existing4000 dengan sourceSHA/hash, image/digest, output+exit0, cleanup/recovery dan review bukti | Bukan candidateCI/sign-offPASS, waiverCVE/TLS/server, pemasangan runner/secrets baru atau izin deploy/Phase2. [Prosedur](../operations/local-release-gate.md) |
 
 Urutan roadmap masih Phase1→Phase2→Phase3. Pengecualian staging mengikuti O-01;
 bila target acceptance server/CI perlu berubah, desain alternatif harus dibahas dahulu.
@@ -60,20 +64,20 @@ bila target acceptance server/CI perlu berubah, desain alternatif harus dibahas 
 
 | ID | Kategori / perbandingan baseline dengan fakta | Dampak dan tindak lanjut |
 |---|---|---|
-| F-01 | **Gap enforcement kontrak:** validator runtime hanya memastikan alias wajib ada, string model terisi, dan env key benar | Salinan wrong upstream dan extra alias tetap exit0. Kunci exact model/provider/alias dan uji negatif. Config aktif saat ini benar; bukan temuan routing provider lain aktif |
-| F-02 | **Gap konsistensi config:** katalog/provider YAML terpisah dari runtime; validator katalog terutama memeriksa filename | Bandingkan routing katalog/provider/runtime atau tentukan generated artifact; jangan menganggap edit katalog mengubah gateway |
+| F-01 | **Gap enforcement kontrak — LOCAL_VERIFIED 2026-10-12:** sebelumnya wrong upstream/extra alias lolos | Dua CLI config dan guard release sekarang menolak pelanggaran exact alias/model/provider/env, duplikat dan routing alternatif. Tes offline PASS; commit/review/live terbaru belum. [Laporan](../reports/P1_06_MODEL_CONTRACT_REPORT.md) |
+| F-02 | **Gap konsistensi config — LOCAL_VERIFIED 2026-10-12:** sebelumnya katalog/provider/runtime terpisah tanpa cross-check | Kedua CLI memeriksa filename identity, route/status model dan provider metadata terhadap ADR/runtime. Drift serta perubahan bersama ke upstream salah ditolak. Katalog tetap deskriptif; belum generator/reconciler. [Bukti](../reports/p1-06-evidence/contract-matrix.json) |
 | F-03 | **Drift operasional:** Redis opsional desain awal, tetapi Compose depends_on dan readiness/release kini membutuhkan Redis | Kebutuhan/rationale belum terbukti; jangan menghapus container. M-02 diperlukan sebelum perubahan dependensi |
 | F-04 | **Drift exposure:** baseline local-private, aktual publish4000 ke semua interface | Kebutuhan akses LAN belum dikonfirmasi; host policy tidak diasumsikan. TLS/admin isolation target belum diverifikasi. Bahas bersama M-01 |
-| F-05 | **Gap coverage limits/cost:** team RPM dan key budget teruji, spend>0 dan retensi teruji | Bukan bukti TPM/member-team budget interaction, akurasi harga/token/provider reconciliation. Lengkapi P1-09/10 |
-| F-06 | **Gap OpenCode acceptance:** fast basic response terbukti, API tools kedua alias terbukti | Dokumen compatibility lama menyebut tool calling, tetapi bukti langkah agent coding lengkap belum ada di evidence sekarang; bukan kesimpulan fitur gagal |
-| F-07 | **Gap failure semantics:** dependency detector pulih, unit offboarding mensimulasikan HTTP500 | Ini bukan test upstream provider429/5xx/timeout, bukan auth/budget fail-closed saat DB down. Lengkapi P1-13 |
-| F-08 | **Release scope lebih sempit:** rollback config in-place dan same IDs/image teruji | Baseline memerlukan compatible image+config refs. Dirty manifest, Python ranges, belum tag/review/server deploy. Jangan mempromosikan klaim config-only menjadi recovery lintas versi |
-| F-09 | **Workflow tertinggal:** `e2e/.github/workflows/live.yml` masih memakai environment `staging` dan `STAGING_*` | File masih ada; bukan bukti staging hidup. Hosted runner tidak mengakses localhost laptop. Target runner/secret/release harus diputuskan, jangan sekadar mengganti nama |
+| F-05 | **Gap limits/cost ditutup lokal:** P1-09/P1-10 shared RPM/TPM/recovery, budget key/member/team, reset dan token/biaya kedua alias PASS; bug durasi anggota null diperbaiki | LOCAL_VERIFIED pada fixture/teks pendek/default tier; invoice billing, workload lain/concurrency, cap/alert provider dan candidate release tetap belum. [Laporan](../reports/P1_09_P1_10_LIMITS_COST_REPORT.md) |
+| F-06 | **Gap OpenCode ditutup lokal 2026-10-17:** onboarding operator asli, agent kedua alias read/edit/shell/hasil tool dan kode hasil verifikasi PASS; SSE/API tools kedua alias PASS | LOCAL_VERIFIED pada fixture Python kecil/OpenCode2.0.18 dan adapter template existing. Bukan proyek besar/Responses parity/pilot nyata atau release DONE. [Laporan](../reports/P1_11_P1_12_OPENCODE_REPORT.md) |
+| F-07 | **LOCAL_VERIFIED17Oktober:**13native SDK/router/handler simulated429/500/408+retry,6HTTPmockguard/recovery,2PG/Redis outage deny/recovery/spendPASS | Simulasi native dipisahkan dari providerIO nyata. PadaPGdown request tidak terverifikasi503; Redis belum menjadi nativecache. [Bukti](../reports/phase1-final-evidence/README.md); bukan concurrency/HA/releaseDONE |
+| F-08 | **Release scope lebih sempit:** config-only rollback diulang17Oktober, inode/byte/ID/image sama; keyrotation/restorePASS | Lock versi existing+hash tersedia3repo dan CI lokalPASS. Dirty manifest, tag/review/candidateCI/server belum; config-only bukan recovery lintas image/schema |
+| F-09 | **Target diselesaikan O-08,17Oktober:** workflow live staging dihapus; hostedCIoffline + full live manual Dockerexisting4000 | [Gate lokal](../operations/local-release-gate.md) mengikat buktiSHA/hash/image/exit/cleanup dengan review. CandidateCI dan sign-off masih terpisah; tidak ada runner/secrets/environment baru |
 | F-10 | **Bukti security terbatas:** secret scan/verbosefalse/jsonlogs true bukan content privacy audit | Belum validasi raw prompt/response/PII pada logs/spend storage, retention dan akses admin. Existing baseline menerima CVE; risk acceptance production tetap diperlukan |
 | F-11 | **Dokumen saling menimpa:** master awal PLANNING; handoff H10D COMPLETE; struktur staging/count lama masih terselip | Diselesaikan untuk navigasi dengan master aktif + status per-P1 + banner arsip. Jangan menjalankan ulang bootstrap dari snapshot awal |
-| F-12 | **Governance/pilot belum tertutup:** migrasi docs kini di repo docs, commit/review belum; owner/budget/license dan pilot/tag belum ada bukti | Pertahankan OPEN/PARTIAL; tidak menandai Phase1 selesai atau lompat Phase2 |
+| F-12 | **Governance/pilot belum tertutup:** migrasi docs di commit lokal `1d07d02`; publikasi/review remote dan source komponen final belum terverifikasi; owner/billing/license serta peserta pilot/tag belum ada bukti. Policy pilot disetujui O-06 dan enforcement lokal terbukti | Pertahankan gate OPEN/PARTIAL; tidak menandai Phase1 selesai atau lompat Phase2 |
 
-### Bukti F-01 yang baru dihasilkan
+### Bukti awal F-01 — snapshot review 2026-10-10
 
 [validator-contract-check.json](../reports/context-review/validator-contract-check.json)
 menjalankan validator yang sama pada direktori sementara:
@@ -89,24 +93,29 @@ Source terkait: [validate-runtime-config.py](../../llm-gateway-config/scripts/ci
 [validate-model-catalog.py](../../llm-gateway-config/scripts/ci/validate-model-catalog.py),
 [test_models.py](../../llm-gateway-e2e/tests/test_models.py),
 [release validator](../../llm-gateway-infra/scripts/release/manage.py).
-Release validator memeriksa himpunan alias tetapi belum exact upstream mapping; satu
-validator tidak boleh dianggap menutup celah validator lainnya.
+Pada snapshot review tersebut, release validator belum memeriksa exact upstream.
+Perbaikan 2026-10-12 memperketat guard release dan kedua CLI config; hasil terbaru pada
+[laporan P1-06](../reports/P1_06_MODEL_CONTRACT_REPORT.md). Evidence lama tetap dipertahankan.
 
 ## 5. Perubahan major: beri tahu dan minta keputusan sebelum implementasi
 
-**M-01/M-02/M-04/M-05 PROPOSED/OPEN. M-03 penempatan docs diselesaikan atas instruksi user terbaru; commit/push belum.** Pilihan di bawah adalah bahan
+**M-01/M-02/M-04 OPEN; M-05 sebagian diputuskan melalui O-06, sisanya OPEN. M-03 penempatan docs diselesaikan atas instruksi user; commit docs lokal `1d07d02` terverifikasi, push/review remote belum diperiksa.** Pilihan di bawah adalah bahan
 keputusan, bukan roadmap baru yang diam-diam disetujui.
 
 | ID | Keputusan yang dibutuhkan | Usulan yang dibahas dan trade-off | Batas tindakan saat ini |
 |---|---|---|---|
-| M-01 | Target verifikasi/release/server tanpa staging; ADR-015/P1-14..16 | Rancang prosedur maintenance pada target yang diizinkan, compatible refs, CI reachability, TLS/network/admin boundary. Reproducibility lebih kuat dari config-only, tetapi dapat perlu perubahan container/jaringan/downtime | Tidak deploy, membuat environment, membuka akses, atau mengubah workflow secrets sebelum keputusan |
-| M-02 | Peran Redis; ADR-008 | Catat alasan mempertahankan Redis dan buktikan pemakaiannya; jika hendak kembali opsional, analisis cache/rate-limit/health/release semantics dulu | Pertahankan existing; tidak menghapus/menonaktifkan Redis atau menjanjikan distributed enforcement |
-| M-03 | Penempatan/versioning context; ADR-011 | **Penempatan selesai:** user memilih `llm-gateway-docs` existing untuk docs/report/context; tidak perlu parent Git/submodules untuk pemindahan ini | Migrasi lokal belum commit/push. Tidak membuat remote/parent repo atau mengubah tiga repo komponen menjadi monorepo |
+| M-01 | Target verifikasi/release/server tanpa staging; ADR-015/P1-14..16 | TargetCI dipilihO-08:hostedoffline + live manual existing4000, workflowstaging dihapus. Targetserver/TLS/network/admin boundary tetapOPEN | Jalankan gate lokal dengan bukti/review; tidak membuat runner/environment, mengubah secrets atau deploy server dariO-08 |
+| M-02 | Peran Redis; ADR-008 | Runtime YAML belum memakai Redis sebagai nativecache; outage17Oktober inference/deny tetap berjalan, sementara health/release membutuhkan Redis. Tentukan rationale sebelum mengubah dependensi | Pertahankan existing; tidak menghapus/menonaktifkan Redis atau menjanjikan distributed enforcement |
+| M-03 | Penempatan/versioning context; ADR-011 | **Penempatan selesai:** user memilih `llm-gateway-docs` existing untuk docs/report/context; migrasi tercatat pada commit lokal `1d07d02` | Push/review remote belum diperiksa. Tidak membuat remote/parent repo atau mengubah tiga repo komponen menjadi monorepo |
 | M-04 | Penanganan CVE/image; ADR-013/security | Evaluasi image patch/upgrade dengan exact digests dan kompatibilitas, atau risk acceptance terbatas oleh pemilik keamanan. Perubahan image bisa memengaruhi DB/rollback | Tidak upgrade/downgrade, recreate, atau menaikkan baseline agar lolos |
-| M-05 | Ownership/approval data dan biaya pilot; ADR-016/017/P1-09/10/15/17 | Tetapkan PIC, batas biaya, retensi/logging privacy, license matrix dan kelompok pilot. Pembatasan konten bisa memengaruhi audit/cost troubleshooting | Tidak menetapkan nominal sebagai kebijakan final, membuang histori, mengubah retention atau mengaktifkan commercial feature |
+| M-05 | Ownership/approval data dan biaya pilot; ADR-016/017/P1-09/10/15/17 | Policy pengerjaan/tes final pilot disetujui O-06. Tetapkan PIC, cap/alert provider, retensi/logging privacy, license matrix dan kelompok pilot | Gunakan `pilot.yaml` dan batasi skenario tes; tidak mengarang approval billing corporate, membuang histori, mengubah retention atau mengaktifkan commercial feature |
 
 Memperkuat validator F-01/F-02 dan menambah tes acceptance pada kontrak yang sama adalah
-penutupan gap Phase1, **bukan rewrite arsitektur**. Tetap belum dikerjakan pada sesi ini.
+penutupan gap Phase1, **bukan rewrite arsitektur**. Paket ini diimplementasikan setelah
+user meminta langkah pertama dikerjakan pada 2026-10-12; LOCAL_VERIFIED static/offline.
+Sesi P1-06 tidak menyetujui M-01/M-02/M-04/M-05. Pada 2026-10-13 user kemudian
+menyetujui bagian limit pilot M-05 melalui O-05, kemudian mengoreksi policy menjadi
+`pilot.yaml` melalui O-06 untuk pengerjaan/tes final pilot; bagian lain tetap OPEN.
 Pembatalan staging sudah diizinkan O-01; tidak perlu meminta ulang izin yang sama.
 Penghapusan gate pilot/security atau penerimaan keterbatasan besar juga keputusan major.
 
@@ -115,10 +124,10 @@ Penghapusan gate pilot/security atau penerimaan keterbatasan besar juga keputusa
 | Risiko awal | Status konsolidasi |
 |---|---|
 | R-01 model access | Kedua model via gateway teruji; ownership/billing/direct account validation masih sebagian |
-| R-02 OpenCode parity | API tools/stream + fast smoke ada; full agent/Responses parity tidak otomatis terbukti |
-| R-03 cost | Spend tercatat; akurasi, corporate cap/alert dan pilot budget masih terbuka |
+| R-02 OpenCode parity | Agent workflow kecil kedua alias dan API tools/SSE terbukti17Oktober; proyek besar/semua tool/Responses parity tidak otomatis terbukti |
+| R-03 cost | Harga standar/token/biaya kedua alias cocok; invoice/tier/workload lain dan corporate cap/alert masih terbuka; policy pilot disetujui O-06 |
 | R-04 DB outage semantics | Detector/recovery teruji; request auth/budget saat outage belum terbukti |
-| R-05 budget precedence | Key budget/team RPM ada; inheritance/interaksi lengkap belum teruji |
+| R-05 budget precedence | Key/member/team dan shared RPM/TPM teruji lokal; bukan concurrency/multi-pod/stress/prepaid cap atau migrasi seluruh anggota existing |
 | R-06 dua writer policy | Manual Git/API sekarang; ownership per domain dan reconciler Phase2 wajib |
 | R-07 disable SSO vs key | SSO belum ada; snapshot offboarding manual bukan deprovision end-to-end |
 | R-08 licensing | OPEN; jangan mengasumsikan enterprise capability termasuk lisensi |

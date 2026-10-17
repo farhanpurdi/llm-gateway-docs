@@ -1,0 +1,38 @@
+{
+  "type": "observed summaries, not reconstructed raw stdout",
+  "unit_first": {
+    "passed": 53,
+    "failed": 1,
+    "cause": "Mock side_effect Unexpected GET remained enabled"
+  },
+  "smoke_first": {
+    "passed": 3,
+    "failed": 1,
+    "teardown_error": 1,
+    "causes": [
+      "Wrong assumption rolling30d vs calendar",
+      "Team update response shape vs persisted team_info"
+    ]
+  },
+  "live_first": {
+    "failed": 1,
+    "teardown_error": 1,
+    "causes": [
+      "Trace ID used instead of provider response ID",
+      "Team update response shape"
+    ]
+  },
+  "live_second": {
+    "passed": 7,
+    "failed": 1,
+    "cause": "100s timeout shorter than native597-605s reset job interval"
+  },
+  "final": {
+    "config_offline": 63,
+    "infra_offline": 23,
+    "e2e_offline": 61,
+    "smoke": 4,
+    "live": 11,
+    "all_exit_codes": 0
+  }
+}

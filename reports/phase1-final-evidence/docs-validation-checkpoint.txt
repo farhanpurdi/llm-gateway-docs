@@ -1,0 +1,2 @@
+DOCS VALIDATION: PASS (67 Markdown files; 596 local links; 24 historical evidence files unchanged)
+Roadmap P1/P2/P3 and ADR001-017: PASS

@@ -1,0 +1,18 @@
+{
+  "llm-gateway-config": {
+    "host": "github.com",
+    "repository": "farhanpurdi/llm-gateway-config"
+  },
+  "llm-gateway-infra": {
+    "host": "github.com",
+    "repository": "farhanpurdi/llm-gateway-infra"
+  },
+  "llm-gateway-e2e": {
+    "host": "github.com",
+    "repository": "farhanpurdi/llm-gateway-e2e"
+  },
+  "llm-gateway-docs": {
+    "host": "github.com",
+    "repository": "farhanpurdi/llm-gateway-docs"
+  }
+}

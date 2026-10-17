@@ -1,0 +1,3 @@
+DOCS VALIDATION: PASS (67 Markdown files; 541 local links; 24 historical evidence files unchanged)
+Roadmap P1/P2/P3 and ADR001-017: PASS
+Skipped 91 external workspace targets; use --workspace with sibling repos for full verification

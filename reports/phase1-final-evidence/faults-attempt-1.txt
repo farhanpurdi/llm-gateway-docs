@@ -1,0 +1,23 @@
+WARNING:
+This test suite sends real requests to the LLM provider.
+
+============================= test session starts ==============================
+platform darwin -- Python 3.12.15, pytest-9.0.3, pluggy-1.6.0 -- /Users/pur/MyProject/company-ai-platform/.venv/bin/python3
+cachedir: .pytest_cache
+rootdir: /Users/pur/MyProject/company-ai-platform/llm-gateway-e2e
+configfile: pytest.ini
+collecting ... collected 6 items
+
+tests/test_failure_semantics.py::test_native_provider_fault_is_visible_and_recovers[rate_limit-company-fast] FAILED
+
+=================================== FAILURES ===================================
+_ test_native_provider_fault_is_visible_and_recovers[rate_limit-company-fast] __
+tests/test_failure_semantics.py:29: in test_native_provider_fault_is_visible_and_recovers
+    assert response.status_code == expected_status, f"Unexpected native {fault} HTTP status: {response.status_code}"
+E   AssertionError: Unexpected native rate_limit HTTP status: 400
+E   assert 400 == 429
+E    +  where 400 = <Response [400]>.status_code
+=========================== short test summary info ============================
+FAILED tests/test_failure_semantics.py::test_native_provider_fault_is_visible_and_recovers[rate_limit-company-fast]
+!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!!
+============================== 1 failed in 0.42s ===============================

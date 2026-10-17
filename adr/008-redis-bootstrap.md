@@ -21,6 +21,12 @@ Lihat [Phase1](../architecture/phase-1.md) untuk acceptance/test dan
 
 ## Aturan perubahan
 
+Drill17Oktober2026:Redis belum dirujuk sebagai cache dalam runtime YAML existing;
+inference/negativeauth/ACL/budget tetap bekerja saat Redis dihentikan. Dependency
+health/release tetap membutuhkannya. [Bukti](../reports/phase1-final-evidence/dependency-outage-final.txt).
+M-02 tetapOPEN:temuan ini tidak mengotorisasi penghapusan Redis, perubahan readiness,
+atau klaim shared/distributed rate limiting. Pertahankan container existing.
+
 Catat alasan, opsi, security/cost, kompatibilitas, migrasi/rollback, pengujian,
 pemilik/tanggal persetujuan dan PR/commit. Jika belum disetujui, tulis PROPOSED;
 jangan menimpa keputusan lama atau menganggap contoh implementasi sebagai approval.

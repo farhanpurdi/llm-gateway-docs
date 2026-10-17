@@ -1,0 +1,22 @@
+{
+  "llm-gateway-infra": {
+    "head": "05f77497f18c2c4edf2ab1cbf938d10ca0f5b484",
+    "branch": "security/h7-scanning",
+    "status": " M .env.example\n M .github/workflows/validate.yml\n M .gitignore\n M README.md\n M docker-compose.yml\n D docs/backup-restore.md\n M scripts/backup/backup-postgres.sh\n M scripts/backup/check-restore.sh\n M scripts/backup/drill.sh\n M scripts/backup/restore-postgres-test.sh\n M scripts/backup/restore-postgres.sh\n M scripts/backup/verify-backup.sh\n M scripts/ci/validate-compose.py\n M scripts/ci/validate.sh\n M scripts/health/dependencies.sh\n M scripts/health/functional.sh\n M scripts/health/liveness.sh\n M scripts/health/readiness.sh\n M scripts/lib/common.sh\n M scripts/onboard-developer.sh\n M scripts/security/audit-python.sh\n M scripts/security/scan-containers.sh\n M scripts/security/scan-secrets.sh\n M scripts/teams/add-member.sh\n?? scripts/backup/fingerprint.py\n?? scripts/ci/test-operations.py\n?? scripts/lib/restore-target.sh\n?? scripts/release/\n"
+  },
+  "llm-gateway-config": {
+    "head": "b2cf9b04d83cca45db4f350ac5c4be9fbf8ea030",
+    "branch": "security/h7-scanning",
+    "status": " M README.md\n D docs/compatibility.md\n D docs/model-catalog.md\n D docs/opencode.md\n M scripts/ci/validate-model-catalog.py\n M scripts/ci/validate-runtime-config.py\n M scripts/ci/validate-yaml.py\n M scripts/ci/validate.sh\n M scripts/security/audit-python.sh\n M scripts/security/scan-secrets.sh\n M scripts/validate.sh\n?? policies/teams/pilot.yaml\n?? scripts/ci/model_contract.py\n?? scripts/ci/test-model-contract.py\n"
+  },
+  "llm-gateway-e2e": {
+    "head": "6151e07109c9832ce776a078921574d695f45134",
+    "branch": "milestone/h8-enforcement",
+    "status": " M .github/workflows/live.yml\n M README.md\n M pytest.ini\n M requirements.txt\n M scripts/ci/validate-suite.py\n M scripts/ci/validate.sh\n M scripts/run-all.sh\n M scripts/run-live.sh\n M scripts/run-smoke.sh\n M scripts/security/audit-python.sh\n M scripts/security/scan-secrets.sh\n M scripts/test-opencode.sh\n M tests/client.py\n M tests/conftest.py\n M tests/test_inference.py\n M tests/test_models.py\n M tests/test_spend.py\n?? scripts/run-unit.sh\n?? tests/accounting.py\n?? tests/opencode.py\n?? tests/test_lifecycle.py\n?? tests/test_opencode.py\n?? tests/test_pilot_limits.py\n?? tests/unit/\n"
+  },
+  "llm-gateway-docs": {
+    "head": "1d07d02ef942379263bd690c8dc3fe6a9f7c03a7",
+    "branch": "main",
+    "status": " M MASTER_CONTEXT.md\n M README.md\n M adr/009-logical-model-contract.md\n M adr/011-repository-layout.md\n M adr/016-pilot-limits.md\n M adr/INDEX.md\n M adr/README.md\n M architecture/phase-1.md\n M developer/compatibility.md\n M developer/model-catalog.md\n M developer/opencode.md\n M handover/AI_CONTINUATION.md\n M handover/HUMAN_HANDOVER.md\n M handover/WORK_LOG.md\n M operations/phase1-checklist.md\n M reports/README.md\n?? architecture/phase-1-completion-plan.md\n?? developer/codex-skills.md\n?? reports/P1_06_CODE_APPENDIX.md\n?? reports/P1_06_MODEL_CONTRACT_REPORT.md\n?? reports/P1_09_P1_10_CODE_APPENDIX.md\n?? reports/P1_09_P1_10_LIMITS_COST_REPORT.md\n?? reports/P1_11_P1_12_CODE_APPENDIX.md\n?? reports/P1_11_P1_12_OPENCODE_REPORT.md\n?? reports/p1-06-evidence/\n?? reports/p1-09-10-evidence/\n?? reports/p1-11-12-evidence/\n"
+  }
+}

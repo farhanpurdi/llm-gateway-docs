@@ -14,7 +14,10 @@ Procurement/biaya/lisensi membutuhkan keputusan owner; jangan mengaktifkan fitur
 
 ## Keadaan aktual dan batas bukti
 
-Belum ada matriks lisensi terverifikasi yang menutup ADR ini. Tetap syarat keputusan P2-00 serta evaluasi penggunaan Phase1.
+[Inventaris komponen/versi dan sumber resmi](../operations/license-inventory.md)
+ditambahkan17Oktober2026:LiteLLM community/enterprise dibedakan, PostgreSQL dan
+Redis7.4RSALv2/SSPLv1 dicatat. Review distribusi/seluruh dependency dan penerimaan
+perusahaan belum ada; ADR tetapOPEN, tidak otomatis ditutup dari inventaris atau tes.
 
 Lihat [Phase1](../architecture/phase-1.md) untuk acceptance/test dan
 [work log](../handover/WORK_LOG.md) untuk perubahan terbaru.

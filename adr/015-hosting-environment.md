@@ -1,6 +1,6 @@
 # ADR-015 — Hosting dan target release
 
-Status: **OPEN; target lokal ditetapkan O-01**. Sumber: [baseline awal §2](../archive/PROJECT_MASTER_CONTEXT.md#2-architecture-decision-registry),
+Status: **PARTIAL; target lokal O-01 dan live gate O-08 disetujui; server OPEN**. Sumber: [baseline awal §2](../archive/PROJECT_MASTER_CONTEXT.md#2-architecture-decision-registry),
 [register konsolidasi](README.md). Dievaluasi 2026-10-10; penulisan file individual
 bukan persetujuan baru atau klaim fitur selesai.
 
@@ -14,7 +14,11 @@ Penghapusan staging lokal tidak menghapus security/release gate. CI hosted tidak
 
 ## Keadaan aktual dan batas bukti
 
-O-01 membatalkan staging. Workflow live masih menyebut staging; M-01 perlu keputusan target/runner/TLS/network sebelum perubahan.
+O-01 membatalkan staging. Pada17Oktober2026 user memilih opsiA(O-08):hosted GitHubCI
+offline tetap, workflow live staging dihapus, full live manual diDockerexisting4000
+dengan bukti sourceSHA/hash/image/output/exit/cleanup dan review. [Prosedur](../operations/local-release-gate.md).
+Tidak ada self-hostedrunner, secretsGitHub atau environment baru. CandidateCI/review
+tetap harus sesuai source; targetserver/TLS/network/admin boundary masihOPEN.
 
 Lihat [Phase1](../architecture/phase-1.md) untuk acceptance/test dan
 [work log](../handover/WORK_LOG.md) untuk perubahan terbaru.

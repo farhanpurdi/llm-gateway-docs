@@ -1,0 +1,91 @@
+{
+  "findings": 14,
+  "unique_source_checksums": 5,
+  "all_verified": true,
+  "details": [
+    {
+      "manifest": "reports/phase1-final-evidence/candidate-source-manifest.json",
+      "source_path": "llm-gateway-infra/scripts/keys/block-key.sh",
+      "sha256": "b9ab0f23d15f33aeb87a5c2548012279a94521854f57eb54894ef98ef281f000",
+      "matches_actual_source_file": true
+    },
+    {
+      "manifest": "reports/phase1-final-evidence/candidate-source-manifest.json",
+      "source_path": "llm-gateway-infra/scripts/keys/create-key.sh",
+      "sha256": "dccad2518497c3c49ea7ab8bc52b452080d780d26306d8d397ad0a872eb8c867",
+      "matches_actual_source_file": true
+    },
+    {
+      "manifest": "reports/phase1-final-evidence/candidate-source-manifest.json",
+      "source_path": "llm-gateway-infra/scripts/security/scan-secrets.sh",
+      "sha256": "032cceed19a1b385dd7d4fea7e965c98a59f70da3e82bbc818674d9b52ede7c2",
+      "matches_actual_source_file": true
+    },
+    {
+      "manifest": "reports/phase1-final-evidence/candidate-source-manifest.json",
+      "source_path": "llm-gateway-config/scripts/security/scan-secrets.sh",
+      "sha256": "032cceed19a1b385dd7d4fea7e965c98a59f70da3e82bbc818674d9b52ede7c2",
+      "matches_actual_source_file": true
+    },
+    {
+      "manifest": "reports/phase1-final-evidence/candidate-source-manifest.json",
+      "source_path": "llm-gateway-e2e/scripts/security/scan-secrets.sh",
+      "sha256": "032cceed19a1b385dd7d4fea7e965c98a59f70da3e82bbc818674d9b52ede7c2",
+      "matches_actual_source_file": true
+    },
+    {
+      "manifest": "reports/phase1-final-evidence/candidate-source-manifest.json",
+      "source_path": "llm-gateway-e2e/tests/test_auth.py",
+      "sha256": "648efb4502c4f258073b52e01fab950bdabdc184110349731d755164d17ae96b",
+      "matches_actual_source_file": true
+    },
+    {
+      "manifest": "reports/phase1-final-evidence/candidate-source-manifest.json",
+      "source_path": "llm-gateway-e2e/tests/test_key_rotation.py",
+      "sha256": "d8981aafad6fa0409814a2ac06ba2da679ad9abb5a54f9f11d8431d6a7a140ce",
+      "matches_actual_source_file": true
+    },
+    {
+      "manifest": "reports/phase1-final-evidence/source-under-test.json",
+      "source_path": "llm-gateway-infra/scripts/keys/block-key.sh",
+      "sha256": "b9ab0f23d15f33aeb87a5c2548012279a94521854f57eb54894ef98ef281f000",
+      "matches_actual_source_file": true
+    },
+    {
+      "manifest": "reports/phase1-final-evidence/source-under-test.json",
+      "source_path": "llm-gateway-infra/scripts/keys/create-key.sh",
+      "sha256": "dccad2518497c3c49ea7ab8bc52b452080d780d26306d8d397ad0a872eb8c867",
+      "matches_actual_source_file": true
+    },
+    {
+      "manifest": "reports/phase1-final-evidence/source-under-test.json",
+      "source_path": "llm-gateway-infra/scripts/security/scan-secrets.sh",
+      "sha256": "032cceed19a1b385dd7d4fea7e965c98a59f70da3e82bbc818674d9b52ede7c2",
+      "matches_actual_source_file": true
+    },
+    {
+      "manifest": "reports/phase1-final-evidence/source-under-test.json",
+      "source_path": "llm-gateway-config/scripts/security/scan-secrets.sh",
+      "sha256": "032cceed19a1b385dd7d4fea7e965c98a59f70da3e82bbc818674d9b52ede7c2",
+      "matches_actual_source_file": true
+    },
+    {
+      "manifest": "reports/phase1-final-evidence/source-under-test.json",
+      "source_path": "llm-gateway-e2e/scripts/security/scan-secrets.sh",
+      "sha256": "032cceed19a1b385dd7d4fea7e965c98a59f70da3e82bbc818674d9b52ede7c2",
+      "matches_actual_source_file": true
+    },
+    {
+      "manifest": "reports/phase1-final-evidence/source-under-test.json",
+      "source_path": "llm-gateway-e2e/tests/test_auth.py",
+      "sha256": "648efb4502c4f258073b52e01fab950bdabdc184110349731d755164d17ae96b",
+      "matches_actual_source_file": true
+    },
+    {
+      "manifest": "reports/phase1-final-evidence/source-under-test.json",
+      "source_path": "llm-gateway-e2e/tests/test_key_rotation.py",
+      "sha256": "d8981aafad6fa0409814a2ac06ba2da679ad9abb5a54f9f11d8431d6a7a140ce",
+      "matches_actual_source_file": true
+    }
+  ]
+}

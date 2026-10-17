@@ -40,10 +40,32 @@ opencode run --standalone --model company-ai/company-fast "Reply exactly with OP
 opencode run --standalone --model company-ai/company-coding "Reply exactly with OPENCODE_CODING_OK"
 ```
 
-Perintah kedua hanya contoh acceptance berikutnya, **bukan klaim sudah lulus**.
-Bukti tersimpan terbaru adalah fast basic response; API gateway kedua alias dan forced
-tool calls memang lulus. Agent coding penuh—eksekusi tool dan penggunaan hasilnya—masih
-perlu bukti terpisah. Jangan menyamakan tool call JSON dengan workflow coding selesai.
+Kedua alias kini mempunyai bukti workflow agent pada OpenCode **2.0.18**, diuji
+17 Oktober 2026. Operator onboarding menjalankan script asli dengan policy `pilot`;
+CLI hanya menerima virtual key developer. Di fixture kode aman, masing-masing alias
+membaca file, mengedit fungsi, menjalankan pemeriksa, lalu memakai receipt acak dari
+output tool dalam jawaban akhirnya. Kode hasil juga diperiksa ulang secara independen.
+Streaming SSE dan structured tool call API kedua alias lulus pada sesi yang sama.
+
+Untuk mengulang acceptance dari repo `llm-gateway-e2e` dengan `.venv` existing aktif:
+
+```bash
+./scripts/run-smoke.sh
+./scripts/test-opencode.sh --tb=short -s
+```
+
+Perintah pertama membuktikan onboarding/policy tanpa inference. Perintah kedua
+mengirim request provider berbayar: dua agent pada fixture, maksimal 8 langkah dan
+768 token output per request. Fixture menggunakan data/config CLI sementara dan
+permission sempit: read/edit hanya file contoh, shell hanya `python3 verify.py`,
+akses direktori luar ditolak. Jangan menyalin permission fixture sebagai kebijakan
+semua proyek developer. Key/team tes diblokir setelah pengujian, audit dipertahankan.
+
+[Laporan P1-11/P1-12 dan kode](../reports/P1_11_P1_12_OPENCODE_REPORT.md) menjelaskan
+hasil dan batas bukti. Ini tugas Python kecil pada adapter Chat Completions yang
+dipakai template; belum bukti proyek besar, seluruh tool, Responses parity, UI
+interaktif atau pilot developer nyata. Contoh response teks di atas saja tidak
+membuktikan workflow agent lengkap.
 
 Jika model ditolak, tanyakan scope key/team ke operator. Jangan mencoba bypass dengan
 master key atau mengganti model/provider. Lihat [incident](../operations/incident.md)
