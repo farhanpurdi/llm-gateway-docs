@@ -1,5 +1,10 @@
 # Checklist keputusan deploy Phase 1
 
+**Phase1 v0.0.1 ditutup dengan catatan melalui O-10 pada18Oktober2026.** Checklist
+server di bawah tetap berguna untuk pekerjaan bertahap sesudah penutupan. Kotak
+yang belum terisi berarti kontrol belum dibuktikan; tidak membuka kembali penerimaan
+fase oleh pengguna. [Keputusan lengkap](../reports/PHASE1_V0_0_1_CLOSEOUT.md).
+
 > Jalankan perintah script dari `company-ai-platform/llm-gateway-infra`, bukan dari repo docs.
 > Baca [panduan operasional](README.md) dan [status Phase1](../architecture/phase-1.md) sebelum eksekusi.
 
@@ -8,14 +13,14 @@ Bukan bukti jaringan/TLS/storage/CI server tujuan sudah siap.
 
 ## Wajib lulus pada candidate final
 
-- [ ] Commit/push perubahan ketiga repo, semua file baru ikut Git, required merge gate lulus.
-- [ ] Catat SHA source dan image digest yang disetujui; tidak ada tag latest.
-- [ ] Validator infra/config/E2E, unit, smoke, live dan OpenCode lulus.
-- [ ] Gitleaks history + working tree, audit Python, dan baseline Trivy lulus.
-- [ ] Backup diverifikasi, restore drill dan rollback config lulus.
-- [ ] Review temuan keamanan aktual, jangan menaikkan baseline agar scan terlihat hijau.
+- [x] Source tiga komponen tersimpan, CI promosi PASS dan PR main merged; closeout docs lokal adalah pembaruan terpisah.
+- [x] SHA source/image teruji tersimpan pada manifest; nama v0.0.1 dipilih. Tag Git belum dibuat.
+- [x] Validator infra/config/E2E dan full suite/OpenCode lokal PASS pada17Oktober; belum tes VM.
+- [x] Gitleaks/audit Python/baseline Trivy lokal PASS sesuai scope fixable; bukan zero-CVE.
+- [x] Backup/restore83tabel dan config-only rollback lokal PASS; snapshot GCP belum.
+- [x] Pengguna menerima risiko kerentanan image untuk penutupan Phase1 O-10; dua kandidat DHI untuk evaluasi mendatang.
 
-## Wajib disiapkan pada server oleh operator
+## Tindak lanjut server oleh operator sesuai tahapan O-10
 
 - [ ] Secret server disimpan privat; master/provider key tidak diberikan ke developer.
 - [ ] `.env` berizin 600, salt tersimpan bersama backup terenkripsi di luar host.

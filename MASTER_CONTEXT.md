@@ -1,205 +1,154 @@
 # Project Context Master — LLM Gateway
 
-Versi konsolidasi 1.10 · diperbarui 2026-10-17 · Bahasa kerja: Indonesia.
-**Baca [README](README.md) untuk navigasi, lalu mulai context proyek di sini.** Dokumen ini menggabungkan rancangan awal dan pekerjaan aktual;
-keputusan desain tidak berubah hanya karena kode atau tes yang ada berbeda.
+Versi konsolidasi **1.12**, diperbarui **19 Oktober 2026**, Asia/Jakarta.
+Baca [README](README.md) untuk navigasi; dokumen ini adalah context aktif lintas fase.
+Rancangan awal dan seluruh evidence historis dipertahankan pada arsip/laporan terkait.
 
 ## 1. Konteks satu menit
 
-Bangun gateway LLM internal perusahaan: **OpenCode → LiteLLM → OpenAI API**.
-Developer memakai virtual key, bukan master/provider key. PostgreSQL menyimpan identitas,
-key, dan spend. LiteLLM adalah **Data Plane**; custom **Control Plane** baru Phase 2.
+Gateway LLM internal perusahaan: **OpenCode → LiteLLM → OpenAI API**.
+Developer memakai virtual key pribadi; PostgreSQL menyimpan identitas, key dan spend.
+LiteLLM adalah Data Plane. Custom Control Plane baru direncanakan pada Phase 2.
 
-| Kontrak Phase 1 yang dipertahankan | Nilai |
+**Phase 1 DITUTUP DENGAN CATATAN untuk v0.0.1**, atas persetujuan eksplisit pengguna
+18 Oktober 2026: **APPROVED_OVERRIDE O-10**. Tujuh feedback, batas penutupan dan
+tindak lanjut dimiliki [laporan closeout](reports/PHASE1_V0_0_1_CLOSEOUT.md).
+Penutupan diterima melalui hasil teknis dan pengecualian; pengujian VM/server,
+snapshot, TTL Redis dan penerimaan perusahaan yang belum ada bukti tidak menjadi PASS.
+**Phase 2 dan Phase 3 tetap NOT_STARTED.**
+
+| Kontrak | Nilai yang dipertahankan |
 |---|---|
-| Provider | **OpenAI saja**, tidak ada cross-provider fallback |
+| Provider | OpenAI saja, tanpa cross-provider fallback |
 | Alias fast | `company-fast` → `openai/gpt-5.6-terra` |
 | Alias coding | `company-coding` → `openai/gpt-5.6-sol` |
-| Client pertama | OpenCode; jangan mengembalikan template lama tanpa mengecek versi |
-| Repo | Tiga komponen: infra/config/e2e; dokumentasi: `llm-gateway-docs` |
-| Environment yang diizinkan saat ini | **Docker existing, port 4000**; jangan membuat staging/environment/container baru |
-| Posisi | **Phase 1: fungsi lokal teruji; exit gate/release/pilot belum selesai** |
-| Phase 2 / Phase 3 | Belum dimulai; tidak otomatis aktif setelah H10D |
+| Client pertama | OpenCode 2.0.18 yang sudah diuji |
+| Repositori | Empat sibling repo: infra/config/e2e/docs; root bukan Git |
+| Runtime kerja lokal | Docker existing port4000; jangan membuat staging/container/environment baru untuk tugas dokumentasi |
+| Arah deployment | VM GCP, setting default/HTTP awal dan keamanan bertahap sesuai O-10; belum dieksekusi/diverifikasi di sesi ini |
+| Policy | `pilot.yaml`: kedua alias, team US$10/anggota US$2/RPM30/TPM100000 |
+| Redis | Dependency operasional existing; target TTL24jam dicatat, belum diaktifkan sebagai cache native |
+| Versi rilis | v0.0.1 disepakati; tag Git/publikasi release belum dibuat pada pemeriksaan 18 Oktober |
 
-**H1–H10D adalah checkpoint teknis lokal, bukan pengganti P1-00…P1-18.**
-Bukti terakhir 10 Oktober: 37 E2E/unit (22+3+12), 12 tes operasional, OpenCode fast smoke,
-restore 83 tabel, config release/rollback, dan scan sesuai baseline lulus.
-Bukti tersebut dibaca ulang pada sesi konsolidasi; **bukan pengujian live baru**.
-Pada 12 Oktober, P1-06/F-01/F-02 diimplementasikan: 63 tes config, 22 infra dan 29 unit E2E
-PASS static/offline. Gate publikasi/live candidate/pilot tetap terbuka; lihat [laporan](reports/P1_06_MODEL_CONTRACT_REPORT.md).
-Pada 13 Oktober, user mengoreksi acuan pengerjaan dan pengujian final pilot menjadi
-`policies/teams/pilot.yaml` (O-06), menggantikan pilihan default sebelumnya:
-kedua alias, budget team US$10, anggota US$2, RPM30/TPM100000. Script existing memakai
-durasi team `30d`. P1-09 memperbaiki durasi anggota yang null menjadi `30d`.
-Pada LiteLLM1.104.0 existing, reset `30d` ke awal bulan berikutnya 00:00 UTC;
-scheduler memeriksa sekitar setiap10menit. P1-09/P1-10 kini LOCAL_VERIFIED:
-147 tes offline, 4 smoke dan 11 live PASS. [Laporan/kode/batas](reports/P1_09_P1_10_LIMITS_COST_REPORT.md)
-dan [ADR-016](adr/016-pilot-limits.md); Phase 1 exit gate tetap terbuka.
-Pada17Oktober, P1-11/P1-12 LOCAL_VERIFIED: onboarding operator asli dan workflow
-OpenCode2.0.18 kedua alias read→edit→shell→hasil tool PASS, kode diperiksa independen,
-SSE/API tools kedua alias PASS. Sesi ini 79 unit/5 smoke/6 live terfokus PASS;
-[laporan/kode/batas](reports/P1_11_P1_12_OPENCODE_REPORT.md). Ini bukan pilot nyata.
+## 2. Bukti yang sudah tersedia
 
-**Pekerjaan aktif:** user meminta lanjut sampai akhir dan full cross-check/test.
-Full run akhir **PASS, exit0**:97unit,5smoke,30live,2outage dan13skenario native.
-Config63tes dan infra31tes(23operasi+8regresi Compose) PASS lokal. Restore83tabel,
-rotasi key kedua alias, config rollback dan audit privasi/cleanup PASS. Tiga candidate
-sudah commit/push sebagai draft PR ke develop existing; enam validate/security checks
-candidate PASS. Docs #1 juga tersedia dan CI pada `5bfd9d9` PASS. Sesuai **O-09**,
-tiga draft PR promosi ke main disiapkan pada branch baru dengan kedua history
-dipertahankan dan tree identik dengan candidate. Review/main merge belum dilakukan.
-[PR dan refs promosi](reports/PHASE1_MAIN_PROMOTION_PROPOSAL.md),
-[laporan](reports/PHASE1_FINAL_CROSSCHECK_REPORT.md),
-[manifest source](reports/phase1-final-evidence/candidate-source-manifest.json)
-dan checkpoint terbaru [work log](handover/WORK_LOG.md) menjadi acuan kelanjutan.
-**O-07:**pilot nyata/peserta/PIC ditunda. **O-08:**CIofflineGitHub + full live manual
-Dockerexisting4000 disetujui; workflowstaging lama dihapus. Keduanya bukan pilotPASS,
-waiverCVE/TLS/server atau sign-offPhase1. Policy tes O-06 tetap sama.
+Pengujian terakhir **17 Oktober 2026**, bukan tes ulang sesi pencatatan:
+full run **134 pytest PASS, exit0** (97 unit/5 smoke/30 live/2 outage), ditambah
+**13 skenario native**. Config63 dan infra31 tes offline PASS; total offline unik191.
+Kedua agent OpenCode, streaming/tools, limit/reset/biaya, rotasi key, restore83tabel,
+config-only rollback serta audit privasi/cleanup PASS sesuai batas skenario.
+[Laporan per milestone](reports/PHASE1_FINAL_CROSSCHECK_REPORT.md) dan
+[32 file kode](reports/PHASE1_FINAL_CODE_APPENDIX.md) menyimpan implementasi/evidence.
 
-## 2. Urutan baca dan pemilik informasi
+Pengguna mereview dan merge PR ke main: config#4, infra#7, E2E#6, docs#1.
+Pemeriksaan ulang18Oktober: tree main keempat repo identik dengan candidate yang
+diuji. Enam CI promosi PASS; CI docs pada b53677f juga PASS sebelum merge.
+[Refs/PR/version record](reports/phase1-v0.0.1-evidence/release-record.json).
+Pembaruan closeout/panduan dipublikasikan pada branch
+`docs/phase1-v0.0.1-closeout-20261018` atas instruksi push pengguna19Oktober.
+Status merge ke main dan CI terbaru mengikuti PR branch tersebut; publikasi branch
+tidak membuat tag v0.0.1 atau menjalankan deployment.
 
-1. Baca master ini seluruhnya.
-2. Baca **[Phase 1](architecture/phase-1.md)**: tabel P1, pemetaan H, bukti, gap, next task.
-3. Baca **[Keputusan dan evaluasi drift](adr/README.md)** sebelum mengubah scope/arsitektur.
-4. Baca **[Log dan handoff aktif](handover/WORK_LOG.md)** untuk checkpoint terbaru.
-5. Hanya bila relevan, baca [Phase 2](architecture/phase-2.md) atau [Phase 3](architecture/phase-3.md).
-6. Buka source/runbook/bukti yang ditautkan oleh item aktif; jangan memuat semua arsip kode di awal chat.
+H1–H10D adalah checkpoint teknis lokal. P1-00…P1-18 tetap pemetaan acceptance;
+[Phase 1](architecture/phase-1.md) membedakan bukti teknis dan penutupan melalui O-10.
 
-| Dokumen | Perannya sekarang |
+## 3. Keputusan yang mengikat
+
+Permintaan eksplisit terbaru pengguna → ADR/override yang disetujui → master +
+baseline yang dirujuk → source/bukti aktual → catatan historis. Source membuktikan
+implementasi, bukan mengesahkan perubahan desain atau penerimaan risiko sendiri.
+
+O-01 memakai Docker lokal existing4000; O-04 memusatkan docs/report pada repo docs;
+O-06 memilih pilot.yaml; O-07 menunda pilot nyata/peserta/PIC; O-08 menetapkan
+CI offline GitHub + full live manual lokal; O-09 menyiapkan promosi kedua history.
+Pengguna kemudian melakukan review/merge sendiri, terverifikasi GitHub.
+
+**O-10, 18 Oktober:** Phase 1 ditutup v0.0.1 dengan catatan. CVE image diterima untuk
+fase ini; dua kandidat DHI dicatat untuk evaluasi mendatang. VM GCP/default/HTTP
+awal dan keamanan bertahap dipilih. Snapshot/backup serta biaya didiskusikan dengan
+manager. TTL Redis24jam dan belum ada kebijakan pembatasan pengguna Redis tambahan
+dicatat sebagai arah, bukan pengaturan yang sudah terbukti aktif. Detail satu pintu:
+[register ADR](adr/README.md) dan [tujuh feedback](reports/PHASE1_V0_0_1_CLOSEOUT.md).
+
+| Status bukti/keputusan | Arti |
 |---|---|
-| `MASTER_CONTEXT.md` | Satu pintu masuk dan aturan lintas fase; master konsolidasi aktif |
-| `architecture/phase-1.md` | Pemilik status acceptance P1 dan pemetaan ke H1–H10D |
-| `architecture/phase-2.md`, `architecture/phase-3.md` | Roadmap masa depan; tidak berisi klaim implementasi |
-| `adr/README.md` + `adr/001…017-*.md` | Register keputusan/drift; detail setiap ADR mempertahankan ID asli |
-| `handover/WORK_LOG.md` | Catatan perubahan context, bukti dan tugas berikutnya |
-| [PROJECT_MASTER_CONTEXT.md](archive/PROJECT_MASTER_CONTEXT.md) | Baseline rancangan asli; teks PLANNING/TODO adalah snapshot awal |
-| [LLM_GATEWAY_PROJECT_CONTEXT_HANDOFF.md](archive/LLM_GATEWAY_PROJECT_CONTEXT_HANDOFF.md) | Arsip detail H1–H10; potongan kode/status lama bukan instruksi eksekusi terbaru |
-| [Laporan H1–H10](reports/PHASE1_H1_H10_REPORT.md) | Hasil sesi implementasi sebelumnya, bukan penutupan seluruh gate awal |
-
-Kedua sumber asli dipertahankan, hanya diberi penunjuk baca. Jangan memperbarui tiga master
-secara paralel. Status aktif cukup di dokumen fase; master tetap ringkas dan log append-only.
-Permintaan user terbaru memusatkan semua dokumentasi/laporan ke repo `llm-gateway-docs` yang sudah ada.
-Dokumen root lama sudah tidak ada pada pemeriksaan 2026-10-12; rancangan awal dan handoff lengkap berada di `archive/`.
-Ini perubahan kepemilikan dokumentasi yang diizinkan, bukan perubahan Data Plane/roadmap fase.
-
-## 3. Urutan otoritas dan disiplin bukti
-
-Permintaan eksplisit terbaru user → ADR yang disetujui → master konsolidasi + baseline
-keputusan yang dirujuk → source/bukti kondisi terpasang → catatan historis.
-**Source membuktikan keadaan aktual, bukan mengesahkan penyimpangan desain.**
-Usulan/temuan tidak menjadi persetujuan hanya karena ditulis dalam dokumen.
-
-| Status | Arti |
-|---|---|
-| `LOCAL_VERIFIED` | Ada implementasi dan bukti lokal dalam batas skenario yang disebut |
-| `PARTIAL` | Sebagian acceptance terbukti, sisanya belum |
-| `OPEN` / `NOT_VERIFIED` | Keputusan/bukti belum tersedia; bukan otomatis bug |
+| `LOCAL_VERIFIED` | Implementasi dan bukti lokal dalam batas skenario |
+| `PARTIAL` | Sebagian acceptance terbukti |
+| `OPEN` / `NOT_VERIFIED` | Keputusan/bukti tertentu belum tersedia |
 | `NOT_STARTED` | Pekerjaan belum dimulai |
-| `APPROVED_OVERRIDE` | Perubahan spesifik yang memang diinstruksikan user; jangan perluas cakupannya |
-| `PROPOSED` | Belum diizinkan/diterapkan |
-| `DONE_VERIFIED` | Acceptance lengkap + commit/PR/review sesuai policy + bukti + docs |
+| `APPROVED_OVERRIDE` | Pengecualian/perubahan scope yang disetujui pengguna; termasuk penutupan O-10 dengan catatan |
+| `PROPOSED` | Usulan belum disetujui |
+| `DONE_VERIFIED` | Acceptance terkait lengkap beserta bukti dan proses review yang diperlukan |
 
-Jangan menyamakan file dibuat, pytest collection, scan PASS, health HTTP 200, atau test
-unit dengan acceptance live/production. Kegagalan lama yang sudah diperbaiki tetap ada
-sebagai riwayat. Model access terbukti melalui gateway untuk credential saat tes;
-akses langsung API/billing corporate dan akurasi harga belum otomatis terbukti.
+Label fase **ditutup dengan catatan** memakai APPROVED_OVERRIDE O-10. Jangan mengubah
+seluruh baris P1 menjadi DONE_VERIFIED: deployment GCP/TTL/snapshot/pilot nyata yang
+belum diuji tetap NOT_VERIFIED, walaupun tidak lagi menghalangi penutupan fase ini.
 
-## 4. Aturan yang tidak boleh dilanggar
+## 4. Urutan baca dan pemilik informasi
 
-- Phase 1 tetap dua alias dan OpenAI saja. Perubahan mapping/provider membutuhkan ADR/persetujuan.
-- Jangan membangun custom UI, SSO, backend control plane, billing engine atau HA pada Phase 1.
-- Security minimum (TLS lintas mesin, secret, ACL, backup) tetap Phase 1; enterprise scale Phase 3.
-- Gunakan satu `LiteLLMClient` di E2E: `tests/client.py` HTTP, `conftest.py` fixture/cleanup,
-  `test_*.py` assertion. Jangan tambah admin client abstraction kedua.
-- `models/*.yaml`: identitas dari filename; bukan file config runtime yang otomatis di-load.
-- Jangan hard-delete audit. Offboarding sekarang snapshot + koordinasi freeze provisioning;
-  belum ada atomic revocation terhadap penerbitan key bersamaan atau integrasi SSO.
-- Redis ada dan menjadi dependency operasional sekarang, tetapi kebutuhan distributed cache/
-  rate limiting belum dibuktikan. Jangan menghapusnya atau mengklaim wajib desain tanpa keputusan.
-- Jangan menaikkan vulnerability baseline diam-diam. PASS baseline bukan zero vulnerabilities.
-- Jangan menaruh `.env`, raw virtual key, dump, prompt sensitif, atau salt dalam Git/context.
-- Jangan membuat staging lagi. Perintah scanner default yang membuat container juga tidak
-  dijalankan pada constraint sekarang; gunakan opsi native bila pengujian memang diperlukan.
-- Perubahan major harus dijelaskan dahulu: masalah, opsi, dampak, risiko, migrasi/rollback,
-  dan persetujuan user. Sesi konsolidasi ini tidak mengimplementasikannya.
+1. Master ini untuk posisi dan aturan lintas fase.
+2. [Phase 1](architecture/phase-1.md) untuk status P1 dan peta H1–H10D.
+3. [Register ADR](adr/README.md) untuk keputusan/drift, termasuk O-10.
+4. [Closeout v0.0.1](reports/PHASE1_V0_0_1_CLOSEOUT.md) dan checkpoint terbaru [work log](handover/WORK_LOG.md).
+5. [Panduan penggunaan](developer/panduan-penggunaan.md) untuk operator/developer;
+   source/runbook/evidence dibuka hanya bila terkait tugas.
+6. [Phase 2](architecture/phase-2.md)/[Phase 3](architecture/phase-3.md) hanya ketika relevan atau diperintahkan.
 
-## 5. Keadaan penting dan langkah berikutnya
+Arsip [rancangan awal](archive/PROJECT_MASTER_CONTEXT.md) dan
+[handoff H1–H10](archive/LLM_GATEWAY_PROJECT_CONTEXT_HANDOFF.md) adalah snapshot
+historis, bukan master paralel. Catatan lama IN_PROGRESS/open gate tidak membatalkan
+O-10 yang lebih baru. Evidence historis dan attempt gagal tidak ditulis ulang.
 
-Root workspace bukan repo Git; tiga komponen dan satu repo dokumentasi terpisah.
-Remote main docs cocok HEAD `1d07d02` saat audit; draft docs #1 kini dipublikasikan.
-Source komponen tersimpan pada candidate bersih dengan enam CI checks PASS.
-Draft ke develop mengikuti jalur H7/H8 yang sudah merged dan tetap terbuka.
-Main tiga komponen masih initial README. **O-09 mengizinkan penyiapan draft PR
-promosi**, bukan merge main: config #4, infra #7, E2E #6 pada branch
-`release/phase1-main-review-20261017`. Merge commit mempertahankan kedua history
-dengan tree identik candidate; [keputusan dan bukti](reports/PHASE1_MAIN_PROMOTION_PROPOSAL.md).
-Required review/checks tetap berlaku; jangan force-push, merge protected branch,
-tag atau deploy dari izin penyiapan ini. CI harus sesuai SHA promosi terbaru.
-Belum ada tag/sign-off/deployment server. Pilot nyata ditunda sementaraO-07.
+## 5. Aturan dan batas yang tetap berlaku
 
-**Risiko/gap yang harus dibaca sebelum deploy:**
-- Validator config dan release mengunci exact upstream/provider/alias; F-01/F-02
-  LOCAL_VERIFIED static/offline. Exposure API tepatduaalias diuji ulang pada fullsuite;
-  publikasi candidate sudah ada; review/CI final harus sesuaiSHA terbaru.
-- Gateway bind semua interface; TLS/admin isolation server belum dibuktikan.
-  Audit lokal261rowspend/3666loglines tanpa isi pesan/rawkey serta296key/97teamblockedPASS;
-  sampling sesi ini bukan jaminan seluruh trafik historis/masa depan.
-- RPM/TPM shared+recovery, budget key/member/team dan reset anggota terbukti pada fixture
-  existing4000; belum stress/concurrency/multi-pod atau penerapan peserta pilot nyata.
-- Token/biaya kedua alias cocok dengan respons provider dan harga standar resmi;
-  invoice billing/cache/tier/workload lain belum direkonsiliasi. Harga snapshot13Oktober.
-- OpenCode kedua alias terbukti pada tugas Python kecil dengan penggunaan hasil tool;
-  proyek besar/semua tool/Responses parity dan pilot nyata belum dibuktikan.
-- Provider429/500/timeout408+retry terbukti dengan simulasi SDK/router/handler native;
-  HTTPmock berbahaya ditolak400. OutagePG/Redis membuktikan deny/recovery/spend lokal,
-  bukan testprovidererror nyata/concurrency/HA. Lihat laporanP1-FINAL.
-- Release/rollback hanya config, image/schema sama; bukan deployment server lintas versi.
-- Scan ulang17Oktober:PostgreSQL1Critical/28High, Redis2High, LiteLLM0/0;
-  baselinePASS bukan penerimaan risiko deploy. TargetliveCI disetujuiO-08; CVE/server memerlukan
-  [keputusan konkret](reports/PHASE1_RELEASE_DECISIONS.md).
+- Dua alias/OpenAI-only tetap; perubahan mapping/provider harus disetujui.
+- Jangan mulai custom UI/control plane/SSO/HA/Phase2/3 dari penutupan ini.
+- Source aplikasi tetap tiga repo komponen; docs di repo docs. Root bukan parent Git/monorepo.
+- Satu HTTP client E2E `tests/client.py`; fixtures/cleanup di conftest dan assertion di test_*.py.
+- Identitas katalog model berasal dari filename; katalog bukan generator runtime otomatis.
+- Jangan commit `.env`, raw key, salt, dump, prompt/source/response sensitif atau log mentah.
+- Pertahankan audit: block/offboard/rotate, tidak hard-delete. Freeze provisioning manual
+  saat offboard tetap diperlukan; belum atomic/SSO deprovision.
+- Security minimum tetap tujuan desain. Penundaan HTTP/HTTPS/firewall/admin/snapshot
+  adalah pengecualian eksplisit O-10, tidak mengubahnya menjadi kontrol yang sudah diterapkan.
+- Jangan menghapus Redis, mengaktifkan cache, mengubah TTL seluruh key atau membuka
+  port Redis dari tugas pencatatan. Target24jam bukan retensi spend PostgreSQL,
+  expiry virtual key, durasi budget atau reset rate limit.
+- Budget30d teruji reset awal bulan berikutnya UTC, scheduler sekitar10menit;
+  reset bukan prepaid cap dan anggota lama belum otomatis dimigrasikan.
+- Baseline scan hanya temuan fixable sesuai policy; PASS bukan zero-CVE. CVE diterima
+  untuk penutupan ini oleh pengguna, bukan dibuktikan hilang atau otomatis false positive.
+- Full live/outage berbayar/berdampak dikerjakan serial dan sesuai scope; tugas docs
+  tidak menjalankannya. Jangan mengulang paid test untuk perubahan docs/metadata saja.
+- Perubahan major dijelaskan sebelum implementasi. Persetujuan yang sudah ada tidak
+  ditanyakan ulang; evaluasi DHI/TTL/deploy nyata membutuhkan task/target yang konkret.
 
-**Sesi terbaru17Oktober:** P1-11/P1-12 dikerjakan atas instruksi melanjutkan user.
-Onboarding operator asli/policy pilot, agent kedua alias, SSE/API tools LOCAL_VERIFIED;
-[79 unit/5 smoke/6 live terfokus PASS](reports/P1_11_P1_12_OPENCODE_REPORT.md).
-Docker Desktop semula mati lalu dinyalakan; tiga container existing berjalan kembali
-dengan ID/image sama. Tidak membuat environment/container atau mengubah template/policy.
-Empat team/empat key fixture diblokir dan audit dipertahankan; candidate/release tetap terbuka.
+## 6. Langkah setelah penutupan
 
-**Sesi13Oktober:** P1-09/P1-10 dikerjakan sesuai `pilot.yaml` (O-06). Bug durasi anggota
-diperbaiki; persistence/limits/reset dan token/biaya kedua alias LOCAL_VERIFIED,
-[147 offline +4 smoke +11 live PASS](reports/P1_09_P1_10_LIMITS_COST_REPORT.md).
-Identitas tes diblokir, audit dipertahankan; sembilan asset config/policy tetap identik
-dan tiga ID container sama. P1-06/F-01/F-02 sebelumnya tetap LOCAL_VERIFIED,
-[114 tes offline pada snapshot12Oktober](reports/P1_06_MODEL_CONTRACT_REPORT.md).
-P1-CLOSEOUT-PLAN/DOC-MIGRATE/DOC-CONSOLIDATE tetap tercatat sebagai sesi sebelumnya.
-**Next action aktif:** pastikan CI PR promosi dan pembaruan docs lulus pada SHA
-terbaru, lalu review manusia/keputusan CVE dan server yang tersisa. Full test, outage, rotasi, rollback dan privacy
-lokal sudahPASS. Jangan mengulang paidtest untuk metadataCI saja tanpa alasan baru.
-P1-09…P1-13 tetap LOCAL_VERIFIED; commit/review/CI/sign-off sesuai gate masing-masing
-sebelum releaseDONE. Tidak mulai deployment atau Phase2 otomatis.
-M-03 penempatan dokumentasi diselesaikan dengan repo docs existing atas instruksi user;
-publikasi draft docs #1 terverifikasi; review/merge belum dilakukan.
-M-01/M-02/M-04 tetap terbuka; bagian lain M-05 (PIC/billing/provider cap, lisensi,
-data/retensi dan peserta pilot) tetap terbuka dalam register drift.
+Pengguna akan setup VM GCP, mengamati trafik, lalu berdiskusi dengan manager.
+Belum ada IP/domain, bukti deploy, penguatan akses atau jadwal snapshot yang aktif
+dalam context. Biaya/cap/provider invoice, lisensi/retensi/ownership tetap tindak
+lanjut; jangan mengarang persetujuan perusahaan. Pilot nyata/peserta/PIC tetap ditunda.
 
-## 6. Prompt chat baru
+Kandidat evaluasi: `dhi.io/postgres:16.15-alpine3.23` dan
+`dhi.io/redis:7.4.11-debian13`. Keduanya belum dipasang/dites kompatibilitas proyek.
+Snapshot dipilih sebagai opsi awal, jadwal/retensi belum diputuskan. Redis TTL24jam
+masih target; runtime YAML belum menghubungkan Redis sebagai nativecache.
+Daftar lanjutan L-01…L-07 dimiliki laporan closeout, bukan roadmap fase baru.
+
+## 7. Prompt chat baru
 
 ```text
-Mulai dari llm-gateway-docs/README.md dan llm-gateway-docs/MASTER_CONTEXT.md.
-Lanjutkan architecture/phase-1.md, adr/README.md, handover/WORK_LOG.md di repo docs.
-Pertahankan OpenAI-only, dua alias yang ditetapkan, tiga repo komponen dan Docker existing 4000.
-H10D lokal selesai bukan Phase 1 exit gate. Cocokkan source/Git dengan bukti sebelum coding.
-Kerjakan item yang diminta; P1-06/F-01/F-02 LOCAL_VERIFIED static/offline.
-P1-09/P1-10 LOCAL_VERIFIED: 147offline/4smoke/11live PASS; lihat laporan sesi13Oktober.
-Pilot memakai pilot.yaml (O-06): kedua alias, teamUS$10/anggotaUS$2/RPM30/TPM100000.
-Durasi team/anggota30d memakai awal bulan berikutnya UTC; pemeriksaan reset sekitar10menit.
-P1-11/P1-12 LOCAL_VERIFIED17Oktober:79unit/5smoke/6live terfokus PASS, bukan seluruh suite.
-Lanjut checkpointP1-FINAL sesuai instruksi user sampai akhir dan full test;
-lihat laporan aktif/worklog untuk hasil terbaru dan CI PR promosi.
-Pilot nyata/peserta/PIC ditundaO-07, bukan pilot PASS. Bagian lain M-05/gate releaseOPEN.
-O-08: CI offline + live manual existing4000. O-09: tiga draft PR promosi main disiapkan,
-kedua history dipertahankan dan tree identik candidate; bukan izin merge/tag/deploy.
-Jangan outage tanpa koordinasi scope/recovery atau menjalankan tes gateway paralel.
-Jangan buat staging atau mulai Phase 2; minta keputusan sebelum perubahan major.
-Laporkan ID, file, hasil tes aktual, batasan, commit jika ada, dan update dokumen fase/log.
+Baca README, MASTER_CONTEXT.md, architecture/phase-1.md, adr/README.md,
+reports/PHASE1_V0_0_1_CLOSEOUT.md dan checkpoint terbaru handover/WORK_LOG.md.
+Phase1 v0.0.1 DITUTUP DENGAN CATATAN, APPROVED_OVERRIDE O-10 tanggal18Oktober2026.
+Pertahankan dua alias OpenAI, empat sibling repo dan Docker lokal existing4000.
+PR main keempat repo merged; bukti fullrun17Oktober:134pytest+13native PASS exit0.
+Source main identik candidate; perubahan docs closeout belum otomatis ada di main/tag.
+CVE image diterima untuk fase ini; dua kandidat DHI hanya evaluasi mendatang.
+Pengguna memilih VM GCP/default/HTTP awal dan keamanan bertahap; deployment belum terbukti.
+Snapshot dan biaya dibahas dengan manager; jadwal/retensi/approval perusahaan belum ada.
+TTLRedis24jam adalah target, belum diterapkan; jangan ubah cache/auth/budget dari catatan ini.
+Pilot nyata/peserta/PIC ditundaO-07. Phase2/3 NOT_STARTED; jangan mulai otomatis.
+Kerjakan task yang diminta, verifikasi source/bukti, lalu update pemilik dokumen dan log.
 ```

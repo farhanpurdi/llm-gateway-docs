@@ -1,30 +1,24 @@
 # Phase 1 — Gateway MVP, acceptance dan status nyata
 
-**Checkpoint aktif17Oktober2026: P1-FINAL sedang berjalan.** User meminta sampai
-akhir dan full test. Native error/retry13kasus, guardHTTP6kasus, outagePG/Redis2kasus,
-rotasi virtualkey keduaalias dan config-only rollback sudahPASS. CI lokal terbaru:
-config63tes, infra31tes(23operasi+8Compose), E2E97unitPASS. Fullrun exit0:
-97unit/5smoke/30live/2outage+13nativePASS. O-08 hostedoffline + live manual4000
-diterapkan; workflow staging dihapus, tiga candidate PR ke develop dan docs #1
-tersedia. Enam CI candidate PASS. O-09 menyetujui penyiapan tiga draft PR ke main,
-dengan history dipertahankan dan tree identik candidate;
-[laporan aktif](../reports/PHASE1_FINAL_CROSSCHECK_REPORT.md) memiliki status terkini.
-Pilot nyata/peserta/PIC ditundaO-07; gate release/server tetap terbuka.
+**Status 18 Oktober 2026: Phase 1 DITUTUP DENGAN CATATAN, versi v0.0.1.**
+Dasar penutupan: persetujuan pengguna **APPROVED_OVERRIDE O-10** setelah hasil
+teknis lokal/CI lulus dan PR main direview/merged. Tujuh feedback serta daftar
+lanjutan berada di [closeout v0.0.1](../reports/PHASE1_V0_0_1_CLOSEOUT.md).
 
-Baca [master](../MASTER_CONTEXT.md) dahulu. Pemilik status P1 ada di file ini.
-Snapshot evaluasi: 2026-10-10. **Phase 1 gate masih terbuka; H10D verified lokal.**
-Pemeriksaan source/Git dan [rencana penutupan](phase-1-completion-plan.md) diperbarui
-2026-10-12. Setelah sesi rencana, P1-06/F-01/F-02 diimplementasikan dan diuji static/offline;
-tidak ada tes live baru. Lihat [laporan P1-06](../reports/P1_06_MODEL_CONTRACT_REPORT.md).
-Pada 2026-10-13, user mengoreksi policy pengerjaan/tes final pilot menjadi `pilot.yaml`;
-keputusan [ADR-016/O-06](../adr/016-pilot-limits.md) menjadi acuan P1-09/P1-10.
-Implementasi/test paket ini kini LOCAL_VERIFIED: 147 offline, 4 smoke dan 11 live PASS;
-lihat [laporan terbaru](../reports/P1_09_P1_10_LIMITS_COST_REPORT.md). Gate release tetap terbuka.
-Pada 2026-10-17, P1-11/P1-12 juga LOCAL_VERIFIED: onboarding operator asli, kedua
-agent OpenCode, streaming/tools PASS; 79 unit, 5 smoke dan 6 live terfokus.
-[Laporan/kode](../reports/P1_11_P1_12_OPENCODE_REPORT.md); bukan seluruh suite live atau pilot nyata.
-Dasar: [rancangan §8](../archive/PROJECT_MASTER_CONTEXT.md#8-roadmap-phase-1--urutan-pengerjaan-yang-harus-diikuti),
-source tiga repo, dan bukti tersimpan. Tidak menjalankan ulang runtime pada sesi evaluasi.
+Full run17Oktober PASS exit0:97unit/5smoke/30live/2outage dan13skenario native.
+Config63 dan infra31 offline PASS; restore83tabel, rotasi key, config-only rollback,
+agent/tools/streaming dan privasi/cleanup PASS. Ini bukti lokal, bukan tes VM GCP.
+Main keempat repo identik candidate; PR config#4/infra#7/E2E#6/docs#1 merged.
+
+CVE image diterima untuk fase ini. Pengguna memilih VM GCP/default/HTTP awal dan
+keamanan bertahap. Snapshot/backup dan biaya menunggu diskusi manager. TTLRedis24jam
+ditetapkan sebagai target yang belum diterapkan; akses Redis tambahan belum dibatasi
+oleh kebijakan yang disepakati. Pilot nyata/peserta/PIC tetap ditundaO-07.
+Phase2/3 NOT_STARTED. Tag Git v0.0.1 dan deployment VM belum dibuat/dibuktikan sesi ini.
+
+Baca [master](../MASTER_CONTEXT.md) dahulu. File ini pemilik status acceptance P1.
+Baris di bawah memisahkan hasil teknis dan pengecualian penutupan; tidak seluruhnya
+diubah menjadi DONE_VERIFIED. Bagian sejarah H dan bukti10Oktober tetap dipertahankan.
 
 ## 1. Kontrak dan layout aktual
 
@@ -49,30 +43,30 @@ Model ID diturunkan dari filename `models/`, tidak menambah `logical_name` di sa
 
 ## 2. Peta P1-00…P1-18 ke pekerjaan yang ada
 
-Status kolom ini **teknis lokal**, bukan `DONE_VERIFIED` release. Task dengan sebagian
-acceptance belum terbukti tetap PARTIAL meskipun milestone H terkait dinyatakan PASS.
+Status kolom ini membedakan bukti teknis dan keputusan pengguna. O-10 menutup fase
+dengan catatan tanpa mengubah pemeriksaan server/pilot/TTL yang belum ada menjadi PASS.
 
 | ID | Acceptance awal / pemetaan H | Status dan bukti yang tersedia | Yang belum ditutup |
 |---|---|---|---|
-| P1-00 | Environment, owner, API/billing, model access; H1/H8 | PARTIAL: kedua alias live PASS via gateway; empat repoGitHub private terverifikasi17Oktober; inventaris lisensi tersedia | Billing/cap dan penerimaan lisensi belum; peserta/PIC ditundaO-07. Direct API call belum ada bukti terpisah |
-| P1-01 | Root context + 3 repo + workflow/protection; H6/H7 | PARTIAL: empat repo private, candidate commit/push dan enam CI PASS; docs #1 CI PASS pada 5bfd9d9; O-09 diterapkan melalui draft promosi config #4/infra #7/E2E #6 | Review/merge protected main dan sign-off belum; lihat [refs promosi](../reports/PHASE1_MAIN_PROMOTION_PROPOSAL.md). Tidak force-push |
-| P1-02 | Compose/PG/network/persistence; H1/H3/H5 | PARTIAL: existing Docker+PG, restore 83 tabel PASS | Gateway bind semua interface berlawanan default local-private; bukti persistence bukan test enforcement saat outage |
+| P1-00 | Environment, owner, API/billing, model access; H1/H8 | PARTIAL teknis; penutupan melalui O-10: kedua alias teruji, repo private, inventaris lisensi tersedia | Biaya dibahas dengan manager; cap/alert/invoice/lisensi/ownership perusahaan belum disahkan. Peserta/PIC ditunda O-07 |
+| P1-01 | Repo/workflow/review/main; H6/H7 | DONE_VERIFIED untuk publikasi/review/merge: empat PR main merged, source tree sama dengan candidate dan CI promosi/docs PASS | Nama v0.0.1 ditetapkan; tag/publikasi release belum dibuat. [Refs dan batas](../reports/PHASE1_V0_0_1_CLOSEOUT.md) |
+| P1-02 | Compose/PG/network/persistence; H1/H3/H5 | LOCAL_VERIFIED pada Docker existing4000: persistence, restore83tabel, outage/recovery PASS | VM GCP/default network dipilih O-10; deploy/jaringan server belum diuji, hardening bertahap |
 | P1-03 | Secrets, pinned release, health; H1/H2/H4 | LOCAL_VERIFIED: env600, no secrets scan, image spesifik, readiness+dependency diperbaiki | Belum pembuktian server/rotasi secret; lihat gate publikasi |
 | P1-04 | Fast alias live; H8 | LOCAL_VERIFIED: inference `company-fast` PASS | Pertahankan exact mapping; hasil hanya credential/versi saat tes |
 | P1-05 | Coding alias live; H8 | LOCAL_VERIFIED: inference `company-coding` PASS | Sama seperti P1-04 |
-| P1-06 | Tepat 2 alias, catalog/ACL, validation; H6/H8 | LOCAL_VERIFIED: exact alias/provider/upstream/env dan katalog konsisten; 63 tes config serta exposure dua alias pada full suite akhir PASS; source tersimpan dan CI candidate PASS | Review/merge release belum; model dinamis DB/API admin di luar bukti static |
+| P1-06 | Dua alias/catalog/ACL; H6/H8 | LOCAL_VERIFIED:63tes config dan exposure dua alias fullsuite PASS; source main/review/CI terverifikasi | Model dinamis DB/admin di luar bukti static; kontrak exact tetap dipertahankan |
 | P1-07 | User/team/virtual key/attribution; H8/H9 | LOCAL_VERIFIED: user/team fixture, multi-key, attribution PASS | HR/SSO bukan scope Phase 1; pilot ownership tetap belum final |
 | P1-08 | Fast-only deny coding, revocation; H8/H9 | LOCAL_VERIFIED: update team fast-only → coding403, restored200; blocked401/403 | Tidak menggeneralisasi ke seluruh jalur ACL/membership atau concurrent issuance |
-| P1-09 | Pilot RPM/TPM/budget/duration; H8 | LOCAL_VERIFIED 2026-10-13: policy pilot persisten, RPM/TPM shared+recovery, key/member/team budgets; bug reset anggota diperbaiki, reset otomatis dan cumulative spend retained PASS | Release commit/review/CI candidate, peserta/penerapan pilot nyata dan cap/alert provider belum; anggota lama tidak dimigrasikan. Reset kalender UTC dan scheduler sekitar10menit; bukan hard prepaid cap/concurrency proof |
-| P1-10 | Cost/token per user/key/alias; H8/H9 | LOCAL_VERIFIED 2026-10-13: kedua alias, token/spend request dan counter key/member/user/team cocok dengan respons provider+harga standar resmi | Invoice/provider billing, cache/long context/tier lain dan workload streaming/tools belum direkonsiliasi. Harga snapshot13Oktober; gate publikasi/candidate masih berlaku |
-| P1-11 | OpenCode kedua alias + onboarding; H8/H10D | LOCAL_VERIFIED 2026-10-17: script onboarding operator asli/policy pilot, internal_user + key developer, exact dua model; kedua alias dipakai agent OpenCode2.0.18 | Commit/review/CI candidate, distribusi credential/onboarding manusia dan pilot nyata belum; template/config pribadi tidak diubah |
-| P1-12 | Streaming/tools/agent coding; H8 | LOCAL_VERIFIED 2026-10-17: kedua alias read→edit→shell verifier→receipt hasil tool, kode diuji independen; SSE sampai DONE dan structured tool API PASS | Fixture Python kecil/default adapter Chat Completions; proyek besar/semua tool/Responses parity belum. Security permission fixture bukan kebijakan client perusahaan; release gate tetap terbuka |
+| P1-09 | Pilot RPM/TPM/budget/duration; H8 | LOCAL_VERIFIED: policy pilot, shared RPM/TPM/recovery, key/member/team budget dan reset PASS; source merged | VM/peserta nyata belum; cap biaya dibahas manager O-10. Anggota lama belum dimigrasikan; reset kalender UTC sekitar10menit bukan hard prepaid cap |
+| P1-10 | Cost/token per user/key/alias; H8/H9 | LOCAL_VERIFIED: token/spend kedua alias cocok respons provider dan harga oracle; source merged | Invoice/provider cap serta workload/tier lain belum direkonsiliasi; biaya dibahas manager O-10 |
+| P1-11 | OpenCode/onboarding; H8/H10D | LOCAL_VERIFIED: script operator/pilot dan virtual key developer, agent OpenCode2.0.18 kedua alias PASS; source merged | Onboarding manusia/VM belum terbukti; pilot nyata ditunda O-07 |
+| P1-12 | Streaming/tools/agent coding; H8 | LOCAL_VERIFIED: read/edit/shell/hasil tool dan verifikasi kode, SSE/API tools kedua alias PASS; source merged | Fixture coding kecil dan adapter template existing; bukan semua proyek/tool/Responses parity |
 | P1-13 | Auth/ACL/budget/provider429/5xx; H8/H9 | LOCAL_VERIFIED17Oktober:13native simulated429/500/408+retry;6HTTPguard/recovery;2outagePG/Redis deny/recovery/spend PASS | Error upstream disimulasikan tanpa providerIO, bukan sengaja memicu429provider. Satu runtimeexisting/cache lokal; bukan concurrency/HA proof. [Bukti](../reports/phase1-final-evidence/README.md) |
-| P1-14 | CI/scan/live environment/version lock; H6/H7/H10 | PARTIAL: tiga lock berhash/dry-run/audit, CI lokal dan enam CI candidate PASS; O-08 hosted offline + full live manual existing4000 PASS; draft promosi O-09 tersedia | CI harus sesuai SHA promosi/docs terbaru dan review belum selesai; [gate lokal](../operations/local-release-gate.md) mengikat SHA/hash/output. Main/server gate terpisah |
-| P1-15 | Security minimum, logs, persistence; H2/H3/H4/H5/H7 | PARTIAL: secret scan/audit, backuprestore83tabel dan minimisasi data/log initial PASS17Oktober | TLS/shared access/admin isolation dan penerimaan temuanPG1C/28H/Redis2H belum; samplingprivasi bukan jaminan seluruh trafik |
-| P1-16 | Deploy/rollback/rotate/incident/backup; H5/H10 | PARTIAL:17Oktober config180→181→180+5smoke tiapapply, sameinode/byte/ID/image PASS; rotasi key keduaalias tanpa hapus audit dan restore83tabel PASS | Server compatible refs, lintasimage/schema, master/provider/salt rotation dan backup luarhost belum; [runbook](../operations/deployment.md) |
+| P1-14 | CI/scan/version lock; H6/H7/H10 | LOCAL_VERIFIED:3lock berhash, CI lokal/enam CI promosi/docs PASS; main source identik candidate; O-08 diterapkan | Penutupan v0.0.1 O-10; tag Git dan deployment server belum dipublikasikan/diverifikasi |
+| P1-15 | Security/privacy/persistence; H2/H3/H4/H5/H7 | APPROVED_OVERRIDE O-10: audit/scan lokal PASS sesuai scope; CVE image diterima dan keamanan server bertahap | CVE tetap ada, dua kandidat DHI belum diuji. TLS/admin/network/retensi server belum terbukti; penutupan bukan zero-CVE atau approval perusahaan |
+| P1-16 | Deploy/rollback/rotate/incident/backup; H5/H10 | LOCAL_VERIFIED operasi lokal; penutupan APPROVED_OVERRIDE O-10: config rollback, rotasi key dan restore83tabel PASS | Snapshot GCP opsi awal menunggu diskusi manager; belum ada jadwal/retensi/restore snapshot/deploy VM/rollback lintasimage yang terbukti |
 | P1-17 | Pilot 2–5 developer & feedback | APPROVED_OVERRIDE sementara O-07,2026-10-17: user mengizinkan skip pilot nyata/penentuan peserta-PIC dahulu | Penggunaan/feedback nyata tetap NOT_VERIFIED; bukan bukti pilot selesai. Policy pilot tetap O-06; penundaan bukan approval billing/server/CVE |
-| P1-18 | Exit gate, release tag/sign-off | OPEN | Semua acceptance/pengecualian disetujui, source/CI final, tag/refs dan sign-off |
+| P1-18 | Exit gate/release/sign-off | APPROVED_OVERRIDE O-10: pengguna menutup Phase1 dengan catatan, versi v0.0.1,18Oktober2026 | Tag/publikasi release administratif dan deployment belum dilakukan; L-01…L-07 adalah tindak lanjut, Phase2/3 tetap NOT_STARTED |
 
 ## 3. H1–H10D: pertahankan hasil, jangan perluas klaim
 
@@ -124,41 +118,30 @@ tag atau lock versi rilis yang sudah disetujui. Context/reports berada di repo
 Push/review remote belum diperiksa. Source komponen masih dirty/untracked;
 pembaruan rencana sesi ini belum commit.
 
-## 5. Penutupan gap: urutan dan progres
+## 5. Penutupan gap dan keputusan pemilik
 
-User meminta melanjutkan pekerjaan dan melihat plan pada 2026-10-12. Urutan rinci,
-bukti selesai serta keputusan prasyarat ada pada [rencana penutupan](phase-1-completion-plan.md).
-Paket pertama P1-06/F-01/F-02 telah diimplementasikan dan LOCAL_VERIFIED static/offline;
-gate commit/review/live tetap tersisa. Keputusan major diperlukan sebelum tindakan terkait.
+Implementasi P1-06/P1-09…P1-13, regresi/CI, backup/restore, rotasi dan rollback
+memiliki bukti lokal yang ditautkan pada laporan teknis. Pengguna mereview dan
+menggabungkan PR source/dokumentasi ke main. Pada18Oktober2026 pengguna memilih
+**v0.0.1 dan penutupan Phase1 dengan catatan (O-10)**.
 
-1. **P1-06/F-01/F-02 — LOCAL_VERIFIED:** exact alias/provider/upstream, konsistensi katalog/runtime
-   dan tes negatif tersedia; filename identity dan satu client dipertahankan. Selesaikan gate publikasi/live pada candidate final.
-2. **P1-09/P1-10 — LOCAL_VERIFIED:** limits/persistence/reset dan token/biaya standar
-   kedua alias PASS; pertahankan batas bukti/owner cap dan gate candidate.
-   **P1-11/P1-12 — LOCAL_VERIFIED:** onboarding dan agent kedua alias memakai hasil
-   tool, serta SSE/API tools PASS pada17Oktober. **P1-13 LOCAL_VERIFIED:** native
-   simulation/error/retry dan requestauth/budget/outagerecovery PASS padaexisting.
-3. **P1-14/15/16:** sepakati keputusan major tersisa (M-01/M-02/M-04/M-05; penempatan docs M-03 sudah dipilih), kemudian
-   kelola release refs/dependency lock/CI target, security/privacy, rotasi dan runbook server.
-4. **P1-17:** pilot nyata/peserta/PIC ditunda dahulu atas instruksiuserO-07; bukan pilotPASS.
-5. **P1-18:** sign-off, release tag/refs, bukti acceptance atau pengecualian eksplisit.
-
-Urutan dapat disesuaikan user; jangan mengubah OPEN menjadi waived tanpa keputusan.
-Tidak perlu mengulang seluruh H1–H10 karena ada gap baru; test ulang yang relevan setelah perubahan.
+Penerimaan ini mengubah status penutupan fase. Pengecualian CVE, keamanan bertahap,
+snapshot/biaya, TTL Redis yang belum diterapkan dan pilot nyata ditunda tetap
+terlihat pada [closeout](../reports/PHASE1_V0_0_1_CLOSEOUT.md). Jangan menghapusnya
+atau membuka kembali fase hanya karena membaca status OPEN dalam snapshot lama.
 
 ## 6. Exit gate aktual
 
-- [x] Kedua alias live via virtual key dan gateway terbukti pada credential saat tes.
-- [x] PostgreSQL persisten; identitas pengguna, izin akses, pencabutan credential, budget per key, RPM team dan pencatatan spend dasar telah diuji.
-- [x] Exact catalog/provider contract dijaga validator dan negative tests (static/offline 12 Oktober; gate publikasi/live tetap berlaku).
-- [x] P1-09/P1-10 limits/reset dan token/cost standar kedua alias LOCAL_VERIFIED pada13Oktober; batas scope/invoice/candidate tetap disebut.
-- [x] Acceptance lokal P1-11/P1-12: onboarding/agent kedua alias dan penggunaan hasil tool, SSE/API tools PASS17Oktober; batas fixture/candidate tetap berlaku.
-- [ ] Provider failure dan data-handling/privacy/security baseline untuk shared service diterima.
-- [x] Target verifikasi O-08 disetujui dan full live lokal PASS; CI candidate enam checks PASS. SHA promosi/docs terbaru tetap harus diperiksa sebelum merge.
-- [ ] Deployable refs/dependency versions, review Git, compatible rollback/rotasi dan backup luar host.
-- [x] Pilot2–5/peserta/PIC ditunda sementaraO-07; feedback nyata tetapNOT_VERIFIED.
-- [ ] Keputusan biaya/keamanan yang tersisa, release tag/refs dan sign-off.
+- [x] Fungsi gateway, dua alias, virtual key/ACL/limits/spend serta agent/tools/streaming teruji lokal.
+- [x] Full suite134pytest+13native PASS exit0; config63/infra31 offline PASS.
+- [x] Restore83tabel, rotasi key kedua alias, config-only rollback dan privasi/cleanup lokal PASS.
+- [x] CI promosi/docs sesuai candidate PASS; empat PR main merged dan tree sama dengan source teruji.
+- [x] Pengguna menerima CVE image untuk Phase1 dan mencatat dua kandidat evaluasi DHI.
+- [x] Pengguna menerima penutupan dengan keamanan VM bertahap, backup/biaya dibahas manager dan target TTLRedis24jam.
+- [x] Pilot nyata/peserta/PIC ditundaO-07; nama versi dan penutupan fase disetujui O-10.
+- [ ] Tag Git/publikasi release v0.0.1; nama versi sudah disepakati, artefak Git belum dibuat.
+- [ ] Deployment GCP, kontrol akses/TLS, snapshot aktif/uji restore dan TTL Redis terimplementasi: NOT_VERIFIED, tindak lanjut O-10.
 
-**Berhenti sebelum perubahan major.** Jangan membuat environment baru, mengubah routing,
-mengganti image, menghapus Redis, membentuk parent Git/submodules, atau mengurangi gate
-hanya untuk mengejar checklist hijau.
+Dua baris terakhir adalah catatan pelaksanaan lanjutan, bukan klaim menghalangi
+penutupan yang telah disetujui. Phase2/3 tidak dimulai otomatis. Perubahan source,
+image, cache atau jaringan dikerjakan sesuai task dan target yang diminta berikutnya.

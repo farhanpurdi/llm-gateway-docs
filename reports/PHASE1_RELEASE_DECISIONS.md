@@ -1,5 +1,11 @@
 # Keputusan sebelum penutupan release Phase 1
 
+**Pembaruan18Oktober2026:** pengguna menerima risiko image dan pendekatan server
+bertahap, memilih snapshot sebagai opsi awal/diskusi manager serta menutup Phase1
+v0.0.1 dengan catatan O-10. [Closeout aktif](PHASE1_V0_0_1_CLOSEOUT.md) menggantikan
+status PROPOSED/OPEN di snapshot proposal di bawah untuk keputusan yang sudah diterima.
+Implementasi server/snapshot/TTL yang belum dibuktikan tetap NOT_VERIFIED.
+
 Status 17 Oktober 2026: **target CI opsi A disetujui O-08 dan diterapkan**.
 **Penyiapan PR promosi main opsi A juga disetujui O-09** pada
 [proposal terpisah](PHASE1_MAIN_PROMOTION_PROPOSAL.md); tiga draft tersedia dan

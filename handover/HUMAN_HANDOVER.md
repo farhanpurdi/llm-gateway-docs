@@ -1,5 +1,11 @@
 # Checklist handover ke engineer atau operator baru
 
+**Status18Oktober2026:** pengguna menutup Phase1 dengan catatan untuk v0.0.1,
+APPROVED_OVERRIDE O-10. [Tujuh feedback/catatan lanjutan](../reports/PHASE1_V0_0_1_CLOSEOUT.md)
+dan [panduan penggunaan sederhana](../developer/panduan-penggunaan.md) menjadi acuan.
+Deployment GCP, snapshot, TTL dan kontrol keamanan yang belum dibuktikan tetap
+NOT_VERIFIED. Checklist penyerahan akses di bawah tidak otomatis tercentang dari sign-off fase.
+
 ## Pahami proyek dalam 15 menit
 
 1. [Overview](../architecture/overview.md): tujuan, alur request dan pembagian fase.
@@ -12,11 +18,11 @@
 
 | Peran yang harus ditentukan | Tanggung jawab | Status nama/PIC |
 |---|---|---|
-| Pemilik project | Scope, prioritas, penerimaan fase | Belum dicatat di context |
+| Pemilik project | Scope, prioritas, penerimaan fase | Pengguna menyetujui penutupan O-10; nama/PIC formal belum ditulis |
 | Platform/operator | Runtime, release, backup dan incident | Belum dicatat |
 | Security/data owner | Secret, paparan akses, CVE, privacy/retention | Belum dicatat |
 | Billing owner | OpenAI project/billing, limit/cap/alert dan pilot budget | Belum dicatat |
-| Reviewer/repo owner | PR, merge gate, refs/tag dan publikasi docs | Belum dicatat |
+| Reviewer/repo owner | PR, merge gate, refs/tag dan publikasi docs | Review/merge pengguna terverifikasi; PIC formal dan publikasi tag belum dicatat |
 
 Jangan mengisi nama atau budget berdasarkan tebakan. Serahkan akses repository/provider/
 server melalui jalur aman; jangan mencantumkan key, `.env`, salt atau dump pada dokumen ini.
@@ -43,29 +49,22 @@ Daftar ini adalah checklist handover; kotak kosong bukan bukti sudah dilaksanaka
 Pengujian ulang dipilih sesuai perubahan dan otorisasi. Simulasi outage, restore dan live
 inference punya dampak/biaya; jangan dijalankan serentak hanya untuk membaca dokumentasi.
 
-## Rekomendasi tugas berikutnya
+## Melanjutkan setelah penutupan
 
-P1-06/F-01/F-02 sudah LOCAL_VERIFIED static/offline pada 2026-10-12;
-[laporan dan kode](../reports/P1_06_MODEL_CONTRACT_REPORT.md). P1-09/P1-10 juga kini
-LOCAL_VERIFIED: 147 offline,4 smoke,11 live PASS; [laporan/kode terbaru](../reports/P1_09_P1_10_LIMITS_COST_REPORT.md).
-P1-11/P1-12 kini LOCAL_VERIFIED17Oktober: onboarding operator asli, agent kedua alias
-read/edit/shell/hasil tool, kode terverifikasi dan SSE/API tools PASS.
-[79unit/5smoke/6live terfokus dan kode](../reports/P1_11_P1_12_OPENCODE_REPORT.md).
-**Task aktifP1-FINAL:** user meminta sampai akhir dan full cross-check/test. Native
-error/retry13kasus, HTTPguard6, outagePG/Redis2, rotasikey2 dan configrollbackPASS;
-CI lokalconfig63/infra31/E2E97unitPASS; fullrun97unit/5smoke/30live/2outage+13nativePASS,exit0.
-O-08 hosted offline + live manual4000 diterapkan; tiga draft PR candidate ke develop
-tersedia dengan enam CI PASS. Docs #1 dipublikasikan dan CI pada 5bfd9d9 PASS.
-O-09 menyetujui penyiapan promosi ke main: config #4, infra #7, E2E #6; kedua history
-dipertahankan dan tree sama persis dengan candidate. [Refs dan bukti](../reports/PHASE1_MAIN_PROMOTION_PROPOSAL.md).
-Periksa CI SHA terbaru dan review manusia; belum ada izin merge protected branch,
-tag atau deploy.
-[laporan aktif](../reports/PHASE1_FINAL_CROSSCHECK_REPORT.md) dan checkpointlog menjadi
-acuan melanjutkan. Pilot nyata/peserta/PIC ditundaO-07, bukan pilotPASS.
-TargetCI/CVE/server mengikuti [proposal keputusan](../reports/PHASE1_RELEASE_DECISIONS.md).
-Anggota lama belum dimigrasikan dan billing invoice/cap provider
-tetap tersisa. M-01/M-02/M-04 dan bagian lain M-05 perlu keputusan owner sebelum
-perubahan besar. M-03 penempatan docs telah dipilih user:
-repo docs existing; commit migrasi `1d07d02` dipertahankan dan publikasi docs #1
-terverifikasi 17 Oktober. Source komponen sudah dicakup commit; review/merge final belum.
-Urutan pekerjaan lengkap ada pada [rencana penutupan Phase 1](../architecture/phase-1-completion-plan.md).
+Phase1 v0.0.1 ditutup melalui O-10; jangan mengulang rencana sebelum PR main merged.
+Bukti teknis terakhir:134pytest+13native PASS exit0, config63/infra31 offline PASS,
+restore83tabel, rotasi key, config-only rollback dan audit privasi/cleanup PASS.
+[Panduan penggunaan](../developer/panduan-penggunaan.md) memisahkan tugas operator
+(onboarding/health/pemakaian) dari developer (key/OpenCode/model/error).
+
+Pengguna akan setup VM GCP/default/HTTP awal dan mengamati trafik sebelum memilih
+keamanan bersama manager. Snapshot backup dan biaya juga dibahas manager; tidak
+mengaku sudah ada jadwal snapshot atau persetujuan biaya perusahaan. Target TTLRedis
+24jam belum diterapkan dan scope key belum ditentukan; tidak mengubah expiry key,
+reset budget atau retensi PostgreSQL. Dua kandidat DHI belum diuji pada proyek.
+
+[L-01…L-07](../reports/PHASE1_V0_0_1_CLOSEOUT.md) mencatat tindak lanjut operasional.
+Pilot nyata/peserta/PIC tetap ditundaO-07. Tag v0.0.1 belum dibuat. Pembaruan docs
+closeout dipublikasikan pada branch `docs/phase1-v0.0.1-closeout-20261018` atas instruksi
+push19Oktober; status merge/CI mengikuti PR terbaru. Phase2/3 belum dimulai;
+minta task konkret sebelum implementasi/deploy, tanpa meminta ulang keputusan fase.

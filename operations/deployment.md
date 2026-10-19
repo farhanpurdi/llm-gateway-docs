@@ -1,5 +1,11 @@
 # Release dan rollback config — H10B/H10C
 
+**Posisi18Oktober2026:** pengguna memilih deployment awal di VM GCP/default/HTTP
+dan keamanan bertahap, lalu mengamati pemakaian/diskusi manager (O-10). VM belum
+dideploy/diverifikasi oleh sesi pencatatan ini. Prosedur di bawah adalah pengelolaan
+config **runtime existing**, bukan installer VM GCP. [Panduan penggunaan](../developer/panduan-penggunaan.md)
+dan [catatan penutupan v0.0.1](../reports/PHASE1_V0_0_1_CLOSEOUT.md).
+
 > Jalankan perintah script dari `company-ai-platform/llm-gateway-infra`, bukan dari repo docs.
 > Baca [panduan operasional](README.md) dan [status Phase1](../architecture/phase-1.md) sebelum eksekusi.
 

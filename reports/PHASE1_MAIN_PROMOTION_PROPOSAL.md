@@ -1,5 +1,10 @@
 # Usulan promosi candidate ke main
 
+**Pelaksanaan selesai:** pengguna melakukan review/merge sendiri. GitHub diperiksa
+ulang18Oktober2026: config#4/infra#7/E2E#6/docs#1 merged dan main tree sama dengan
+candidate. Detail proposal/status draft di bawah adalah riwayat sebelum merge.
+[Refs terkini dan penutupan v0.0.1](PHASE1_V0_0_1_CLOSEOUT.md).
+
 Status **APPROVED_OVERRIDE O-09**, 17 Oktober 2026. Pengguna menjawab
 "Setuju, siapkan PR promosi main (disarankan)" atas opsi A di bawah.
 Persetujuan mencakup penggabungan kedua history pada branch baru dan pembuatan

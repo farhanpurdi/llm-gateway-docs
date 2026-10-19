@@ -14,9 +14,12 @@ Manfaat yang dituju: akses bisa dicabut per pengguna, biaya bisa ditelusuri, dan
 client memakai nama model perusahaan yang stabil. Backend administrasi dan portal
 custom baru direncanakan pada Phase2; keandalan enterprise dikembangkan pada Phase3.
 
-**Posisi sekarang:** fungsi Phase1 teruji lokal sampai H10D, tetapi seluruh acceptance
-Phase1, pilot, release dan sign-off **belum selesai**. Phase2/3 belum dimulai.
-Constraint user tetap: **Docker existing port4000; jangan membuat staging/container baru.**
+**Posisi sekarang: Phase 1 DITUTUP DENGAN CATATAN, versi v0.0.1**, atas keputusan
+pengguna 18 Oktober 2026 (O-10). [Tujuh feedback dan catatan penutupan](reports/PHASE1_V0_0_1_CLOSEOUT.md)
+menjadi acuan aktif. **[Mulai menggunakan gateway](developer/panduan-penggunaan.md)**
+untuk panduan operator/developer yang sederhana. Phase2/3 belum dimulai.
+Untuk pekerjaan lokal tetap **Docker existing port4000; jangan membuat staging/container baru.**
+Pengguna akan setup VM GCP sesuai tahapan O-10; sesi dokumentasi ini tidak menjalankan deploy.
 Paket P1-06/F-01/F-02 selesai dalam scope static/offline pada 12 Oktober;
 [laporan dan kode](reports/P1_06_MODEL_CONTRACT_REPORT.md). P1-09/P1-10 kini
 **LOCAL_VERIFIED**: limit pilot, reset budget anggota, token dan biaya kedua alias
@@ -26,9 +29,10 @@ P1-11/P1-12 juga **LOCAL_VERIFIED** pada17Oktober: onboarding dan agent kedua al
 Full cross-check akhir kini PASS: 97 unit, 5 smoke, 30 live, 2 outage dan 13 skenario
 native; config 63 serta infra 31 tes offline PASS. Lihat
 [laporan akhir per milestone](reports/PHASE1_FINAL_CROSSCHECK_REPORT.md).
-Tiga draft PR promosi ke main sudah disiapkan sesuai O-09;
-[proposal dan refs](reports/PHASE1_MAIN_PROMOTION_PROPOSAL.md) menjelaskan batas izin.
-Review, keputusan CVE/server dan sign-off Phase 1 masih terbuka.
+Empat PR main sudah direview/merged; isi main identik candidate yang diuji. CVE image
+diterima untuk fase ini; VM GCP/default/HTTP awal dan keamanan bertahap dipilih.
+Snapshot/biaya menunggu diskusi manager. TTLRedis24jam adalah target yang belum
+diterapkan; tag v0.0.1 dan deployment VM belum dibuat/dibuktikan oleh pencatatan ini.
 
 ## Jalur baca sesuai kebutuhan
 
@@ -36,7 +40,7 @@ Review, keputusan CVE/server dan sign-off Phase 1 masih terbuka.
 |---|---|
 | Orang baru / pemilik project | [Overview](architecture/overview.md) → [master](MASTER_CONTEXT.md) → [Phase1](architecture/phase-1.md) |
 | AI yang melanjutkan pekerjaan | [Master](MASTER_CONTEXT.md) → [Phase1](architecture/phase-1.md) → [keputusan/drift](adr/README.md) → [log](handover/WORK_LOG.md) → [protokol AI](handover/AI_CONTINUATION.md) |
-| Developer pengguna gateway | [Model catalog](developer/model-catalog.md) → [OpenCode](developer/opencode.md) → [API](developer/api.md) |
+| Developer pengguna gateway | [Panduan penggunaan sederhana](developer/panduan-penggunaan.md) → [Model catalog](developer/model-catalog.md) → [OpenCode](developer/opencode.md) → [API](developer/api.md) |
 | Pengembang dengan Codex | [Skill proyek dan contoh penggunaan](developer/codex-skills.md) |
 | Operator | [Panduan operasi](operations/README.md) → [deployment](operations/deployment.md) / [backup](operations/backup.md) / [incident](operations/incident.md) / [rollback](operations/rollback.md) |
 | Engineer pengganti | [Checklist handover](handover/HUMAN_HANDOVER.md) → source terkait → bukti pada [reports](reports/README.md) |

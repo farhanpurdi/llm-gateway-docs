@@ -9,7 +9,9 @@ minimum sudah ada di Phase1; itu pondasi, bukan bukti HA/DR/SLO enterprise seles
 
 Naikkan keamanan, keandalan, observability dan skala berdasarkan risiko/beban nyata.
 TLS shared access, secret handling, ACL, privacy minimum dan backup awal tetap wajib
-Phase1; jangan menundanya dengan alasan Phase3 belum dimulai.
+Phase1 menurut baseline. Pengguna menerima pengecualian O-10 saat menutup v0.0.1:
+keamanan server bertahap dan backup menunggu diskusi manager. Kontrol yang ditunda
+tetap tercatat sebagai tindak lanjut operasional; Phase3 tidak otomatis dimulai.
 
 Tidak memilih Kubernetes, WAF, secret manager atau monitoring vendor tanpa kebutuhan
 terukur dan ADR. Single-instance local4000 bukan HA. Budget/rate limit lintas replika

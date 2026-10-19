@@ -3,6 +3,80 @@
 Baca [master](../MASTER_CONTEXT.md), lalu [Phase1](../architecture/phase-1.md).
 File ini catatan sesi/keputusan; status acceptance per-task hanya dikelola di dokumen fase.
 
+## Checkpoint terbaru — P1-V0.0.1-DOCS-PUBLISH, 19 Oktober 2026 (Asia/Jakarta)
+
+Pengguna menginstruksikan **"oke push ke git"** setelah catatan penutupan/panduan
+disiapkan lokal. Scope commit/push: repo docs, branch existing
+`docs/phase1-v0.0.1-closeout-20261018`. Tiga repo aplikasi tetap bersih dan tidak
+diubah. Tidak membuat tag v0.0.1, merge protected main atau menjalankan deploy.
+
+- Main docs di-fetch ulang dan tidak maju dari base f94b70d. Seluruh perubahan
+  tracked/untracked adalah catatan O-10, panduan penggunaan dan evidence dokumentasi
+  sesi18Oktober; tidak memasukkan secret atau file runtime.
+- Masterv1.12 dan handover aktif diperbarui untuk publikasi branch; checkpoint
+  18Oktober yang menyebut belum commit/push tetap dipertahankan sebagai riwayat.
+- Pemeriksaan sebelum commit: validator workspace/standalone, syntax8contoh Bash,
+  32hash lampiran kode, diff/whitespace dan native Gitleaks history/current docs.
+  Ini verifikasi dokumentasi, tidak mengulang paid/live/outage.
+- Publikasi menggunakan branch dan draft PR ke main agar CI dokumentasi berjalan
+  pada SHA baru. URL/commit/status CI terakhir tersedia pada PR yang terpasang di
+  chat; bukti CI lama bukan pengganti check terbaru. Merge tetap melalui review.
+
+**Next exact action:** review/merge PR docs setelah CI lulus. Phase1 tetap ditutup
+dengan catatan O-10; L-01…L-07 adalah tindak lanjut saat diminta, Phase2/3 NOT_STARTED.
+
+## Checkpoint terbaru — P1-V0.0.1-CLOSEOUT, 18 Oktober 2026 (Asia/Jakarta)
+
+**Pengguna menyetujui Phase1 DITUTUP DENGAN CATATAN, versi v0.0.1, O-10.**
+Pengguna meminta tujuh feedback dicatat dan panduan penggunaan untuk manusia.
+Instruksi pencatatan terbaru mengizinkan edit MD setelah sebelumnya hanya penjelasan
+di chat. Skill gateway-handover dan gateway-release-check diterapkan untuk dokumentasi
+dan verifikasi read-only; tidak menjalankan implementasi runtime atau tes live.
+
+- Tujuh feedback dimiliki [laporan closeout](../reports/PHASE1_V0_0_1_CLOSEOUT.md):
+  PR main merged; risiko image diterima dengan dua kandidat DHI masa depan; VM
+  GCP/default/HTTP awal dan keamanan bertahap; snapshot/backup dan biaya dibahas
+  manager; target TTLRedis24jam serta belum ada pembatasan pengguna Redis tambahan;
+  versi v0.0.1 dan penutupan fase dengan catatan. Pilot nyata/peserta/PIC tetap O-07.
+- GitHub diperiksa ulang: config#4/infra#7/E2E#6/docs#1 merged17Oktober. Main terbaru
+  config `a99561c`, infra `b737937`, E2E `de3c115`, docs `f94b70d`; tree sama dengan
+  candidate teruji. Working tree empat repo bersih pada awal sesi; checkout komponen
+  masih branch promosi, tidak dipindah atau direset. Tag v0.0.1 tidak ditemukan pada
+  empat remote saat ls-remote; nama versi dipilih, tag/release belum dibuat.
+- Dokumen dikerjakan pada branch docs `docs/phase1-v0.0.1-closeout-20261018` dari
+  origin/main f94b70d. Pencatatan ini belum commit/push/PR; jangan mengaku sudah di main.
+  [Release record](../reports/phase1-v0.0.1-evidence/release-record.json) menyimpan SHA,
+  PR merged, source observations dan batas bukti tanpa secret.
+- **Redis:** YAML runtime tidak mengaktifkan nativecache. Target86400detik belum
+  diterapkan; scope key/data harus jelas saat implementasi diminta. Compose tetap
+  expose internal tanpa publish Redis host port; tidak ada pengaturan auth/ACL
+  tambahan pada source Compose. Ini pemeriksaan source, bukan audit runtime VM.
+  Tidak mengubah cache, TTL, ACL, jaringan, masa berlaku key atau histori/budget.
+- [Panduan penggunaan baru](../developer/panduan-penggunaan.md) mencakup peran
+  operator/developer, health existing, onboarding policy pilot, key privat, perbedaan
+  localhost/alamat VM, curl, OpenCode2.0.18, limits/error umum, pemakaian dan catatan
+  backup/Redis. Contoh disesuaikan source; tidak dieksekusi ke gateway oleh sesi ini.
+- Master v1.11, README/overview, status P1/rencana, register ADR serta ADR008/011/013/
+  015/016/017, navigasi laporan/runbook dan handover diselaraskan. Laporan teknis
+  bertanggal diberi penunjuk ke closeout; isi evidence historis dan attempt gagal
+  dipertahankan. Penutupan APPROVED_OVERRIDE tidak mengubah seluruh P1 menjadi
+  DONE_VERIFIED atau memulai Phase2/3.
+- **32/32 hash lampiran kode cocok**; source/runtime/policy/template tiga komponen
+  tidak berubah. Hasil17Oktober tetap:134pytest+13native PASS exit0, config63/infra31
+  offline PASS, restore83tabel, keyrotation/configrollback/privasi-cleanup PASS.
+  Tidak menjalankan inference, outage, restore, upgrade, deploy, tag atau push baru.
+- Validasi dokumentasi workspace/standalone PASS,24evidence historis tetap utuh;
+  delapan blok Bash pada panduan lulus syntax tanpa eksekusi. Diff/whitespace dan
+  native Gitleaks history/current docs PASS; konfigurasi scanner tidak diubah.
+  [Hasil verifikasi pencatatan](../reports/PHASE1_V0_0_1_CLOSEOUT.md#6-verifikasi-pencatatan-dan-panduan).
+
+**Next exact action:** gunakan panduan untuk penggunaan gateway. Pengguna akan setup
+VM GCP dan berdiskusi manager; L-01…L-07 pada closeout adalah tindak lanjut operasional,
+bukan izin otomatis mengeksekusinya. Jangan meminta ulang penerimaan risiko CVE/pilot
+atau membuka kembali Phase1 dari catatan gate lama. Verifikasi VM, snapshot, TTL dan
+publikasi tag/docs berdasarkan hasil nyata ketika task tersebut diminta. Phase2/3
+tetap NOT_STARTED sampai ada instruksi baru.
+
 ## Checkpoint terbaru — P1-FINAL-MAIN-PR, 17 Oktober 2026 (Asia/Jakarta)
 
 **O-09 disetujui pengguna:** "Setuju, siapkan PR promosi main (disarankan)".

@@ -1,5 +1,10 @@
 # Melanjutkan proyek dengan AI tanpa kehilangan konteks
 
+**Posisi18Oktober2026:** Phase1 v0.0.1 DITUTUP DENGAN CATATAN, APPROVED_OVERRIDE
+O-10. Baca [closeout tujuh feedback](../reports/PHASE1_V0_0_1_CLOSEOUT.md) sebelum
+menafsirkan status gate dalam laporan lama. [Panduan pengguna](../developer/panduan-penggunaan.md)
+adalah pintu masuk operator/developer. Phase2/3 belum dimulai.
+
 ## Paket konteks minimum
 
 Baca berurutan: [README](../README.md) → [master](../MASTER_CONTEXT.md) →
@@ -32,32 +37,26 @@ hanya yang terkait. Jangan memuat lampiran kode atau seluruh arsip pada awal ses
 ## Prompt siap pakai
 
 ```text
-Baca llm-gateway-docs/README.md lalu MASTER_CONTEXT.md di repo docs tersebut.
-Baca architecture/phase-1.md, adr/README.md, dan checkpoint terbaru handover/WORK_LOG.md.
-Jangan membaca arsip sebagai current state. Verifikasi source/HEAD/working tree.
-H10D lokal selesai bukan Phase1 exit gate. Phase2/3 belum dimulai.
-Gunakan Docker existing4000, OpenAI-only, company-fast dan company-coding sesuai mapping.
-Pengerjaan/tes final pilot memakai pilot.yaml sesuai O-06/ADR-016; pilot memakai kedua alias.
-P1-09/P1-10 LOCAL_VERIFIED13Oktober; P1-11/P1-12 LOCAL_VERIFIED17Oktober.
-Agent kedua alias membaca/mengedit kode, menjalankan verifier dan menggunakan receipt hasil tool;
-SSE/API tools kedua alias PASS.79unit/5smoke/6live terfokus, bukan seluruh suite/candidate.
-Task aktifP1-FINAL: user meminta sampai akhir dan full cross-check/test; lanjut dari checkpointP1-FINAL,
-bukan mengulang pekerjaan dariP1-13. Native13, HTTPguard6, outage2, rotasikey2 dan configrollbackPASS.
-CI lokalconfig63/infra31/E2E97unitPASS; fullrun97unit/5smoke/30live/2outage+13nativePASS,exit0.
-Baca reports/PHASE1_FINAL_CROSSCHECK_REPORT.md dan WORK_LOG untuk hasil/proses terbaru.
-Pilot nyata/peserta/PIC ditundaO-07, bukan pilotPASS atau waiver gate teknis/server/CVE.
-O-08 menyetujui hostedoffline + live manual4000; workflowstaging dihapus.
-Tiga candidate PR ke develop dan docs #1 tersedia; enam CI candidate PASS.
-O-09 menyetujui penyiapan promosi kedua history: config #4/infra #7/E2E #6 ke main,
-tree identik candidate. Baca reports/PHASE1_MAIN_PROMOTION_PROPOSAL.md untuk SHA/bukti.
-Periksa CI SHA promosi/docs terbaru; review manusia dan CVE/server tetap terbuka.
-O-09 bukan izin merge protected branch, force-push, tag, deploy atau perubahan image.
-Jangan outage dari tugas dokumentasi atau menjalankan gatewaytests paralel.
-Reset30d ke awal bulan UTC; scheduler sekitar10menit. Batasi jumlah request/token tes.
-Jangan buat staging/container baru atau mengubah roadmap/ADR tanpa persetujuan.
-Tugas sesi ini: <isi satu task dan hasil yang diminta>.
-Jika perlu perubahan major, jelaskan opsi/dampak dahulu sebelum implementasi.
-Sesudah bekerja, catat perubahan, tes nyata, risiko, commit jika ada, dan next action.
+Baca README.md, MASTER_CONTEXT.md, architecture/phase-1.md, adr/README.md,
+reports/PHASE1_V0_0_1_CLOSEOUT.md dan checkpoint terbaru handover/WORK_LOG.md.
+Phase1 v0.0.1 DITUTUP DENGAN CATATAN, APPROVED_OVERRIDE O-10 tanggal18Oktober2026.
+Pertahankan dua alias OpenAI sesuai mapping, empat sibling repo dan Docker lokal existing4000.
+PR main config#4/infra#7/E2E#6/docs#1 merged; source tree sama dengan candidate teruji.
+Bukti17Oktober:97unit/5smoke/30live/2outage+13native PASS exit0; config63/infra31 offlinePASS.
+CVE image diterima untuk fase ini; kandidat DHI hanya untuk evaluasi masa depan:
+dhi.io/postgres:16.15-alpine3.23 dan dhi.io/redis:7.4.11-debian13.
+Pengguna memilih VM GCP/default/HTTP awal dan keamanan bertahap; deploy belum diverifikasi.
+Snapshot/backup dan biaya dibahas manager; jangan mengarang jadwal atau approval perusahaan.
+TTLRedis24jam adalah target, belum diterapkan. YAML runtime belum mengaktifkan nativecache.
+Belum ada pembatasan pengguna Redis tambahan yang diputuskan; jangan membuka port Redis.
+Pilot nyata/peserta/PIC ditundaO-07. Phase2/3 NOT_STARTED, jangan mulai otomatis.
+Nama versi v0.0.1 dipilih; tag belum dibuat. Docs closeout dipublikasikan pada branch
+docs/phase1-v0.0.1-closeout-20261018; periksa status merge/CI terbaru pada PR-nya.
+Tugas sesi ini: <task yang diminta pengguna dan hasil yang diperlukan>.
+Gunakan developer/panduan-penggunaan.md untuk alur operator/developer.
+Bedakan keputusan/implementasi/bukti. Jangan jalankan live/outage dari tugas dokumentasi.
+Jangan menanyakan ulang persetujuan yang sudah ada; scope major baru dijelaskan dahulu.
+Sesudah bekerja, catat perubahan/tes aktual pada dokumen pemilik dan log.
 ```
 
 ## Saat konteks menyempit / pindah model

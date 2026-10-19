@@ -1,5 +1,12 @@
 # Backup dan restore — H5/H10C
 
+**Keputusan18Oktober2026, O-10:** backup akan dibahas dengan manager; snapshot VM
+GCP menjadi opsi awal yang paling mudah. Jadwal/retensi, cakupan disk dan restore
+snapshot belum diverifikasi. Usulan backup harian di bawah belum menjadi jadwal aktif.
+Phase1 v0.0.1 ditutup dengan catatan; [closeout](../reports/PHASE1_V0_0_1_CLOSEOUT.md).
+Pemulihan snapshot harus mempertahankan data PostgreSQL dan konfigurasi/salt yang
+sesuai. Permission700/600 pada file lokal bukan enkripsi file.
+
 > Jalankan perintah script dari `company-ai-platform/llm-gateway-infra`, bukan dari repo docs.
 > Baca [panduan operasional](README.md) dan [status Phase1](../architecture/phase-1.md) sebelum eksekusi.
 
