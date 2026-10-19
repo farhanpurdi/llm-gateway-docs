@@ -1,5 +1,9 @@
 # OpenCode dengan Company AI Gateway
 
+Untuk langkah operator/developer dari awal, baca [panduan penggunaan sederhana](panduan-penggunaan.md).
+Phase1 v0.0.1 ditutup dengan catatan O-10; alamat VM dan deployment aktual belum
+diverifikasi. Template localhost di bawah perlu disesuaikan pada config lokal client.
+
 [Model catalog](model-catalog.md) · [API](api.md) · [batas bukti](../architecture/phase-1.md).
 
 ## Persiapan

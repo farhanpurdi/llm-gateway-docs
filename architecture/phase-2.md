@@ -2,7 +2,7 @@
 
 Baca [master](../MASTER_CONTEXT.md). Fase ini mempertahankan rancangan
 [baseline §9](../archive/PROJECT_MASTER_CONTEXT.md#9-roadmap-phase-2--control-plane).
-**Semua P2 berstatus NOT_STARTED.** Selesaikan/terima Phase1 gate dan dapatkan instruksi
+**Semua P2 berstatus NOT_STARTED.** Phase1 ditutup dengan catatan melalui O-10; dapatkan instruksi
 user memulai fase ini. Kode helper admin E2E/onboarding bukan backend Control Plane.
 
 ## 1. Tujuan dan boundary

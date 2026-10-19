@@ -1,5 +1,11 @@
 # Runbook operator Phase 1 — H10D
 
+**Posisi18Oktober2026:** Phase1 v0.0.1 ditutup dengan catatan O-10. Pemakaian awal
+VM GCP/default/HTTP dan keamanan bertahap dipilih pengguna; deployment dan kontrol
+server belum diverifikasi. Pilot nyata/peserta/PIC tetap ditunda O-07.
+[Panduan penggunaan](../developer/panduan-penggunaan.md) dan
+[closeout](../reports/PHASE1_V0_0_1_CLOSEOUT.md) memuat keputusan terbaru.
+
 > Jalankan perintah script dari `company-ai-platform/llm-gateway-infra`, bukan dari repo docs.
 > Baca [panduan operasional](README.md) dan [status Phase1](../architecture/phase-1.md) sebelum eksekusi.
 

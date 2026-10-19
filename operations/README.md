@@ -8,6 +8,7 @@ berdampingan. Jangan menganggap contoh perintah sebagai izin menjalankan operasi
 
 | Kebutuhan | Baca | Dampak |
 |---|---|---|
+| Mulai menggunakan gateway | [Panduan sederhana](../developer/panduan-penggunaan.md) | Onboarding operator, config developer/OpenCode, request kecil dan error umum |
 | Capture/release config | [Deployment](deployment.md) | Capture read-only terhadap runtime; deploy backup+restart existing gateway |
 | Verifikasi release tanpa staging | [Gate lokal](local-release-gate.md) | GitHub offline dan full live manual existing4000, cocokkan SHA/hash/bukti |
 | Kembali ke config sebelumnya | [Rollback](rollback.md) | Restart, verifikasi same image/schema; bukan restore transaksi DB |

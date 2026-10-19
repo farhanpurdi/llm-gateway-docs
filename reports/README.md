@@ -21,10 +21,11 @@ menjalankan langkah berikutnya atau jaminan server siap**.
 | [P1_11_P1_12_OPENCODE_REPORT.md](P1_11_P1_12_OPENCODE_REPORT.md) | Per-milestone: onboarding asli, agent kedua alias sampai hasil tool digunakan, streaming, hasil dan batas |
 | [P1_11_P1_12_CODE_APPENDIX.md](P1_11_P1_12_CODE_APPENDIX.md) | Delapan file source lengkap dan SHA-256 |
 | [p1-11-12-evidence](p1-11-12-evidence/README.md) | Output unit/smoke/live aktual, cleanup, health, runtime dan scope17Oktober |
-| [PHASE1_FINAL_CROSSCHECK_REPORT.md](PHASE1_FINAL_CROSSCHECK_REPORT.md) |Laporan aktif penutupan menyeluruh; IN_PROGRESS sampai seluruh gate yang relevan terbukti |
+| [PHASE1_V0_0_1_CLOSEOUT.md](PHASE1_V0_0_1_CLOSEOUT.md) | **Acuan penutupan aktif:** tujuh feedback pengguna, v0.0.1 ditutup dengan catatan O-10, source/PR dan tindak lanjut |
+| [PHASE1_FINAL_CROSSCHECK_REPORT.md](PHASE1_FINAL_CROSSCHECK_REPORT.md) | Snapshot hasil teknis per milestone17Oktober; status penutupan terkini ada pada closeout v0.0.1 |
 | [PHASE1_FINAL_CODE_APPENDIX.md](PHASE1_FINAL_CODE_APPENDIX.md) |32file kode penuh dan hash; buka bagian terkait setelah membaca laporan |
-| [PHASE1_RELEASE_DECISIONS.md](PHASE1_RELEASE_DECISIONS.md) |O-08targetCI disetujui/dijalankan; proposalCVE/server masihOPEN |
-| [PHASE1_MAIN_PROMOTION_PROPOSAL.md](PHASE1_MAIN_PROMOTION_PROPOSAL.md) |O-09 disetujui: tiga draft PR promosi ke main, tree identik candidate dan enam CI PASS; protected main belum di-merge |
+| [PHASE1_RELEASE_DECISIONS.md](PHASE1_RELEASE_DECISIONS.md) | Riwayat proposal CI/CVE/server; keputusan terbaru O-10 ada pada closeout v0.0.1 |
+| [PHASE1_MAIN_PROMOTION_PROPOSAL.md](PHASE1_MAIN_PROMOTION_PROPOSAL.md) | O-09 menyiapkan promosi; pengguna kemudian merge PR main, tree identik candidate, enam CI PASS |
 | [phase1-final-evidence](phase1-final-evidence/README.md) |Full regression baru, native errors/retry, CI/locks/security, privacy dan maintenance |
 
 Output `.txt`/`.json` historis dipindahkan **tanpa mengubah byte**. Path yang tercetak di

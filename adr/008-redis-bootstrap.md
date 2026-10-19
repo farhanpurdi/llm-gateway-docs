@@ -1,6 +1,6 @@
 # ADR-008 — Redis opsional saat bootstrap
 
-Status: **BASELINE**. Sumber: [baseline awal §2](../archive/PROJECT_MASTER_CONTEXT.md#2-architecture-decision-registry),
+Status: **BASELINE + O-10; implementasi cache/TTL NOT_VERIFIED**. Sumber: [baseline awal §2](../archive/PROJECT_MASTER_CONTEXT.md#2-architecture-decision-registry),
 [register konsolidasi](README.md). Dievaluasi 2026-10-10; penulisan file individual
 bukan persetujuan baru atau klaim fitur selesai.
 
@@ -18,6 +18,23 @@ Redis existing dan kini wajib bagi readiness/release/Compose. M-02 menunggu rati
 
 Lihat [Phase1](../architecture/phase-1.md) untuk acceptance/test dan
 [work log](../handover/WORK_LOG.md) untuk perubahan terbaru.
+
+## Keputusan pengguna O-10 — 18 Oktober 2026
+
+Target TTL awal Redis **24 jam (86400 detik)**; belum ada kebijakan pembatasan
+pengguna Redis tambahan yang disepakati. Phase1 v0.0.1 ditutup dengan catatan.
+Ini target yang harus terbawa ke pekerjaan berikutnya, bukan bukti cache/TTL aktif.
+
+Source runtime YAML belum mempunyai konfigurasi native Redis cache. Compose tetap
+memuat Redis di jaringan backend tanpa publish port host; source Compose tidak
+menyetel password/ACL Redis tambahan. Ini pemeriksaan source, bukan audit runtime
+VM. Developer memakai LiteLLM, tidak perlu diberi akses langsung Redis.
+
+Redis tidak mempunyai satu pengaturan global TTL yang otomatis berlaku ke semua
+key existing. Scope key/data dan cara mengaktifkan TTL perlu ditentukan sebelum
+implementasi. Jangan menerapkan expiry24jam pada lock/auth/rate-limit/spend data
+secara massal. TTL ini bukan retensi PostgreSQL, expiry virtual key atau reset budget.
+[Keputusan dan tindak lanjut](../reports/PHASE1_V0_0_1_CLOSEOUT.md).
 
 ## Aturan perubahan
 

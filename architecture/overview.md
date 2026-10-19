@@ -42,13 +42,15 @@ cache/enforcement belum dibuktikan; perubahan perannya memerlukan keputusan.
 
 | Fase | Tujuan | Posisi |
 |---|---|---|
-| [Phase1](phase-1.md) | Gateway MVP, native virtual keys/policy/limits/spend, OpenCode, keamanan minimum dan tes | Fungsi lokal teruji; gate/pilot/release masih terbuka |
+| [Phase1](phase-1.md) | Gateway MVP, native virtual keys/policy/limits/spend, OpenCode, keamanan minimum dan tes | v0.0.1 ditutup dengan catatan, APPROVED_OVERRIDE O-10 |
 | [Phase2](phase-2.md) | Control Plane + portal, SSO, RBAC, reconciler dan deprovision | NOT_STARTED |
 | [Phase3](phase-3.md) | Security/observability/HA/DR/performance enterprise menurut risiko nyata | NOT_STARTED |
 
 H1–H10D adalah checkpoint implementasi lokal Phase1; tidak sama dengan nomor fase.
-Backup/security/runbook awal bukan pelencengan ke enterprise: kontrol minimum tetap
-wajib sebelum shared access. Jangan menunda TLS/secret/ACL dengan alasan menunggu Phase3.
+Backup/security/runbook awal sesuai scope MVP. O-10 secara eksplisit menutup Phase1
+dengan keamanan VM bertahap dan catatan yang diterima pengguna; kontrol yang ditunda
+tetap belum terbukti. Ini pengecualian pemilik proyek, bukan perpindahan otomatis
+seluruh keamanan minimum ke Phase3. [Closeout](../reports/PHASE1_V0_0_1_CLOSEOUT.md).
 
 ## 4. Kontrak yang tidak berubah
 

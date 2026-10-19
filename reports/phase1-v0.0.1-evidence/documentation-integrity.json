@@ -1,0 +1,9 @@
+{
+  "checked_date": "2026-10-18",
+  "guide_bash_blocks_syntax_passed": 8,
+  "examples_executed_against_gateway": false,
+  "code_appendix_hashes_matched": 32,
+  "runtime_source_changed": false,
+  "new_text_files_no_trailing_whitespace": true,
+  "scope": "Offline documentation syntax/content-integrity QA, not live acceptance"
+}

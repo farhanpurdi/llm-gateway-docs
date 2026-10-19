@@ -39,6 +39,14 @@ mengizinkan force-push, merge protected branch, tag, deploy atau perubahan image
 Lihat [Phase1](../architecture/phase-1.md) untuk acceptance/test dan
 [work log](../handover/WORK_LOG.md) untuk perubahan terbaru.
 
+## Review/merge yang dilakukan pengguna
+
+Pengguna kemudian mengonfirmasi telah review/merge; GitHub diverifikasi ulang
+18Oktober2026: config#4, infra#7, E2E#6 dan docs#1 merged17Oktober. Main keempat
+repo memiliki Git tree sama dengan candidate. Status draft/initial main pada bagian
+O-09 di atas adalah riwayat sebelum tindakan pengguna. Tidak perlu mengulang merge
+unrelated history untuk melanjutkan proyek. [Refs](../reports/PHASE1_V0_0_1_CLOSEOUT.md).
+
 ## Aturan perubahan
 
 Catat alasan, opsi, security/cost, kompatibilitas, migrasi/rollback, pengujian,

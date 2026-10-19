@@ -74,6 +74,14 @@ Anggota existing dengan durasi null perlu ditentukan targetnya sebelum update te
 Lihat [Phase1](../architecture/phase-1.md) untuk acceptance/test dan
 [work log](../handover/WORK_LOG.md) untuk perubahan terbaru.
 
+## O-10 — keputusan biaya setelah penutupan
+
+18Oktober2026: pengguna menutup Phase1 v0.0.1 dengan catatan dan akan membahas biaya
+dengan manager. Policy pilot O-06 tetap sama. Belum ada keputusan cap/alert provider,
+budget perusahaan atau rekonsiliasi invoice; hasil accounting lokal tetap dibedakan
+dari persetujuan billing perusahaan. Pilot nyata/peserta/PIC tetap ditunda O-07.
+[Catatan penutupan](../reports/PHASE1_V0_0_1_CLOSEOUT.md).
+
 ## Aturan perubahan
 
 Catat alasan, opsi, security/cost, kompatibilitas, migrasi/rollback, pengujian,

@@ -5,18 +5,13 @@ Disusun 2026-10-12, Asia/Jakarta, dari [master](../MASTER_CONTEXT.md),
 Dokumen ini mengurutkan pekerjaan tersisa; status acceptance tetap dimiliki `phase-1.md`.
 Nomor urutan di bawah adalah paket pengerjaan, bukan milestone atau phase baru.
 
-**Checkpoint aktif17Oktober2026:** user meminta lanjut sampai akhir dan full
-cross-check/test. P1-06/P1-09…P1-13 memiliki bukti lokal; lock, auditprivasi, restore,
-rotasi key dan configrollback diperluas padaP1-FINAL. CI lokal config63/infra31/
-E2E97unitPASS; fullrun97unit/5smoke/30live/2outage+13nativePASS,exit0. O-08 menetapkan
-hosted offline + live manual4000; enam CI candidate PASS dan docs #1 tersedia.
-O-09 menyetujui penyiapan tiga draft PR promosi ke main dengan kedua history
-dipertahankan dan tree identik candidate. Review/merge masih terbuka.
-Pilot nyata/peserta/PIC ditunda
-O-07. Lanjut dari [laporan aktif](../reports/PHASE1_FINAL_CROSSCHECK_REPORT.md),
-bukan dari posisi awal12Oktober di bawah. Target live CI telah disetujui O-08;
-CVE/server tetap memerlukan
-[keputusan konkret](../reports/PHASE1_RELEASE_DECISIONS.md); Phase2 belum dimulai.
+**Checkpoint 18 Oktober 2026: rencana penutupan ini telah menghasilkan Phase1
+v0.0.1 DITUTUP DENGAN CATATAN (APPROVED_OVERRIDE O-10).** Pengguna mereview/merge
+PR main dan menerima tujuh catatan. [Closeout aktif](../reports/PHASE1_V0_0_1_CLOSEOUT.md)
+memiliki daftar lanjutan; bagian12–17Oktober di bawah adalah riwayat pengerjaan,
+bukan instruksi mengulang tes/meminta persetujuan yang sudah diberikan.
+Phase2/3 tetap NOT_STARTED. TTL24jam, deployment GCP dan snapshot belum dilaksanakan
+oleh pekerjaan dokumentasi ini.
 
 ## Posisi awal yang sudah diperiksa
 

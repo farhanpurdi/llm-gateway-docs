@@ -2,8 +2,10 @@
 
 Kontrak fase sekarang: OpenAI-compatible Chat Completions di gateway, dengan virtual
 key scoped. Endpoint lokal: `http://localhost:4000/v1`. Hanya gunakan target yang disetujui
-operator; shared endpoint memerlukan TLS. Ini panduan source existing, bukan janji seluruh
-OpenAI API/Responses feature parity.
+operator. Target desain shared endpoint memakai TLS; O-10 menerima HTTP awal/keamanan
+bertahap untuk arah VM GCP. HTTP internet belum mengenkripsi credential dan pesan.
+[Panduan sederhana](panduan-penggunaan.md) mengikuti source existing dan tidak menjanjikan
+seluruh OpenAI API/Responses parity atau deployment VM yang belum diuji.
 
 ## Model dan autentikasi
 
